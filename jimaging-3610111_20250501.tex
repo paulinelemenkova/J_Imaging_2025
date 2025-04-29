@@ -455,27 +455,6 @@ The evaluation of Kappa is normally suggested as moderate for values in the inte
 
 In the study area, we {considered 10 distinct land cover types}, summarised in Table \ref{tabcor} along with their CORINE codes, number of cells (pixels) in Landsat scenes and their number of training samples for ML validation, \ref{figA2}. Nevertheless, the thematic aggregation of these 10 land cover classes cannot be directly linked to the parameters of vegetation and requires further studies{. For} RF algorithm, the number of correctly classified pixels (shown in bold black in Table) \ref{tab02a} is 35720. Divided by the total number of points 37440, the overall classification accuracy for RF approach is 0.97\%. The same approach was used for evaluation of classification correctness by other algorithms. Thus, for SVM algorithm, the overall classification accuracy is 0.98\% which shows the encouraging result with a higher accuracy. Other two algorithms, the DT and the MLPC also demonstrated reliable results, although lower values compared to the SVM and RF algorithms. Specifically, the overall classification accuracy for DT approach is 0.95\% and for the MLPC algorithm, it is calculated as 0.96\%. 
 
-\begin{table}[H] 
-\caption{Hyperparameters for machine learning (ML) models in GRASS GIS: (1) Random Forest (RF), (2) Support Vector Machine (SVM), (3) Decision Tree, (4) Multilayer Perceptron Classifiers (MLPClassifier).\label{tab02}}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCCCCCC}
-\toprule
-%\multirow{2}{*}{\textbf{Year}} &\multicolumn{3}{c}{\makecell{\textbf{Cohen's Kappa}\\ \textbf{Quantification of Agreement} }}&  \multicolumn{3}{c}{\textbf{F-1 Score of Predictive Performance}}\\
-   %   & \textbf{RF} & \textbf{SVM} & \textbf{MLPC} & \textbf{RF} & \textbf{SVM} & \textbf{MLPC} \\
- %   \midrule
-   2018 & 0.73 & 0.78 & 0.84  & 0.78 & 0.82 & 0.92\\
-   2019 & 0.73 & 0.73 & 0.82  & 0.77 & 0.84 & 0.91 \\
-   2022 & 0.71 & 0.74 & 0.81 & 0.77 & 0.79 & 0.92 \\
-   2023 & 0.80 & 0.81 & 0.83  & 0.81 & 0.81 & 0.95\\
- \midrule
-    2018 & 0.73 & 0.78 & 0.84  & 0.78 & 0.82 & 0.92\\
-    2019 & 0.73 & 0.73 & 0.82  & 0.77 & 0.84 & 0.91 \\
-    2022 & 0.71 & 0.74 & 0.81 & 0.77 & 0.79 & 0.92 \\
-    2023 & 0.80 & 0.81 & 0.83  & 0.81 & 0.81 & 0.95\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
 \section{Results}\label{sec4}
 
 The land cover types in the northern Italy were recognised as following 10 classes according to the existing adopted, modified and generalised classification schemes: 1) urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland.  The major differences verified between image analysis and cartographic data processing by ML methods regard agricultural lands, forests (broadleaved trees), croplands and shrubs, i.e., those coverings characterised by low human impact. For these types of land cover types, the levels of land abandonment and unsustainable pasture maintenance are high. Large areas, no longer used for farming activities, are prone to be spontaneously re-used by natural land cover types (i.e., secondary reforestation). 
@@ -536,7 +515,37 @@ The comparison of the four algorithms was performed using self-statistics based 
 
 \hl{The main land cover types identified included following 10 categories: urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland. The results show that the areas of arable lands and pastures are increasing. The exact areas covered by these land cover types are reported and can be explained by the increase of anthropogenic pressure. More specifically, }between 2018 and 2023, the total agricultural surface in the study area decreased by approximately 8.371,5 ha (--16.65\%), according to the data analysis from the machine learning methods of data processing (Tables 4, 5, 6, and 7). The areas occupied by the Class 2 ("arable lands and agricultural fields") have decreased by 19.8 \% from 3,77 to 2,64  ha which shows the minor decrease of cultivated and arable surfaces during this period. The extension of woodland is notable during the five-year period. In fact, according to the cartographic data, the difference between the areas occupied by forest and shrubland (Class  9 "broadleaved trees" and Class 10 "shrubland") in 2018 and 2023 shows the slight increase of scrubland and shrubs, as well as broadleaved forests. Furthermore, woodland areas detected in the image analysis suggest that the woodland cover becomes greater. 
 
-\hl{The areas covered by these land cover types were calculated and compared using four ML approaches to assess land cover dynamics. Using calculations of the landscape fragments, the regression and progression of forest areas were then assessed and reported in results of tabular form that show which type of the land cover types is expanding or decreasing. Thus, }Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. {The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively. }{Seasonal} variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. 
+\hl{The areas covered by these land cover types were calculated and compared using four ML approaches to assess land cover dynamics. Using calculations of the landscape fragments, the regression and progression of forest areas were then assessed and reported in results of tabular form that show which type of the land cover types is expanding or decreasing. Thus, }Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively. \hl{Comparative performance of algorithms is additionally evaluated using F-1 Score of Predictive Performance and Cohen's Kappa Predictive Agreement were computed for ML models in GRASS GIS: (1) Random Forest (RF), (2) Decision Tree, (3) Multilayer Perceptron Classifiers (MLPClassifier),(4) Support Vector Machine (SVM), Table }\ref{tabF1C}. 
+
+\begin{table}[H] 
+\caption{\hl{F-1 Score of Predictive Performance and Cohen's Kappa Predictive Agreement for ML models in GRASS GIS: (1) Random Forest (RF), (2) Decision Tree, (3) Multilayer Perceptron Classifiers (MLPClassifier),(4) Support Vector Machine (SVM)}.\label{tabF1C}}
+%\newcolumntype{C}{>{\centering\arraybackslash}X}
+\begin{tabularx}{\textwidth}{CCCCCCCCC}
+\toprule
+\multicolumn{9}{c}{Spring} \\
+\midrule
+\multirow{2}{*}{Year} & \multicolumn{4}{c}{Cohen's Kappa} & \multicolumn{4}{c}{F-1 Score}\\
+& RF & DT & SVM & MLPC & RF & DT & SVM & MLPC \\
+   \midrule
+   2018 & 0.72 & 0.76 & 0.81  & 0.75 & 0.74 & 0.78 & 0.86 & 0.77 \\
+   2019 & 0.79 & 0.78 & 0.86  & 0.72 & 0.81 & 0.86 & 0.90 &  0.81 \\
+   2022 & 0.73 & 0.75 & 0.83  &  0.71 & 0.78 & 0.81 & 0.93 & 0.84  \\
+   2023 & 0.79 & 0.78 & 0.82  &  0.74 & 0.75 & 0.85 & 0.83 & 0.79 \\
+ \midrule
+ \multicolumn{9}{c}{Autumn} \\
+ \midrule
+ \multirow{2}{*}{Year} &\multicolumn{4}{c}{Cohen's Kappa} & \multicolumn{4}{c}{F-1 Score}\\
+& RF & DT & SVM & MLPC & RF & DT & SVM & MLPC \\
+  \midrule
+    2018 & 0.78 & 0.72 & 0.81 &  0.76 & 0.74 & 0.71 & 0.90 & 0.78 \\
+    2019 & 0.72 & 0.79 & 0.74 &  0.81 & 0.73 & 0.82 & 0.84 & 0.82  \\
+    2022 & 0.85 & 0.81 & 0.76 &  0.82 & 0.79 & 0.82 & 0.84 & 0.83 \\
+    2023 & 0.73 & 0.75 & 0.73  &  0.80 & 0.80 & 0.81 & 0.83 &  0.75 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Seasonal variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. 
 
 \begin{figure}[H]
 \hspace{10pt}\makebox[0.99\linewidth][r]{%
