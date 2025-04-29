@@ -1,0 +1,956 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[jimaging,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%=================================================================
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{11 April 2025} 
+%\daterevised{} % Only for the journal Acoustics
+\dateaccepted{} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{caption}
+	\DeclareCaptionType{equ}[][]
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{amsmath,mathtools,amsthm}
+	\setcounter{MaxMatrixCols}{15}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithin*{equation}{section}
+\usepackage[super]{nth}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+ \captionsetup[lstlisting]{position=top, margin=0cm,labelfont={bf, small, stretch=1.17}, labelsep=period, textfont={small, stretch=1.17}, aboveskip=6pt, singlelinecheck=off, justification=justified}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+\usepackage{amsmath,mathtools,amsthm}
+	\setcounter{MaxMatrixCols}{15}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithin*{equation}{section}
+\usepackage[super]{nth}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{chngcntr}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepblue},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Machine Learning Algorithms of Remote Sensing Data Processing for Mapping Changes in Land Cover Types Over Central Apennines, Italy}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Machine Learning Algorithms of Remote Sensing Data Processing for Mapping Changes in Land Cover Types Over Central Apennines, Italy}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Polina Lemenkova $^{1}$*\orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Alma Mater Studiorum -- Università di Bologna, Department of Biological, Geological and Environmental Sciences, Via Irnerio 42, Bologna, Emilia-Romagna, Italy, IT-40126. ORCID- 0000-0002-5759-1089, (P.L.).
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: polina.lemenkova2@unibo.it ; polina.lemenkova@unibz.it . Tel.: +39-3446928732 (P.L.)}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{This work presents the use of remote sensing data for land cover mapping with a case of Central Apennines, Italy. The data include 8 Landsat 8-9 OLI/TIRS satellite images in the short-term period. The operational workflow included satellite image processing which were classified into raster maps with automatically detected 10 classes of land cover types over the tested study. The approach was implemented by using a set of modules in GRASS GIS. To classify remote sensing (RS) data, two types of approaches were carried out. The first is unsupervised classification based on the MaxLike approach and clustering which extracted Digital Numbers (DN) of landscape feature based on the spectral reflectance of signals, and the second is supervised classification performed using several methods of Machine Learning (ML), technically realised in GRASS GIS scripting software. The latter included four ML algorithms embedded from the Python’s Scikit-Learn library. These classifiers have been implemented to detect subtle changes in land cover types as derived from the satellite images showing different vegetation conditions in spring and autumn periods in central Apennines, northern Italy.}
+
+% Keywords
+\keyword{time series; ecosystem; environmental monitoring; geoinformatics; satellite data; ecological conservation; multispectral image; Landsat; GRASS GIS; machine learning} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+\subsection{Background}
+
+Understanding and monitoring land cover dynamics in mountainous regions is critical for addressing the impacts of climate change, biodiversity loss, and socio-economic transitions \cite{VACCHIANO201757,BENGTSSON200039}. These landscapes are shaped by complex interactions between natural processes and human activities, making them particularly sensitive to both environmental and anthropogenic drivers \cite{LASANTA2017810,data7060074,BEBI201743}. The Central Apennines of Italy, a biodiversity hotspot, is a prime example of such a region \cite{Ogwu2024}. Its diverse ecosystems provide critical services, including water regulation, carbon sequestration, and habitat provision, while also supporting human livelihoods through forestry and agriculture \cite{VACCHIANO201757}. However, these landscapes have undergone significant transformations over recent decades, driven by land abandonment, forest encroachment and climate-change related processes, including increased drought events and altered disturbance regimes \cite{SEBASTIANI2024101329,Vitali,BEBI201743}.
+
+Traditional agro-silvo-pastoral practices that once maintained a rich landscape mosaic have declined throughout the 20th century due to rural depopulation and socio-economic shifts \cite{Vitali}. Social factors include the aging of farmers and the relocation of young people to larger urban centres for better economic conditions \cite{MAREGGI2024103358,BRUNORI2007183}. This affected agricultural and agroforestry sectors in Apennines and caused changes in landscape mosaic, in a similar fashion to what observed in other mountainous landscapes \cite{LASANTA2017810,PERPINACASTILLO2021104946,geomatics5010005,Arnaez}. The widespread agricultural land abandonment resulted in forest expansion and habitat homogenization. Over the 1936-2018 period, for instance, forest cover increased from 29\% (1.673.266 ha) to 38\% (2.214.671 ha) in Central Italy \cite{AGNOLETTI2022119655}, and the area has been characterized as one of the land use change hotspots of Europe \cite{Kuemmerle_2016}. While some of these processes have positive effects, such as ecosystem restoration and increased forest cover, others pose significant challenges, including biodiversity loss, soil erosion, and reduced landscape diversity \cite{Falcucci,AMEZTEGUI2021104240}.
+
+Effectively tracking these land cover dynamics is essential for informed conservation and management strategies \cite{gutman2004land, AMICI201738}. However, traditional monitoring methods often rely on labor-intensive field surveys and fragmented datasets, which limit their spatial and temporal coverage \cite{Lelli2018,Lelli,GLASER2024108798}. Field-based studies, while valuable for localized and detailed insights, are inherently constrained by logistical challenges, including the difficulty of accessing remote or rugged terrains and the time-consuming nature of data collection \cite{Alessi}. Moreover, they lack the capacity to capture rapid or large-scale changes across diverse landscapes, making it difficult to establish comprehensive and timely assessments \cite{Knollova2024,constrmater3010008}. There is a growing need for advanced tools that can provide automated, scalable, and reproducible assessments of landscape changes.
+
+Remote sensing (RS) technologies offer a transformative approach to landscape monitoring \cite{BALDO2023101922,ZHU2022113266,earth5030024}. By providing spatially comprehensive and temporally consistent datasets, satellite imagery allows for detailed analysis of land cover patterns \cite{ANSELMETTO2024104973,BRACCHETTI2012157,jmse12081279}. When coupled with Machine Learning (ML) algorithms, Remote Sensing (RS) data can be used to automate the classification and detection of land cover changes with high accuracy \cite{w16081141}. ML techniques are particularly advantageous in handling the complexity of RS datasets, enabling the identification of subtle patterns and trends that may be overlooked with traditional methods \cite{BAOPHAM202417,jmse12050709}. Despite these advantages, challenges remain in selecting the most effective ML algorithms for specific landscapes and ensuring the reproducibility of analyses.
+
+Developing workflows to produce new data on land cover dynamics in a reproducible way is critical for understanding the long-term impacts of landscape transformations on biodiversity \cite{land14040828,rs17071296,rs17071304}, ecosystem functioning \cite{Jarnagin01092004}, and local livelihoods \cite{Kuemmerle_2016,Buthelezi16022024}. Reproducibility and scalability are crucial for enabling comparative studies across regions and timeframes, facilitating the identification of broader patterns and trends. Scalability is particularly relevant in the context of accelerating environmental change, as it allows methodologies developed for the Apennines to be adapted and applied to other mountainous regions facing similar pressures. Developing automated workflows that leverage the strengths of ML algorithms and RS data allows the creation of the evidence base needed to inform conservation policies and land management practices tailored to the unique challenges of the Apennines, while also contributing to building a global framework for monitoring and managing landscape dynamics.
+
+\subsection{Objectives and goals}
+
+Factors that determine changes in biodiversity are fundamental for land management in protected areas. Understanding reasons of environmental dynamics in context of land cover history plays a key role for proper land management policy and predictive ecosystem modelling in the Apennines.In many cartographic cases, trends in biodiversity and land use change scenario evaluation are detected using time series analysis. However, these trends are rarely evaluated using ML methods of automated image processing. \hl{To address these issues, current work proposes the integration of ML methods, RS data analysis and environmental analysis for cartographic workflow. Specifically, the innovation introduced by the proposal consists in the ML-based classification of Landsat data. In this way, this study integrates three scientific domains: 1) computer science and ML algorithms, 2) image analysis and processing for pattern recognition; 3) environmental and Earth sciences: monitoring landscape dynamics in selected region of Italy. The procedure of image analysis was performed using advanced scripting GRASS GIS software tat combines a module-based classification methodology. Scripting techniques enabled to produce individual maps of land cover changes based on remote sensing (RS) data.}
+
+This framework presents interdisciplinary study, since it strengthens the bridge between ecosystem studies and computer science through application of ML algorithms and image processing as effective tools for land cover analysis and biodiversity mapping. Specifically, advanced methods of RS data analysis that we apply in our study support monitoring goals to detect biodiversity changes or losses in the Apennines, and to evaluate the impacts this has land abandonment on ecosystem dynamics. In this way, RS data analysis enables to evaluate temporal changes in land cover, to map spatial distribution of patches within the landscapes that refer to the biodiversity, to identify regions which are most affected by changes and to quantify the percentage of these changes in short-term period using tools of Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS) for pixel-wise image processing. In general aspect, our approach contributes to the substantially and conservation goals in northern Italy.
+
+In this study, we aim to address these challenges by focusing on the application of RS and ML techniques to reconstruct land cover dynamics in the Central Apennines. Specifically, our objectives are:
+\begin{enumerate}
+    \item To identify the most accurate ML algorithm for classifying and analyzing land cover changes in the region.
+    \item To apply this algorithm to quantify the main land cover changes from 2018 to 2022 in an automated and reproducible manner.
+\end{enumerate}
+By achieving these objectives, this study seeks to advance the methodologies used in environmental monitoring and contribute to the conservation and management of mountainous landscapes. 
+
+%------------------------------->
+\section{Study area}
+
+Geographically, the study area covers the region of northern Italy and includes the provinces of Umbria, Marche, SE Toscana and S of Emilia-Romagna, Figure \ref{fig01}. 
+
+\vspace{-1em}
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=0.95\textwidth]{Fig_01.jpg} \\
+     \caption{Topographic map showing the location of the study area -- Landsat satellite images within Italy. Map source: authors. Software: Generic Mapping Tools (GMT)}
+  \label{fig01}
+\end{figure}
+\vspace{-1em}
+
+Climate fluctuations affect annual average temperature (ca. 8.9\degree C), where the lowest values do dot exceed 8\degree C at the top mountains, while the highest temperature (10\degree C) is recorded  in the lowlands. The average annual maximum is 11.5\degree C, and minimum of 6.2\degree C which consider as moderate for this region \cite{ClimateChange}. The most common forest soils are cambisols with the bedrock consisting of sandstones and arenaceous marls (Geoportale Nazionale). Such types of soil are formed under the combination of topographic and climate setting including sufficient precipitation typical for the central Apennines, Figure \ref{figsoil}. The information on the soil types has been collected from the data base with thematic maps showing soil regions of Italy, scaled 1:5,000,000 \cite{LAbate}. 
+
+\vspace{-1em}
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=0.99\textwidth]{Fig_02.jpg} \\
+     \caption{Land cover types in Italy: 10 major categories generalised from the original 44 classes of Coordination of Information on the Environment Land Cover  Classification (CORINE CLC)  with the increased fragment of the study area. Data source: Copernicus, 2018. Map source: author. Software: QGIS}
+  \label{fig02}
+\end{figure}
+\vspace{-1em}
+
+
+\section{Methodology}\label{sec2}
+
+%---------------------------->
+\subsection{Data}
+The remote sensing data used in this study includes eight satellite images Landsat 8-9 OLI/TIRS collected from the United States Geological Survey (USGS) online repository. The images have an area with an extent of 185*185 km. The overview of this dataset in natural colour composite is presented in Figure \ref{fig03}.
+
+\begin{figure*}[h!]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03a.jpg}
+		\caption{20 April 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03b.jpg}
+		\caption{22 March 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03c.jpg}
+		\caption{14 March 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03d.jpg}
+		\caption{17 March 2023}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03e.jpg}
+		\caption{27 September 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03f.jpg}
+		\caption{14 September 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03g.jpg}
+		\caption{6 September 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03h.jpg}
+		\caption{3 October 2023}
+	\end{subfigure}%
+}
+\caption{Original dataset of Landsat images in natural colour composite{ }covering the region of Central Apennines{. }Data source: USGS. Compilation: authors.}\label{fig03}
+\end{figure*}
+
+Technically, the data were obtained from the United States Geological Survey (USGS) which presents a collection of the diverse geospatial datasets in the open source repository. The row/path of the Landsat swath is 30/191 for all the scenes, collected in Nadir. The images are projected automatically in the UTM Zone 33 for Italy in WGS84 Ellipsoid/Datum. 
+
+
+Major challenges facing a successful classification of the RS data are cloudiness of the satellite images, coverage, data availability and resolution which enable to accurately detect the changing features over the landscapes. Therefore, we selected the quality satellite data with low cloudiness and optimal coverage of the study region. Specifically, we used the moderate resolution multispectral satellite images obtained from the Landsat Collection Level-2. The essential characteristics and key feature attributes of the Landsat 8-9 OLI/TIRS images are summarised in the Table \ref{tab01}.
+
+\begin{table}[h]
+\caption{Technical parameters of the Landsat 8-9 OLI/TIRS images}\label{tab01}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Landsat OLI/TIRS\footnotemark[1] Scene ID & Date Acquired  & Cloud Cover {\% u.m.} \\
+\midrule
+\multicolumn{3}{ c }{Spring period}\\ \hline
+        LC81910302018110LGN00 & 2018-04-20 & 0.55 \\ \hline
+        LC81910302019081LGN00 & 2019-03-22 & 0.67 \\ \hline
+        LC81910302022073LGN00 & 2022-03-14 & 7.41 \\ \hline
+        LC81910302023076LGN00 & 2023-03-17 & 2.52 \\
+        \midrule
+        \multicolumn{3}{ c }{Autumn period}\\ \hline
+        LC81910302018270LGN00 & 2018-09-27 & 0.26 \\ \hline
+        LC81910302019257LGN00 & 2019-09-14 & 0.06 \\ \hline
+        LC81910302022249LGN00 & 2022-09-06 & 0.06 \\ \hline
+        LC91910302023276LGN00 & 2023-10-03 & 4.24 \\
+\bottomrule
+\end{tabular}
+\footnotetext{Information source: USGS.}
+\footnotetext[1]{These data are provided from the Landsat sensors 8-9 Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS).}
+\end{table}
+
+%---------------------------->
+\subsection{Workflow}
+
+After data import and preprocessing which included radiometric calibration, geometric correction, speckle filtering and terrain correction, the images were first classified using the 'MaxLike' approach of the unsupervised classification which uses clustering, Figure \ref{fig4}. The unsupervised classification was done to receive the results from the MaxLike approach, to compare it with supervised classification. The training data seed was applied for ML processing of each scene and used for four approaches -- Random Forest (RF), Support Vector Machine (SVM) Classifier, Decision Tree (DT) Classifier and Multilayer Perceptron Classifier (MLPC). 
+
+{The classification of the pixels has been done using thresholding technique of remote sensing where threshold is a parameter used in image analysis. It is defined as the level of similarity which pixel has (digital number according to spectral reflectance) and according to this it is classified to the given class. Classifying each pixel on the raster matrix is based on its intensity level compared to the threshold value for the given class.}The outcomes are validated with the computed reject threshold results using \emph{chi} square test to determine levels of confidence of correctly classified pixels on raster scenes. Afterwards, the images were classified accordingly {using the four ML algorithms for years} {2018}, 2019, 2022 and 2023{). }Full shell scripts of the GRASS GIS used for RS data processing (for each of 8 satellite images) and the obtained statistical results are placed in the GitHub repository: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines}.
+
+%---------------------------->
+\subsection{{Generalisation of CORINE land cover map}}
+
+The {CORINE land cover map} has been generalised from the initial 41 classes covering the whole country into 10 major classes, as necessary for the study area{, Table} \ref{tabcor}. {This has been done using the dissolve command in QGIS, based on the attribute table}. {All} the Class 1 category which is represented by the artificial classes was merged at Level 1 (category '1xx' in CORINE classification{)}.{ }Following that, Class 2 'Agricultural areas' was merged from the sub-classes such as 21x - arable lands, 22x - permanent crops, 23x - pastures and 24x - heterogeneous agricultural areas{.}
+
+{Class 3 represents} category 'Forest and semi natural areas'. Here we performed the following generalisations in the classification. The sub-classes '311 Broadleaved forest and semi-natural areas', '312 Coniferous forest' and '313 Mixed forest' were kept separated, since they represent important key classes that should be {distinguished and recognised in our study area}. In contrast, the sub-classes '32x - Scrub and/or herbaceous vegetation associations' were merged. Specifically, these included 4 categories of CORINE -- '321. Natural grasslands', '322. Moors and heathland', '323. Sclerophyllous vegetation' and '324. Transitional woodland-shrub', since it is difficult to distinguish on the satellite images the slight differences in spectral reflectance between these categories. The Class '33x - Open spaces with little or no vegetation' was merged of the sub-categories '331. Beaches, dunes, sands', '332. Bare rocks', '333. Sparsely vegetated areas', and '334. Burnt areas'. The subclass '335. Glaciers and perpetual snow' was kept separated since some satellite {images contain snow-covered areas} in the high mountains. {Finally, wetlands (category '4xx' - all wetlands and their sub-categories) were merged together into one class. New classes were exported to shape files using 'Export / Save Features as' command in the QGIS}.
+
+\begin{table}[h]
+\caption{Training ground truth samples of land types from CORINE}\label{tabcor}%
+\begin{tabular}{@{}llll@{}}
+\toprule
+Landsat OLI/TIRS\footnotemark[1] Land cover class & CORINE codes & Number of pixels  \\
+\midrule
+        Artificial surfaces & 111-142 & 1274084 \\ \hline
+        Agricultural areas & 211-244 & 2236395  \\ \hline
+        Broadleaved forests & 23,128,255,000,255,311,313-335 & 857355  \\ \hline
+        Wetlands & 411-423 & 23714  \\ \hline
+	Water & 511-523 & 445175  \\ \hline
+        Coniferous forests & 24,000,166,000,255,312 & 4543992  \\ \hline
+        Mixed forests & 25,077,255,000,255,313 & 47634298  \\ \hline
+        Scrub and/or herbaceous vegetation & 321-324 & 275290  \\ \hline
+        Open spaces with little of no vegetation & 331-335 & 23356  \\ \hline
+        Glaciers and perpetual snow & 34,166,230,204,255,335 & 14891  \\ \hline
+\bottomrule
+\end{tabular}
+\footnotetext{Information source: CORINE (Copernicus).}
+\footnotetext[1]{The number of samples is smaller than the number of total pixels since a a representative training set is enough to train a ML classifier.}
+\end{table}
+
+%---------------------------->
+\subsection{Techniques and algorithms}
+
+The satellite image processing was performed using Geographic Resources Analysis Support System (GRASS) GIS which provides the options of ML for RS data processing. The practical solutions of GRASS GIS to use the ML algorithms is derived from the Scikit-Learn Library of Python \cite{scikitlearn} and consists in using the embedded techniques where the name of each model is explicitly defined \cite{rs17050822,LEMENKOVA2025100180,geosciences15030104}. The ML methods of image processing include the following ones: 1) Random Forest (RF); 2) Support Vector Machine (SVM), 3) Decision Tree Classifier (DTC), and 4) 2) Multi-layer Perceptron (MLP) Classifier of the Artificial Neural Network (ANN). {These} approaches enable to detect changes in land cover types {through advanced image classification}. These algorithms were tested to detect land cover changes {and to select the most accurate classifier}. {We first run a maximum likelihood (MaxLike) classification. This method aims at the estimating the probability pixels distribution in the dataset, that is, cells within the satellite image and enables a straightforward approach to partition of pixels into groups using clusters of cells}, Figure \ref{fig4}. 
+
+\begin{figure}[H]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_04a.jpg}
+		\caption{20 April 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_04b.jpg}
+		\caption{22 March 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_04c.jpg}
+		\caption{14 March 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_04d.jpg}
+		\caption{17 March 2023}
+	\end{subfigure}%
+}\\
+\vfill \vspace{0.2mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_04e.jpg}
+		\caption{27 September 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_04f.jpg}
+		\caption{14 September 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_04g.jpg}
+		\caption{6 September 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_04h.jpg}
+		\caption{3 October 2023}
+	\end{subfigure}%
+}
+\caption{Images classified by the MaxLike algorithms for spring and autumn periods.}\label{fig4}
+\end{figure}
+\vspace{-0.5em}
+
+Technically, {image classification was} done using data on DNs of the pixels that {vary in spectral reflectance} according to different land cover types (e.g., water, forest, urban areas, meadows etc{.)}. Similar spectral reflectance within the observed dataset are grouped into the same cluster and vice versa. The results of the MaxLike approach were employed as seed training dataset for the ML algorithms which are described in the following subsections{. }
+%---------------------------->
+\subsection{Accuracy assessment and comparison of four algorithms}
+
+Since classification maps invariably contain misclassified pixels and possible classification mistakes, accuracy assessment is an essential step in any remote sensing-based classification effort. Besides, we aim to compare the performance of four classification algorithms (RF, SVM, DT and {the} MLPC). Numerous factors cause possible errors, including the following ones:
+\begin{itemize} 
+	\item the type of input raw datasets used in image processing: Landsat OLI/TIRS data;
+	\item the quality and details of the spectral signatures of training data (30-m resolution);
+	\item the performance of the ML algorithms in processing on pixels in multispectral data;
+	\item the complexity of the land cover pattern which affect the distinguishability of classes;
+	\item the hierarchical level of the separability categories (in our case, 10 classes).
+\end{itemize} 
+	
+The aim of accuracy assessment is to  {quantitatively evaluate the proportion of pixels correctly assigned to a given land cover category}. Therefore, we evaluated the quality of the {output maps made with the four ML algorithms and validated against the ground truth data obtained from CORINE}:
+\begin{enumerate}
+	\item Overall accuracy of the four maps generated using four different algorithms for two seasons (spring and autumn) {for 2018};
+	\item User's accuracy of individual 10 classes in each of the classification maps;
+	\item Kappa coefficient for identification of misclassified and confused classes mixed with other categories.
+\end{enumerate}
+
+The user's accuracy is computed as the number of correctly classified pixels in each land cover class related to total number of reference pixels in {ground truth} data in the same category. The overall accuracy indicates the total number of accurately classified pixels on the Landsat raster matrix related to the total number of reference pixel. Both overall and user's accuracy are indicated in percentage (\%) with the best values close to 100\%. In contrast to these two approaches, Kappa coefficient is based on the chance-adjusted index of agreement where pixels are randomly assigned to classes and evaluated against the ground truth data. \hl{The assessment of accuracy after classification for validation of the results was performed using integration of thematic vector layers and RS datasets. Clustering-based classification demonstrated the overall accuracy of the obtained maps for convergence of 98.1\%, 98.2\% and 98.1\%, respectively. This demonstrated high mapping accuracy based on GRASS GIS processing of remote sensing data. Among the accuracy methods, }Kappa presents a discrete multivariate method of accuracy assessment. 
+
+The evaluation of Kappa is normally suggested as moderate for values in the interval 0.41--0.60, acceptable for values from 0.61 to 0.80 and almost perfect agreement for values above 0.81{. Spatial uncertainty in image classification shows the distribution of pixels to target classes which affects the results of the mapping. It was estimated to avoid bias by the chi square test which plots the reject raster map. This map shows the level of threshold which determines the confidence level at which each cell is categorised correctly and accurately assigned to the correct class.}
+
+\begin{figure}[H]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_05a.jpg}
+		\caption{20 April 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_05b.jpg}
+		\caption{22 March 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_05c.jpg}
+		\caption{14 March 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_05d.jpg}
+		\caption{17 March 2023}
+	\end{subfigure}%
+}\\
+\vfill \vspace{0.2mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_05e.jpg}
+		\caption{27 September 2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_05f.jpg}
+		\caption{14 September 2019}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_05g.jpg}
+		\caption{6 September 2022}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_05h.jpg}
+		\caption{3 October 2023}
+	\end{subfigure}%
+}
+\caption{Accuracy assessment by rejection probability of pixels on the classified images using chi square test}\label{figA2}
+\end{figure}
+\vspace{-0.5em}
+
+In the study area, we {considered 10 distinct land cover types}, summarised in Table \ref{tabcor} along with their CORINE codes, number of cells (pixels) in Landsat scenes and their number of training samples for ML validation, \ref{figA2}. Nevertheless, the thematic aggregation of these 10 land cover classes cannot be directly linked to the parameters of vegetation and requires further studies{. For} RF algorithm, the number of correctly classified pixels (shown in bold black in Table) \ref{tab02a} is 35720. Divided by the total number of points 37440, the overall classification accuracy for RF approach is 0.97\%. The same approach was used for evaluation of classification correctness by other algorithms. Thus, for SVM algorithm, the overall classification accuracy is 0.98\% which shows the encouraging result with a higher accuracy. Other two algorithms, the DT and the MLPC also demonstrated reliable results, although lower values compared to the SVM and RF algorithms. Specifically, the overall classification accuracy for DT approach is 0.95\% and for the MLPC algorithm, it is calculated as 0.96\%. 
+
+\begin{table}[H] 
+\caption{Hyperparameters for machine learning (ML) models in GRASS GIS: (1) Random Forest (RF), (2) Support Vector Machine (SVM), (3) Decision Tree, (4) Multilayer Perceptron Classifiers (MLPClassifier).\label{tab02}}
+%\newcolumntype{C}{>{\centering\arraybackslash}X}
+\begin{tabularx}{\textwidth}{CCCCCCC}
+\toprule
+%\multirow{2}{*}{\textbf{Year}} &\multicolumn{3}{c}{\makecell{\textbf{Cohen's Kappa}\\ \textbf{Quantification of Agreement} }}&  \multicolumn{3}{c}{\textbf{F-1 Score of Predictive Performance}}\\
+   %   & \textbf{RF} & \textbf{SVM} & \textbf{MLPC} & \textbf{RF} & \textbf{SVM} & \textbf{MLPC} \\
+ %   \midrule
+   2018 & 0.73 & 0.78 & 0.84  & 0.78 & 0.82 & 0.92\\
+   2019 & 0.73 & 0.73 & 0.82  & 0.77 & 0.84 & 0.91 \\
+   2022 & 0.71 & 0.74 & 0.81 & 0.77 & 0.79 & 0.92 \\
+   2023 & 0.80 & 0.81 & 0.83  & 0.81 & 0.81 & 0.95\\
+ \midrule
+    2018 & 0.73 & 0.78 & 0.84  & 0.78 & 0.82 & 0.92\\
+    2019 & 0.73 & 0.73 & 0.82  & 0.77 & 0.84 & 0.91 \\
+    2022 & 0.71 & 0.74 & 0.81 & 0.77 & 0.79 & 0.92 \\
+    2023 & 0.80 & 0.81 & 0.83  & 0.81 & 0.81 & 0.95\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Results}\label{sec4}
+
+The land cover types in the northern Italy were recognised as following 10 classes according to the existing adopted, modified and generalised classification schemes: 1) urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland.  The major differences verified between image analysis and cartographic data processing by ML methods regard agricultural lands, forests (broadleaved trees), croplands and shrubs, i.e., those coverings characterised by low human impact. For these types of land cover types, the levels of land abandonment and unsustainable pasture maintenance are high. Large areas, no longer used for farming activities, are prone to be spontaneously re-used by natural land cover types (i.e., secondary reforestation). 
+
+\subsection{Comparison of the four algorithms}
+
+The comparison of the four algorithms was performed using self-statistics based on the test data, as well as error matrices based on comparison with Corine Land cover data, Figure \ref{fig06}. 
+
+\begin{figure}[H]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_06a}
+		\caption{Spring RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_06b}
+		\caption{Spring SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_06c}
+		\caption{Spring DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_06d}
+		\caption{Spring MLPC}
+	\end{subfigure}%
+}\\
+\vfill \vspace{0.2mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_06e}
+		\caption{Autumn RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_06f}
+		\caption{Autumn SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_06g}
+		\caption{Autumn DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_06h}
+		\caption{Autumn MLPC}
+	\end{subfigure}%
+}
+\caption{Land cover types in 2023 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig06}
+\end{figure}
+\vspace{-0.5em}
+
+\hl{The main land cover types identified included following 10 categories: urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland. The results show that the areas of arable lands and pastures are increasing. The exact areas covered by these land cover types are reported and can be explained by the increase of anthropogenic pressure. More specifically, }between 2018 and 2023, the total agricultural surface in the study area decreased by approximately 8.371,5 ha (--16.65\%), according to the data analysis from the machine learning methods of data processing (Tables 4, 5, 6, and 7). The areas occupied by the Class 2 ("arable lands and agricultural fields") have decreased by 19.8 \% from 3,77 to 2,64  ha which shows the minor decrease of cultivated and arable surfaces during this period. The extension of woodland is notable during the five-year period. In fact, according to the cartographic data, the difference between the areas occupied by forest and shrubland (Class  9 "broadleaved trees" and Class 10 "shrubland") in 2018 and 2023 shows the slight increase of scrubland and shrubs, as well as broadleaved forests. Furthermore, woodland areas detected in the image analysis suggest that the woodland cover becomes greater. 
+
+\hl{The areas covered by these land cover types were calculated and compared using four ML approaches to assess land cover dynamics. Using calculations of the landscape fragments, the regression and progression of forest areas were then assessed and reported in results of tabular form that show which type of the land cover types is expanding or decreasing. Thus, }Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. {The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively. }{Seasonal} variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. 
+
+\begin{figure}[H]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_07a}
+		\caption{Spring RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_07b}
+		\caption{Spring SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_07c}
+		\caption{Spring DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_07d}
+		\caption{Spring MLPC}
+	\end{subfigure}%
+}\\
+\vfill \vspace{0.2mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_07e}
+		\caption{Autumn RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_07f}
+		\caption{Autumn SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_07g}
+		\caption{Autumn DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_07h}
+		\caption{Autumn MLPC}
+	\end{subfigure}%
+}
+\caption{Satellite images on 2019 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig07}
+\end{figure}
+\vspace{-0.5em}
+
+\begin{table}[htb]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.3cm} | X | X | X | X | X | X | X | X | X | X | p{0.6cm} | p{0.8cm} |}
+  \toprule
+   Category & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved} & \rotatebox{90}{10: shrubland} & \rotatebox{90}{Row Total} & \rotatebox{90}{Correct Pixels} \\
+   \midrule
+    \textbf{Class 1} & \textbf{2589} & 48 & 62 & 1 & 0 & 50 & 2 & 18 & 0 & 2 & 2772 & 2589\\
+    \textbf{Class 2} & 3 & \textbf{6359} & 27 & 0 & 5 & 1 & 1 & 2 & 0 & 0 & 6398 & 6359 \\    
+    \textbf{Class 3} & 1 & 0 & \textbf{2908} & 1 & 32 & 47 & 0 & 0 & 10 & 5 & 3004 & 2908 \\    
+    \textbf{Class 4} & 2 & 0 & 17 & \textbf{4818} & 9 & 7 & 14 & 0 & 2 & 0 & 4818 &  4869\\    
+    \textbf{Class 5} & 0 & 4 & 0 & 11 & \textbf{6138} & 4 & 3 & 0 & 0 & 0 & 6160 & 6138 \\ 
+    \textbf{Class 6} & 0 & 2 & 1 & 0 & 3 & \textbf{4281} & 12 & 21 & 0 & 0 & 4390 & 4281 \\ 
+     \textbf{Class 7} & 14 & 0 & 0 & 5 & 18 & 10 & \textbf{1407} & 9 & 28 & 22 & 1513 & 1407 \\     
+     \textbf{Class 8} & 0 & 0 & 14 & 3 & 0 & 1 & 2 & \textbf{3389} & 0 & 9 & 3418 & 3389\\  
+     \textbf{Class 9} & 1 & 2 & 0 & 0 & 0 & 31 & 12 & 0 & \textbf{2409} & 0 & 2421 & 2409\\   
+     \textbf{Class 10} & 0 & 0 & 2 & 3 & 5 & 9 & 14 & 0 & 0 & \textbf{2513} & 2546 & 2513\\ 
+     \midrule 
+     \textbf{Total} & 2600 & 6415 & 3031 & 4842 & 6200 & 4431 & 1517 & 3439 & 2439 & 2569 & \textbf{37440} & 36862\\ 
+    \bottomrule
+\end{tabularx}
+\caption{Error matrix for validation of SVM algorithm}.
+\label{tab02a}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.3cm} | X | X | X | X | X | X | X | X | X | X | p{0.6cm} | p{0.8cm} |}
+  \toprule
+   Category & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved} & \rotatebox{90}{10: shrubland} & \rotatebox{90}{Row Total} & \rotatebox{90}{Correct Pixels} \\
+   \midrule
+    \textbf{Class 1} & \textbf{2175} & 73 & 51 & 0 & 42 & 72 & 12 & 27 & 6 & 7 & 2465 & 2175\\
+    \textbf{Class 2} & 8 & \textbf{5886} & 25 & 14 & 31 & 18 & 0 & 0 & 1 & 4 & 5987 & 5886 \\
+    \textbf{Class 3} & 0 & 0 & \textbf{2924} & 5 & 27 & 35 & 0 & 12 & 0 & 9 & 3012 & 2924 \\  
+    \textbf{Class 4} & 0 & 0 & 19 & \textbf{5102} & 4 & 0 & 2 & 15 & 13 & 0 & 5155 & 5102 \\ 
+    \textbf{Class 5} & 0 & 1 & 0 & 12 & \textbf{5957} & 4 & 11 & 25 & 1 & 0 & 6011 & 5957\\
+    \textbf{Class 6} & 0 & 12 & 43 & 0 & 0 & \textbf{3984} & 24 & 0 & 0 & 1 & 4064 & 3984 \\
+     \textbf{Class 7} & 3 & 8 & 1 & 0 & 0 & 0 & \textbf{3106} & 12 & 17 & 32 & 3179 & 3106 \\
+     \textbf{Class 8} & 0 & 5 & 1 & 17 & 28 & 0 & 0 & \textbf{2396} & 0 & 31 & 2478 & 2396\\
+     \textbf{Class 9} & 0 & 0 & 15 & 9 & 23 & 8 & 39 & 45 & \textbf{1965} & 10 & 2114 & 1965\\
+     \textbf{Class 10} & 2 & 3 & 0 & 0 & 0 & 28 & 15 & 2 & 0 & \textbf{2925} & 2975 & 2925\\ 
+     \midrule 
+     \textbf{Total} & 2144 & 6208 & 3247 & 5154 & 6117 & 4393 & 1474 & 3485 & 2523 & 2649 & \textbf{37440} & 36420\\ 
+    \bottomrule
+\end{tabularx}
+\caption{Error matrix for validation of RF algorithm.}
+\label{tab02b}
+\end{table}
+
+Based on the best performing algorithm, we analysed the main trends in land cover development in the study period. This included the identification of the major trends (increase-decrease of certain landscape patterns) in the area covered by the 10 land cover classes over the study period. The comparison of spatial occupation of vegetation and urban areas is ensured by the comparability of the maps with SVM as the best algorithm. 
+
+\begin{table}[htb]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.3cm} | X | X | X | X | X | X | X | X | X | X | p{0.6cm} | p{0.8cm} |}
+  \toprule
+   Category & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved} & \rotatebox{90}{10: shrubland} & \rotatebox{90}{Row Total} & \rotatebox{90}{Correct Pixels} \\
+   \midrule
+    \textbf{Class 1} & \textbf{2137} & 63 & 71 & 0 & 0 & 80 & 1 & 21 & 0 & 1 & 2373 & 2137\\
+    \textbf{Class 2} & 5 & \textbf{6142} & 32 & 1 & 3 & 2 & 0 & 0 & 2 & 4 & 6191 & 6142 \\
+    \textbf{Class 3} & 0 & 0 & \textbf{3115} & 3 & 36 & 42 & 0 & 2 & 12 & 8 & 3218 & 3115 \\
+    \textbf{Class 4} & 0 & 0 & 23 & \textbf{5116} & 6 & 8 & 12 & 0 & 1 & 0 & 5166 & 5116 \\
+    \textbf{Class 5} & 0 & 2 & 0 & 15 & \textbf{6012} & 8 & 1 & 2 & 1 & 0 & 6041 & 6012\\
+    \textbf{Class 6} & 0 & 0 & 4 & 0 & 58 & \textbf{3235} & 9 & 2 & 0 & 55 & 3363 & 3235 \\
+     \textbf{Class 7} & 1 & 0 & 2 & 0 & 36 & 8 & \textbf{1398} & 0 & 1 & 15 & 1461 & 1398 \\
+     \textbf{Class 8} & 0 & 1 & 0 & 2 & 3 & 4 & 0 & \textbf{3457} & 2 & 12 & 3481 & 3457\\
+     \textbf{Class 9} & 1 & 0 & 0 & 12 & 6 & 3 & 32 & 0 & \textbf{2551} & 0 & 2605 & 2551\\
+     \textbf{Class 10} & 0 & 0 & 0 & 5 & 7 & 3 & 21 & 1 & 0 & \textbf{2604} & 2641 & 2604\\ 
+     \midrule 
+     \textbf{Total} & 2144 & 6208 & 3247 & 5154 & 6117 & 4393 & 1474 & 3485 & 2523 & 2649 & \textbf{37440} & 35720\\ 
+    \bottomrule
+\end{tabularx}
+\caption{Error matrix for validation of DT algorithm.}
+\label{tab02c}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.3cm} | X | X | X | X | X | X | X | X | X | X | p{0.6cm} | p{0.8cm} |}
+  \toprule
+   Category & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved trees} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved trees} & \rotatebox{90}{10: shrubland} & \rotatebox{90}{Row Total} & \rotatebox{90}{Correct Pixels} \\
+   \midrule
+    \textbf{Class 1} & \textbf{2095} & 68 & 63 & 2 & 0 & 15 & 0 & 0 & 1 & 12 & 2256 & 2095\\
+    \textbf{Class 2} & 2 & \textbf{6371} & 38 & 0 & 0 & 21 & 14 & 0 & 1 & 0 & 6447 & 6371 \\
+    \textbf{Class 3} & 0 & 2 & \textbf{3487} & 2 & 18 & 27 & 0 & 0 & 0 & 12 & 3548 & 3487 \\
+    \textbf{Class 4} & 3 & 2 & 1 & \textbf{5279} & 2 & 9 & 24 & 0 & 0 & 0 & 5320 & 5279 \\
+    \textbf{Class 5} & 0 & 40 & 13 & 39 & \textbf{5364} & 0 & 0 & 22 & 0 & 11 & 5489 & 5364\\
+    \textbf{Class 6} & 0 & 0 & 5 & 1 & 13 & \textbf{4106} & 1 & 14 & 21 & 0 & 4161 & 4106 \\
+     \textbf{Class 7} & 5 & 0 & 47 & 12 & 34 & 0 & \textbf{1405} & 0 & 31 & 62 & 1596 & 1405 \\
+     \textbf{Class 8} & 0 & 9 & 23 & 0 & 0 & 1 & 2 & \textbf{3188} & 0 & 4 & 3227 & 3188\\
+     \textbf{Class 9} & 15 & 10 & 2 & 41 & 20 & 4 & 22 & 0 & \textbf{2356} & 0 & 2470 & 2356\\
+     \textbf{Class 10} & 0 & 0 & 3 & 0 & 0 & 31 & 14 & 0 & 2 & \textbf{2376} & 2426 & 2376\\ 
+     \midrule 
+     \textbf{Total} & 2144 & 6208 & 3247 & 5154 & 6117 & 4393 & 1474 & 3485 & 2523 & 2649 & \textbf{37440} & 36127\\ 
+    \bottomrule
+\end{tabularx}
+\caption{Error matrix for validation of MLPC ANN algorithm.}
+\label{tab02d}
+\end{table}
+\vspace{-0.5em}
+
+\subsection{Main trends in land cover types}
+
+Class 1 "urban areas," represents a case with increased areas of coverage. Compared to the other patches in studied region, it covered a larger area in 2023 as previously in 2018. The difference is less remarkable, when Class 5 "bare lands and soils" is included for comparison as regions occupied by impervious structures such as roads or artificial surfaces. For urban and industrial areas, the areas are slightly increased by 22\% in 2023 compared to the period of 2018, whereby the seasonal difference is not as important as for areas covered by vegetation. 
+
+\begin{table}[h!]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.1cm} | X | X | X | X | X | X | X | X | X | X | }
+  \toprule
+   Spring & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved trees} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved trees} & \rotatebox{90}{10: shrubland}  \\
+   \midrule
+    \textbf{2019} & 404 & 477 & 818 & 850 & 781 & 980 & 813 & 965 & 610 & 229 \\
+    \textbf{2022} & 398 & 433 & 981 & 775 & 732 & 892 & 900 & 963 & 521 & 240 \\
+    \textbf{2023} & 557 & 473 & 912 & 815 & 667 & 1128 & 955 & 900 & 622 & 291 \\
+    \bottomrule
+\end{tabularx}
+\begin{tabularx}{\textwidth}{| p{1.1cm} | X | X | X | X | X | X | X | X | X | X | }
+  \toprule
+   Autumn & \rotatebox{90}{1: urban areas} & \rotatebox{90}{2: arable lands} & \rotatebox{90}{3: water areas} & \rotatebox{90}{4: needle-leaved trees} & \rotatebox{90}{5: bare lands} & \rotatebox{90}{6: pastures} & \rotatebox{90}{7: herbaceous veg.} & \rotatebox{90}{8: croplands} & \rotatebox{90}{9: broadleaved trees} & \rotatebox{90}{10: shrubland} \\
+   \midrule
+    \textbf{2019} & 680 & 342 & 725 & 645 & 854 & 682 & 622 & 629 & 858 & 313 \\
+    \textbf{2022} & 680 & 382 & 723 & 675 & 911 & 700 & 698 & 653 & 802 & 241 \\
+    \textbf{2023} & 720 & 341 & 696 & 673 & 1060 & 791 & 587 & 821 & 720 & 203 \\
+    \bottomrule
+\end{tabularx}
+\caption{Variations of pixels by classes on 2019, 2022 and 2023 in two different seasons}
+\label{tab03}
+\end{table}
+
+\begin{figure}[ht!]
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_08a}
+		\caption{Spring RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_08b}
+		\caption{Spring SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_08c}
+		\caption{Spring DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_08d}
+		\caption{Spring MLPC}
+	\end{subfigure}%
+}\\
+\vfill \vspace{0.2mm}
+\hspace{10pt}\makebox[0.99\linewidth][r]{%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.99\textwidth]{Fig_08e}
+		\caption{Autumn RF}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_08f}
+		\caption{Autumn SVM}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_08g}
+		\caption{Autumn DT}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.25\textwidth}
+		\centering
+			\includegraphics[width=0.98\textwidth]{Fig_08h}
+		\caption{Autumn MLPC}
+	\end{subfigure}%
+}
+\caption{Satellite images on 2022 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig08}
+\end{figure}
+\vspace{-0.5em}
+
+The SVM outperforms maps in terms of visualization accuracy and is well aligned with results obtained from land cover change variations and urban growth around Central Apennines: Decrease in areas occupied by bare lands and soils (Class 5) and pastures (Class 6); the increase in areas occupied by shrubland (Class 10) and arable lands and agricultural fields (Class 2) as well as slight variations of other land use classes, related to climate and environmental impact factors. In addition, there are uncertainties in the automated pixel grouping\hl{ }and visualized in the precision maps of Figure \ref{figA2}. However, the use of directed classification eliminates these errors by more precisely assigning pixels to different classes. As noted earlier, the decision tree classifier\hl{ }provides a more realistic approach to land cover classifications needed to better estimate classes with assigned pixels.
+
+\section{Discussion}
+
+Compared to other approaches, the SVM algorithm demonstrated the best performance. It is general in nature and applies to classification of various types of land cover, including many types of vegetation. This algorithm is widely used to estimate certain environmental land-use properties and individual biophysical characteristics of the plant cover such as biomass and vegetation cover rate\hl{. }The SVM approach aims to solve a complex classification by an optimal pixel transformation that determines the boundaries between cell points based on predefined classes. Its effectiveness is also presented in relevant works in which variables are retrieved from remote sensing data, including urban building detection, shadow detection or cloudiness values. The data processed by this method show a high level of reliability for the detection of land cover types. The SVM algorithm is used to drive process-based models and can be applied to support satellite image classification.
+
+The application of modelling to land cover change detection was made possible by the data integration, which was created for this study utilizing the methodology suggested in earlier ML-based case studies with satellite image processing for vegetation analysis. The GRASS GIS algorithm show accuracy for each change in land cover class, which can be quantified directly using numerical output. This algorithm is a type of ML that implies that the combination of the next best model and the previous model minimises the prediction error. Therefore, its effectiveness has been tested on satellite image processing with examples of Landsat and proved that it minimises the classification error through the defined target classification results. As the change results indicate that the forest and shrub areas in 2019 were partially lost or changed to other classes during the period up to 2023. On the contrary, the agricultural areas and shrubland have been developing in the past ten years.
+
+Technical differences in the algorithms of image processing are commented as follows. We compared the outputs of the classified images using algorithms of Support Vector Machine (SVM), Multi-layer Perceptron (MLP) Classifier of the Artificial Neural Network (ANN), Decision Tree Classifier (DTC), and Random Forest (RF). Uncertainties across the several ML techniques examined in this study (RF, SVN, DT, and MLPC) nearly always produced results that were acceptable, indicating that the analysis had a high degree of ML reliability. The best results are achieved by the SVM Classifier followed by the Random Forest (RF). Both algorithms differ from the Decision Tree and ANN approaches, due to the different approaches in  identification of the pixels's value on the raster scenes (MLP of ANN and DTC). Hence, the maps generated using the SVM method (Figure \ref{fig03}, a) are comparable with those based on the Random Forest Classifier, while MLP Classifier presented a more generalised map using deep learning network approach. The Decision Tree Classifier demonstrated lesser quality of image processing compared to the above methods. 
+
+Being one of the most efficient inductive learning algorithms of ML in data science in general and remote sensing in particular, SVM has advantages in the classification performances among the ML algorithms due to the effects of dependence distribution of nodes within classes and integrated dependence of all nodes. In this way, it works similar to the Naïve Bayes approach. Hence, SVM is optimal for classification of images where the dependences distribute evenly in classes which is excellently suits to the homogeneous types of landscapes with diversified land cover classes. However, this approach is not optimised for images with high landscape heterogeneity and contrasting landscape types (e.g., sharp gradient between the coastal and mountainous areas).
+
+The advantages of SVM (Figure 7) can be explained by its effectivity in high dimensional datasets which is valuable for satellite images that consists thousands of pixels as cells. In our case, 8 multispectral images were classified automatically for each band of Landsat 8-9 OLI/TIRS scenes with 30-m resolution. The target periods cover spring and autumn periods with different vegetation types. Each raster image of the Landsat image contained 7911 rows and 7762 columns of cells, therefore, the automatic approach of processing there data was essential to ensure rapid and accurate data handling. Moreover, the SVM presents high search accuracy compared to other algorithms after a few iterations. Besides, using SVM is supportive for time series analysis where several satellite images are compared since this method is effective when number of dimensions is larger than samples. This is particular valuable for detecting complex land cover patterns in the regions of central Apennines with high heterogeneity of landscapes, such as mixed areas with urban areas and natural spaces. 
+
+Following SVM, the RF classifier also presented optimal results of classification compared to the other approaches in the presented maps (Figure \ref{fig06}. Its superiority is explained by the tuned optimization of the image classification. In the case of RF, using the parameter tuning in GRASS GIS, each node is being split during the construction of a tree with the best split found either from all input pixels of the image or a randomised subset depending on the resolution and extent of the training dataset of the image which depends on the study area and heterogeneity of the visualised landscapes. This randomness aims at decreasing the variance of the RF estimator which allows to overcome overfitting of the individual decision trees with high variance in case of heterogeneous landscapes typical for Central Apennines. The artificially increased randomness of the RF algorithm enables either to decrease the prediction errors of the decision trees or cancel them out, thus making image classification more accurate. Furthermore, some observations regarding the various thematic classifications that were chosen can be made.  Figures 4, 5, and 6 demonstrate that for certain thematic aggregations of land cover classes, the differences between maps are less pronounced.
+
+Since the imagery data analysed only measures the land cover types of selected (restricted) territories covered by Landsat scene, they do not take into account social phenomena related to large cities and urbanised areas that were absent in the studied area. In turn, croplands and shrub lands are usually underestimated in land cover analysis because of the difficulties associated in detection small patches of shrubs on the satellite image with moderate resolution. Moreover, meadowlands can be in turn overestimated by the image analysis. On the other hand, diverse types of forests (among the broadleaved trees) are difficult to recognise using the Landsat scenes because of the similarities in spectral reflectance. Moreover, the changes resulted by the management of these lands and territories (e.g., conversion to other land use types) is challenging to detect by RS data. Therefore, the use of ML algorithms helped to overcome these difficulties through machine-based analysis.
+
+%---------------------------->
+\section{Conclusion}
+\label{sec5}
+
+The history of land cover/land use of the Central Apennines has been reported in previous studies. During recent decades, The landscapes of the Earth have been changing significantly due to the cumulative effects from climate change and human activities. Italy is one of the countries most vulnerable to such changes, especially in mountain areas. Pasture regions and woodlands have historically played significant role in the landscape mosaic of Central Apennines. However, from the middle of the 20th century, land cover structure, biodiversity and forest coverage in the Apennines has undergone notable dynamics.
+Two main drivers of ecosystem dynamics are climate change and anthropogenic processes. Anthropogenic factors affect landscapes through land exploitation and reshaped land cover patterns, as they are strongly related to social-economic development. Thus, settlement structure and patterns of agricultural fields replace natural vegetation that dominated in the landscapes in the past. Besides, social factors of changed land use pattern include decline in rural population that lead to land abandonment. Land abandonment lead to the expansion of forest area and habitat homogenization, decrease in landscape diversity, land use practices, and biodiversity. Such processes change of land cover structure in the Apennines since the middle of 20th century.
+
+Technical methods to detect land cover changes and landscape dynamics remain unresolved topic in ecology and environmental mapping. While visualising biodiversity gradients have been analysed using diverse cartographic approaches, progress towards accurate explanatory modelling using combination of machine learning (ML) techniques and remote sensing (RS) data is limited in the coverage of similar GIS-based research for ecosystem modelling.The computed differences in land cover change and maps prepared using ML-based image processing confirm the specialisation and the intensive exploitation of resources in the mountainous territories and hills rather than those in the lowlands in the study areas. These results also reflect the trend that has been taking place in various Italian regions since the middle of the twentieth century and resulted in significant changes in the land cover pattern. Image processing is widely regarded as one of the most well studied areas in computer vision and environmental applications, yet recognising landscape patches under unconstrained effects from climate change affecting environmental landscapes in mountains of Central Apennines still remains an unsolved problem. 
+
+Remote sensing data can be successfully applied to identify different stages in vegetation and plant phenology as indicated by time series analysis. Specifically, detecting losses in mountainous ecosystems of Central Italy s possible using a sequence of satellite images taken for different years. Automatic landscape mapping and recognition of land cover types of Italy is challenging, due to the fact that landscapes here typically have large variations of patches, mosaic of vegetation inclusions intermittent with anthropogenic effects. The paper demonstrated how the ML applications can be used for environmental monitoring and forest mapping, and how the choice of diverse ML instruments have driven their diverse outcomes of satellite image processing. The particular case of this work presented an example of the ML modules of GRASS GIS used to process the multispectral Landsat images for visualization of landscapes using image partition into 10 land cover classes automatically. The mapping example illustrates the region of central Apennines. For risk assessment and developing strategies in sustainable management of forests, the analysis of these territories requires further study. For instance, this can include thematic spatial models of change showing dynamic trends in agricultural lands and meadows. The processes of forestation and the abandonment of areas previously occupied by farmers can be developed in future studies based on the other datasets, e.g., Sentinel-2A imagery with higher resolution specifications.
+
+Scripting provides a quantitative, robust and effective way of evaluating land cover properties through image processing and time series data analysis, which is a more advanced approach compared to traditional geographic fieldwork. To develop quick scripting codes in similar studies where GRASS GIS, R and Generic Mapping Tools (GMT) are applied in cartographic projects aimed at remote sensing data analysis, the full scripts are presented with provided comments and brief explanations of the commands. The reuse of these scripts may facilitate research in similar studies where processing of the satellite images and topographic data are required for environmental analysis. In this way, this study demonstrated the advantages of the scripting approach both for cartographic plotting and for satellite image processing, as well as plotting the flowchart diagrams for research design visualisation. Scripts of the GRASS GIS and GMT used as a standard methodological benchmark of automated image processing and cartographic workflow enabled to focus on the analysis of the landscapes of Apennines. 
+
+Mapping changes in land cover and assessing dynamics can show how a landscape pattern is distributed spatially. Therefore, in future  research, it is advised to determine how effective the approach is at differentiating between the best thematic aggregation of maps and machine learning (ML) methods, as indicated by this study. Using automated data analysis, the mountainous regions of Central Apennines and surroundings were analysed through the classified series of images. The proposed algorithms of GRASS GIS scripts can be further extended to other regions and environmental applications where satellite image processing is required such as classification of landscapes using multi-temporal set of images. Hence, in this study, an advanced approach of GRASS GIS scripts was  introduced to evaluating environmental properties of landscapes changed under climate and human-induced effects in Central Italy, using 'i.cluster', 'i.maxlik', 'r.learn.train', 'r.learn.predict' and other scripting modules of GRASS GIS. The output results shows the behaviour of land cover types in the coastal landscapes through the changes in patches as a result of the climate effects reacting as driver for land cover changes in mountainous ecosystems of Central Italy. 
+
+The consequences of various ML parameters on the cartographic outputs are analysed in this work, such as speed and accuracy, randomness of nodes, analytical determination of the output weights, and dependence distribution of pixels for each algorithm. Supervised learning models of GRASS GIS were tested and compared. The results shown that the most time-consuming algorithms was noted as SVC classification, while the fastest results were achieved by the Decision Tree approach to image processing and the best results are achieved by RF Classifier. Though each algorithms was developed to serve different objectives of ML applications in RS data processing, their technical implementation and practical purposes present valuable approaches to cartographic data processing and image analysis. 
+
+%----------- section ----------->
+\authorcontributions{Supervision, conceptualization, methodology, software, resources, funding acquisition, and project administration, writing---original draft preparation, methodology, software, data curation, visualization, formal analysis, validation, writing---review and editing, and investigation, P.L.}
+
+%\funding{}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{The Landsat data used in this study are freely available from the USGS repository (\href{https://earthexplorer.usgs.gov/}{https://earthexplorer.usgs.gov/}). The GEBCO data used for plotting topographic map in Figure 1 is freely available in GEBCO repository (\href{https://www.gebco.net/}{https://www.gebco.net/}). The CORINE dataset is obtained from the Copernicus website (\href{https://land.copernicus.eu/en/products/corine-land-cover}{CORINE}). The codes used for data processing are available in the GitHub repository of the author: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines}.} 
+
+\acknowledgments{The author thanks the reviewers for reading and review of this manuscript.}
+
+\conflictsofinterest{The author declares no conflict of interest.} 
+
+\noindent 
+\begin{tabular}{@{}ll}
+ANN & Artificial Neural Network \\
+CORINE CLC & Coordination of Information on the Environment Land Cover Classification \\
+GIS & Geographic Information System \\
+GMT & Generic Mapping Tools \\
+GRASS GIS & Geographic Resources Analysis Support System GIS\\
+Landsat 8-9 OLI/TIRS & Landsat Operational Land Imager/Thermal Infrared Sensor \\
+ML & Machine Learning \\
+MLPC & Multilayer Perceptron Classifier \\
+RS & Remote Sensing \\
+RF & Random Forest \\
+SVM & Support Vector Machine \\
+DTC & Decision Tree Classifier \\
+USGS & United States Geological Survey \\
+\end{tabular}
+
+\section{Class separability matrices}\label{secMatr}
+
+\begin{equ}[!ht]
+\begin{equation}
+\scriptsize
+\begin{vmatrix}
+   & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 & 0 &  &  &  &  &  &  &  &  \\
+2 & 2.9 & 0.0 &  &  &  &  &  &  &  &  \\
+3 & 3.9 & 0.7 & 0 &  &  &  &  &  &  &  \\
+4 & 5.0 & 1.5 & 1.0 & 0 &  &  &  &  &  &  \\
+5 & 5.0 & 2.3 & 1.9 & 1.1 & 0 &  &  &  &  &  \\   
+6 & 5.1 & 1.4 & 0.7 & 1.0 & 1.9 & 0 &  &  &  &  \\  
+7 & 5.2 & 2.0 & 1.4 & 0.8 & 0.9 & 1.1 & 0 &  &  &  \\  
+8 & 4.4 & 1.6 & 1.2 & 1.5 & 2.1 & 0.7 & 1.3 & 0 &  &  \\
+9 & 4.2 & 2.6 & 2.3 & 1.9 & 1.0 & 2.2 & 1.5 & 2.3 & 0 &  \\   
+10 & 4.0 & 3.5 & 3.3 & 3.2 & 2.8 & 3.3 & 2.9 & 3.2 & 2.1 & 0 \\      
+\end{vmatrix}
+ %
+\hspace{3pt}
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 2.4 & 0 &  &  &  &  &  &  &  &  \\
+3 & 3.5 & 0.9 & 0 &  &  &  &  &  &  &  \\
+4 & 4.6 & 1.5 & 0.7 & 0 &  &  &  &  &  &  \\
+5 & 4.8 & 2.0 & 1.3 & 0.7 & 0 &  &  &  &  &  \\
+6 & 4.5 & 2.5 & 1.6 & 1.4 & 1.3 & 0 &  &  &  &  \\  
+7 & 4.3 & 2.4 & 1.7 & 1.4 & 1.0 & 0.6 & 0 &  &  &  \\  
+8 & 4.2 & 2.8 & 2.1 & 2.1 & 2.2 & 1.0 & 1.3 & 0 &  &  \\
+9 & 5.1 & 3.5 & 2.7 & 2.7 & 2.5 & 1.4 & 1.3 & 0.8 & 0 &  \\   
+10 & 4.4 & 3.4 & 2.9 & 2.8 & 2.7 & 2.0 & 1.8 & 1.5 & 0.9 & 0 \\          
+\end{vmatrix} 
+\end{equation}
+\caption{Class separability matrices between 10 classes: spring and autumn 2019}
+\end{equ}
+
+\begin{equ}[!ht]
+\begin{equation}
+\scriptsize
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.1 & 0 &  &  &  &  &  &  &  &  \\
+3 & 2.4 & 1.3 & 0 &  &  &  &  &  &  &  \\
+4 & 3.4 & 2.3 & 0.9 & 0 &  &  &  &  &  &  \\
+5 & 4.3 & 3.1 & 1.7 & 0.8 & 0 &  &  &  &  &  \\
+6 & 5.0 & 3.9 & 2.4 & 1.5 & 1.0 & 0 &  &  &  &  \\  
+7 & 4.9 & 3.8 & 2.5 & 1.7 & 0.9 & 0.9 & 0 &  &  &  \\  
+8 & 5.8 & 4.7 & 3.3 & 2.5 & 1.8 & 1.0 & 1.1 & 0 &  &  \\
+9 & 5.5 & 4.6 & 3.4 & 2.8 & 2.3 & 1.7 & 1.7 & 0.9 & 0 &  \\   
+10 & 6.1 & 5.1 & 3.9 & 3.2 & 2.9 & 2.0 & 2.5 & 1.5 & 1.3 & 0 \\      
+\end{vmatrix}
+ %
+ \hspace{3pt}
+ \begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.1 & 0 &  &  &  &  &  &  &  &  \\
+3 & 2.0 & 1.1 & 0 &  &  &  &  &  &  &  \\
+4 & 2.9 & 2.3 & 1.2 & 0 &  &  &  &  &  &  \\
+5 & 4.1 & 3.7 & 2.6 & 1.2 & 0 &  &  &  &  &  \\
+6 & 5.1 & 4.9 & 3.7 & 2.4 & 1.2 & 0 &  &  &  &  \\  
+7 & 5.6 & 5.6 & 4.5 & 3.1 & 2.1 & 1.0 & 0 &  &  &  \\  
+8 & 6.2 & 6.4 & 5.3 & 4.1 & 3.1 & 2.1 & 1.1 & 0 &  &  \\
+9 & 7.8 & 8.5 & 7.3 & 5.9 & 5.0 & 3.9 & 2.8 & 1.6 & 0 &  \\   
+10 & 7.9 & 8.4 & 7.4 & 6.2 & 5.3 & 4.4 & 3.4 & 2.3 & 1.1 & 0 \\          
+ \end{vmatrix} 
+\end{equation}
+\caption{Class separability matrices between 10 classes: spring and autumn 2022}
+\end{equ}
+
+\begin{equ}[!ht]
+\begin{equation}
+\scriptsize
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.2 & 0 &  &  &  &  &  &  &  &  \\
+3 & 2.0 & 1.2 & 0 &  &  &  &  &  &  &  \\
+4 & 2.4 & 1.8 & 0.8 & 0 &  &  &  &  &  &  \\
+5 & 2.4 & 2.3 & 1.2 & 1.0 & 0 &  &  &  &  &  \\
+6 & 2.7 & 2.5 & 1.6 & 0.9 & 0.9 & 0 &  &  &  &  \\  
+7 & 2.8 & 3.1 & 2.3 & 1.9 & 1.1 & 1.2 & 0 &  &  &  \\  
+8 & 3.0 & 3.0 & 2.4 & 1.7 & 1.4 & 0.9 & 1.0 & 0 &  &  \\
+9 & 3.2 & 3.5 & 2.9 & 2.5 & 1.9 & 1.7 & 1.1 & 1.0 & 0 &  \\   
+10 & 3.1 & 3.8 & 3.1 & 2.9 & 2.1 & 2.2 & 1.2 & 1.8 & 1.1 & 0 \\            
+\end{vmatrix}\label{2023}
+ %
+ \hspace{3pt}
+ \begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 2.6 & 0 &  &  &  &  &  &  &  &  \\
+3 & 4.0 & 0.9 & 0 &  &  &  &  &  &  &  \\
+4 & 4.5 & 1.7 & 0.9 & 0 &  &  &  &  &  &  \\
+5 & 4.4 & 1.3 & 0.7 & 1.1 & 0 &  &  &  &  &  \\
+6 & 4.0 & 1.5 & 1.2 & 1.7 & 0.8 & 0 &  &  &  &  \\  
+7 & 5.0 & 2.1 & 1.4 & 1.0 & 1.0 & 1.2 & 0 &  &  &  \\  
+8 & 5.5 & 2.2 & 1.4 & 0.6 & 1.3 & 1.9 & 0.7 & 0 &  &  \\
+9 & 5.7 & 3.0 & 2.2 & 1.4 & 2.2 & 2.6 & 1.2 & 0.9 & 0 &  \\   
+10 & 5.2 & 3.3 & 2.7 & 2.2 & 2.6 & 2.9 & 1.9 & 1.7 & 1.1 & 0 \\           
+ \end{vmatrix} 
+\end{equation}
+\caption{Class separability matrices between 10 classes: spring and autumn 2023}
+\end{equ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+%\nocite{*}
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{Apennines.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
+\end{document}
