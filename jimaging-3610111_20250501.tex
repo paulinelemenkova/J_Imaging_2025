@@ -140,7 +140,7 @@ $^{1}$ \quad Alma Mater Studiorum -- Università di Bologna, Department of Biolo
 %\firstnote{Current address: Affiliation 3.} 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{This work presents the use of remote sensing data for land cover mapping with a case of Central Apennines, Italy. The data include 8 Landsat 8-9 OLI/TIRS satellite images in the short-term period. The operational workflow included satellite image processing which were classified into raster maps with automatically detected 10 classes of land cover types over the tested study. The approach was implemented by using a set of modules in GRASS GIS. To classify remote sensing (RS) data, two types of approaches were carried out. The first is unsupervised classification based on the MaxLike approach and clustering which extracted Digital Numbers (DN) of landscape feature based on the spectral reflectance of signals, and the second is supervised classification performed using several methods of Machine Learning (ML), technically realised in GRASS GIS scripting software. The latter included four ML algorithms embedded from the Python’s Scikit-Learn library. These classifiers have been implemented to detect subtle changes in land cover types as derived from the satellite images showing different vegetation conditions in spring and autumn periods in central Apennines, northern Italy.}
+\abstract{This work presents the use of remote sensing data for land cover mapping with a case of Central Apennines, Italy. The data include 8 Landsat 8-9 \textcolor{blue}{Operational Land Imager/Thermal Infrared Sensor} (OLI/TIRS) satellite images in \textcolor{blue}{six-year period (2018-2024)}. The operational workflow included satellite image processing which were classified into raster maps with automatically detected 10 classes of land cover types over the tested study. The approach was implemented by using a set of modules in \textcolor{blue}{Geographic Resources Analysis Support System} (GRASS) \textcolor{blue}{Geographic Information System} (GIS). To classify remote sensing (RS) data, two types of approaches were carried out. The first is unsupervised classification based on the MaxLike approach and clustering which extracted Digital Numbers (DN) of landscape feature based on the spectral reflectance of signals, and the second is supervised classification performed using several methods of Machine Learning (ML), technically realised in GRASS GIS scripting software. The latter included four ML algorithms embedded from the Python’s Scikit-Learn library. These classifiers have been implemented to detect subtle changes in land cover types as derived from the satellite images showing different vegetation conditions in spring and autumn periods in central Apennines, northern Italy.}
 
 % Keywords
 \keyword{time series; ecosystem; environmental monitoring; geoinformatics; satellite data; ecological conservation; multispectral image; Landsat; GRASS GIS; machine learning} 
@@ -183,11 +183,11 @@ By achieving these objectives, this study seeks to advance the methodologies use
 \begin{figure}[H]
   \centering
       \includegraphics[width=0.99\textwidth]{Fig_01.jpg} \\
-     \caption{Conceptual approach of project workflow. Diagram source: author. Software: GIMP, v. 3.0.2}
+     \caption{\hl{Conceptual approach of project workflow. Diagram source: author. Software: GIMP, version 3.0.2}}
   \label{figDia1}
 \end{figure}
 
-In many cartographic cases, trends in biodiversity and land use change scenario evaluation are detected using time series analysis. However, these trends are rarely evaluated using ML methods of automated image processing. \hl{To address these issues, current work proposes the integration of ML methods, RS data analysis and environmental analysis for cartographic workflow. Specifically, the innovation introduced by the proposal consists in the ML-based classification of Landsat data. In this way, this study integrates three scientific domains: 1) computer science and ML algorithms, 2) image analysis and processing for pattern recognition; 3) environmental and Earth sciences: monitoring landscape dynamics in selected region of Italy. The procedure of image analysis was performed using advanced scripting GRASS GIS software tat combines a module-based classification methodology. Scripting techniques enabled to produce individual maps of land cover changes based on remote sensing (RS) data.}
+In many cartographic cases, trends in biodiversity and land use change scenario evaluation are detected using time series analysis. However, these trends are rarely evaluated using ML methods of automated image processing. \hl{To address these issues, current work proposes the integration of ML methods, RS data analysis and environmental analysis for cartographic workflow. Specifically, the innovation introduced by the proposal consists in the ML-based classification of Landsat data. In this way, this study integrates three scientific domains: 1) computer science and ML algorithms, 2) image analysis and processing for pattern recognition; 3) environmental and Earth sciences: monitoring landscape dynamics in selected region of Italy. The procedure of image analysis was performed using advanced scripting Geographic Resources Analysis Support System Geographic Information System (GRASS GIS) software tat combines a module-based classification methodology. Scripting techniques enabled to produce individual maps of land cover changes based on remote sensing (RS) data.}
 
 %------------------------------->
 \section{Study area}
@@ -197,7 +197,7 @@ In this study, we aim to address these challenges by focusing on the application
 \begin{figure}[H]
   \centering
       \includegraphics[width=0.99\textwidth]{Fig_02.jpg} \\
-     \caption{Topographic map showing the location of the study area -- Landsat satellite images within Italy. Map source: authors. Software: Generic Mapping Tools (GMT)}
+     \caption{Topographic map showing the location of the study area -- Landsat satellite images within Italy. Map source: authors. Software: Generic Mapping Tools (GMT) \hl{version 6.5.0.}}
   \label{fig01}
 \end{figure}
 
@@ -206,13 +206,13 @@ Geographically, the study area covers the region of northern Italy and includes 
 \begin{figure}[H]
   \centering
       \includegraphics[width=0.99\textwidth]{Fig_03.jpg} \\
-     \caption{Land cover types in Italy: 10 major categories generalised from the original 44 classes of Coordination of Information on the Environment Land Cover Classification (CORINE CLC) with the increased fragment of the study area. Data source: Copernicus, 2018. Map source: author. Software: QGIS}
+     \caption{Land cover types in Italy: 10 major categories generalised from the original 44 classes of Coordination of Information on the Environment Land Cover Classification (CORINE CLC) with the increased fragment of the study area. Data source: Copernicus, 2018. Map source: author. Software: QGIS \hl{version 3.42.2 'M\"unster}}
   \label{fig02}
 \end{figure}
 
 \section{Methodology}\label{sec2}
 
-\hl{This framework presents interdisciplinary study, since it strengthens the bridge between ecosystem studies and computer science through application of ML algorithms and image processing as effective tools for land cover analysis and biodiversity mapping. Specifically, advanced methods of RS data analysis that we apply in our study support monitoring goals to detect biodiversity changes or losses in the Apennines, and to evaluate the impacts this has land abandonment on ecosystem dynamics. In this way, RS data analysis enables to evaluate temporal changes in land cover, to map spatial distribution of patches within the landscapes that refer to the biodiversity, to identify regions which are most affected by changes and to quantify the percentage of these changes in short-term period using tools of Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS) for pixel-wise image processing. In general aspect, our approach contributes to the substantially and conservation goals in northern Italy.}
+\hl{This framework presents interdisciplinary study, since it strengthens the bridge between ecosystem studies and computer science through application of ML algorithms and image processing as effective tools for land cover analysis and biodiversity mapping. Specifically, advanced methods of RS data analysis that we apply in our study support monitoring goals to detect biodiversity changes or losses in the Apennines, and to evaluate the impacts this has land abandonment on ecosystem dynamics. In this way, RS data analysis enables to evaluate temporal changes in land cover, to map spatial distribution of patches within the landscapes that refer to the biodiversity, to identify regions which are most affected by changes and to quantify the percentage of these changes in six-year period (2018-2024) using tools of Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS) for pixel-wise image processing. In general aspect, our approach contributes to the substantially and conservation goals in northern Italy.}
 
 %---------------------------->
 \subsection{Data}
@@ -297,23 +297,25 @@ Landsat OLI/TIRS\footnotemark[1] Scene ID & Date Acquired  & Cloud Cover {\% u.m
 %---------------------------->
 \subsection{Workflow}
 
-\hl{In this workflow, we apply multiple ML classifiers (Random Forest, Support Vector Machine, Decision Tree, Multilayer Perceptron Classifier) due to their effectiveness and robust approach to RS data analysis. Classifying RS data is a not straightforward task. Often the problems are caused by the methods of pattern recognition in raster scenes. For instance, high volume of data, requiring robust storage} \cite{Esch02012018,Corbane22122017}, \hl{effective transmission} \cite{10835589,578998,10525710}, \hl{and computational resources} \cite{7326131,7320976}, \hl{to mention a few. The main challenge of satellite images classification is required high level of automation and large volume of data. The strengths of the ML algorithms when applied to RS data include their ability to process high-dimensional geospatial data, automate image analysis, and improve accuracy in complex tasks of data handling like classification and prediction. The limitations of the ML algorithms consist in the need for large amounts of high-quality training data, potential interpretability issues with complex models, and computational requirements. Nevertheless, the effectiveness of ML in RS data processing is reported in many existing case studies, e.g., see } \cite{10725490,9038562,9864505,9883577} \hl{Therefore, the rationale behind choosing the ML methods is justified by the suitability and effectiveness of ML for handling spaceborne images. }
+\hl{In this workflow, we apply multiple ML classifiers (Random Forest, Support Vector Machine, Decision Tree, Multilayer Perceptron Classifier) due to their effectiveness and robust approach to RS data analysis using GRASS GIS version 8.4.1 (current stable release). Classifying RS data is a not straightforward task. Often the problems are caused by the methods of pattern recognition in raster scenes. For instance, high volume of data, requiring robust storage} \cite{Esch02012018,Corbane22122017}, \hl{effective transmission} \cite{10835589,578998,10525710}, \hl{and computational resources} \cite{7326131,7320976}, \hl{to mention a few. The main challenge of satellite images classification is required high level of automation and large volume of data. The strengths of the ML algorithms when applied to RS data include their ability to process high-dimensional geospatial data, automate image analysis, and improve accuracy in complex tasks of data handling like classification and prediction. The limitations of the ML algorithms consist in the need for large amounts of high-quality training data, potential interpretability issues with complex models, and computational requirements. Nevertheless, the effectiveness of ML in RS data processing is reported in many existing case studies, e.g., see } \cite{10725490,9038562,9864505,9883577} \hl{Therefore, the rationale behind choosing the ML methods is justified by the suitability and effectiveness of ML for handling spaceborne images. }
 
-After data import and preprocessing which included radiometric calibration, geometric correction, speckle filtering and terrain correction, the images were first classified using the 'MaxLike' approach of the unsupervised classification which uses clustering, Figure \ref{fig4}. The unsupervised classification was done to receive the results from the MaxLike approach, to compare it with supervised classification. The training data seed was applied for ML processing of each scene and used for four approaches -- Random Forest (RF), Support Vector Machine (SVM) Classifier, Decision Tree (DT) Classifier and Multilayer Perceptron Classifier (MLPC). \hl{The project workflow is illustrated schematically in Figure }\ref{figDia2}.
+\hl{The project workflow is illustrated schematically in Figure }\ref{figDia2}. \hl{The initial step included data import (collection from the USGS library) and preprocessing. The preprocessing of satellite data was implemented using robust approaches in GRASS GIS. These include the following steps: radiometric calibration. The atmospheric correction was performed using the 'i.landsat.toar' modules that calculates top-of-atmosphere reflectance and transform the calibrated digital number (DNs) to top-of-atmosphere values. The geometric correction was performed using the 'i.rectify' module of GRASS GIS that calculates a transformation matrix for the improved scene. The improved data enabled to extract key features including the spectral reflectance and surface topology. The cloud masking has been embedded during the data collection as mask for lower than} 10\% of cloudiness. 
 
 \begin{figure}[H]
   \centering
       \includegraphics[width=0.99\textwidth]{Fig_05.jpg} \\
-     \caption{Workflow scheme of major research clusters and project management contexts.. Diagram source: author. Software: GIMP, v. 3.0.2}
+     \caption{\hl{Workflow scheme of major research clusters and project management contexts.. Diagram source: author. Software: GIMP, version 3.0.2}}
   \label{figDia2}
 \end{figure}
 
-{The classification of the pixels has been done using thresholding technique of remote sensing where threshold is a parameter used in image analysis. It is defined as the level of similarity which pixel has (digital number according to spectral reflectance) and according to this it is classified to the given class. Classifying each pixel on the raster matrix is based on its intensity level compared to the threshold value for the given class.}The outcomes are validated with the computed reject threshold results using \emph{chi} square test to determine levels of confidence of correctly classified pixels on raster scenes. Afterwards, the images were classified accordingly {using the four ML algorithms for years} {2018}, 2019, 2022 and 2023{). }Full shell scripts of the GRASS GIS used for RS data processing (for each of 8 satellite images) and the obtained statistical results are placed in the GitHub repository: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines}.
+After data import and preprocessing which included radiometric calibration, geometric correction, speckle filtering and terrain correction, the images were first classified using the 'MaxLike' approach of the unsupervised classification which uses clustering, Figure \ref{fig4}. The unsupervised classification was done to receive the results from the MaxLike approach, to compare it with supervised classification. The training data seed was applied for ML processing of each scene and used for four approaches -- Random Forest (RF), Support Vector Machine (SVM) Classifier, Decision Tree (DT) Classifier and Multilayer Perceptron Classifier (MLPC).
+
+The classification of the pixels has been done using thresholding technique of remote sensing where threshold is a parameter used in image analysis. It is defined as the level of similarity which pixel has (digital number according to spectral reflectance) and according to this it is classified to the given class. Classifying each pixel on the raster matrix is based on its intensity level compared to the threshold value for the given class. The outcomes are validated with the computed reject threshold results using \emph{chi} square test to determine levels of confidence of correctly classified pixels on raster scenes. Afterwards, the images were classified accordingly {using the four ML algorithms for years} {2018}, 2019, 2022 and 2023{). }Full shell scripts of the GRASS GIS used for RS data processing (for each of 8 satellite images) and the obtained statistical results are placed in the GitHub repository: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines}.
 
 %---------------------------->
 \subsection{{Generalisation of CORINE land cover map}}
 
-The {CORINE land cover map} has been generalised from the initial 41 classes covering the whole country into 10 major classes, as necessary for the study area{, Table} \ref{tabcor}. {This has been done using the dissolve command in QGIS, based on the attribute table}. {All} the Class 1 category which is represented by the artificial classes was merged at Level 1 (category '1xx' in CORINE classification{)}.{ }Following that, Class 2 'Agricultural areas' was merged from the sub-classes such as 21x - arable lands, 22x - permanent crops, 23x - pastures and 24x - heterogeneous agricultural areas\hl{. The spatial resolution of CORINE is 25 ha/100 m.}
+The {CORINE land cover map} has been generalised from the initial 41 classes covering the whole country into 10 major classes, as necessary for the study area{, Table} \ref{tabcor}. {This has been done using the dissolve command in QGIS (\hl{QGIS 3.42.2 'M\"unster'} ), based on the attribute table}. {All} the Class 1 category which is represented by the artificial classes was merged at Level 1 (category '1xx' in CORINE classification{)}.{ }Following that, Class 2 'Agricultural areas' was merged from the sub-classes such as 21x - arable lands, 22x - permanent crops, 23x - pastures and 24x - heterogeneous agricultural areas\hl{. The spatial resolution of CORINE is 25 ha/100 m.}
 
 {Class 3 represents} category 'Forest and semi natural areas'. Here we performed the following generalisations in the classification. The sub-classes '311 Broadleaved forest and semi-natural areas', '312 Coniferous forest' and '313 Mixed forest' were kept separated, since they represent important key classes that should be {distinguished and recognised in our study area}. In contrast, the sub-classes '32x - Scrub and/or herbaceous vegetation associations' were merged. Specifically, these included 4 categories of CORINE -- '321. Natural grasslands', '322. Moors and heathland', '323. Sclerophyllous vegetation' and '324. Transitional woodland-shrub', since it is difficult to distinguish on the satellite images the slight differences in spectral reflectance between these categories. The Class '33x - Open spaces with little or no vegetation' was merged of the sub-categories '331. Beaches, dunes, sands', '332. Bare rocks', '333. Sparsely vegetated areas', and '334. Burnt areas'. The subclass '335. Glaciers and perpetual snow' was kept separated since some satellite {images contain snow-covered areas} in the high mountains. {Finally, wetlands (category '4xx' - all wetlands and their sub-categories) were merged together into one class. New classes were exported to shape files using 'Export / Save Features as' command in the QGIS}.
 
@@ -480,54 +482,11 @@ The land cover types in the northern Italy were recognised as following 10 class
 The comparison of the four algorithms was performed using self-statistics based on the test data, as well as error matrices based on comparison with Corine Land cover data, Figure \ref{fig06}. \hl{The main land cover types identified included following 10 categories: urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland. The results show that the areas of arable lands and pastures are increasing. The exact areas covered by these land cover types are reported and can be explained by the increase of anthropogenic pressure. More specifically, }between 2018 and 2023, the total agricultural surface in the study area decreased by approximately 8.371,5 ha (--16.65\%), according to the data analysis from the machine learning methods of data processing (Tables 4, 5, 6, and 7). The areas occupied by the Class 2 ("arable lands and agricultural fields") have decreased by 19.8 \% from 3,77 to 2,64  ha which shows the minor decrease of cultivated and arable surfaces during this period. The extension of woodland is notable during the five-year period. In fact, according to the cartographic data, the difference between the areas occupied by forest and shrubland (Class  9 "broadleaved trees" and Class 10 "shrubland") in 2018 and 2023 shows the slight increase of scrubland and shrubs, as well as broadleaved forests. Furthermore, woodland areas detected in the image analysis suggest that the woodland cover becomes greater. 
 
 \begin{figure}[H]
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_08a}
-		\caption{Spring RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_08b}
-		\caption{Spring SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_08c}
-		\caption{Spring DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_08d}
-		\caption{Spring MLPC}
-	\end{subfigure}%
-}\\
-\vfill \vspace{0.2mm}
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_08e}
-		\caption{Autumn RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_08f}
-		\caption{Autumn SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_08g}
-		\caption{Autumn DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_08h}
-		\caption{Autumn MLPC}
-	\end{subfigure}%
-}
-\caption{Land cover types in 2023 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig06}
+  \centering
+      \includegraphics[width=0.99\textwidth]{Fig_08.jpg} \\
+     \caption{Land cover types in 2023 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}
+  \label{fig06}
 \end{figure}
-\vspace{-0.5em}
 
 \hl{The areas covered by these land cover types were calculated and compared using four ML approaches to assess land cover dynamics. Using calculations of the landscape fragments, the regression and progression of forest areas were then assessed and reported in results of tabular form that show which type of the land cover types is expanding or decreasing. } \hl{Comparative performance of algorithms is additionally evaluated using F-1 Score of Predictive Performance and Cohen's Kappa Predictive Agreement were computed for ML models in GRASS GIS: (1) Random Forest (RF), (2) Decision Tree, (3) Multilayer Perceptron Classifiers (MLPClassifier),(4) Support Vector Machine (SVM), Table }\ref{tabF1C}. 
 
