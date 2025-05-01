@@ -562,54 +562,11 @@ The comparison of the four algorithms was performed using self-statistics based 
 Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively.Seasonal variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. 
 
 \begin{figure}[H]
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_09a}
-		\caption{Spring RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_09b}
-		\caption{Spring SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_09c}
-		\caption{Spring DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_09d}
-		\caption{Spring MLPC}
-	\end{subfigure}%
-}\\
-\vfill \vspace{0.2mm}
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_09e}
-		\caption{Autumn RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_09f}
-		\caption{Autumn SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_09g}
-		\caption{Autumn DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_09h}
-		\caption{Autumn MLPC}
-	\end{subfigure}%
-}
-\caption{Satellite images on 2019 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig07}
+  \centering
+      \includegraphics[width=0.99\textwidth]{Fig_09.jpg} \\
+     \caption{Satellite images on 2019 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}
+  \label{fig07}
 \end{figure}
-\vspace{-0.5em}
 
 \begin{table}[htb]
 \centering
