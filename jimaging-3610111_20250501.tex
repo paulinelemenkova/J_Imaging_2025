@@ -344,6 +344,8 @@ Landsat OLI/TIRS\footnotemark[1] Land cover class & CORINE codes & Number of pix
 
 The satellite image processing was performed using Geographic Resources Analysis Support System (GRASS) GIS which provides the options of ML for RS data processing. The practical solutions of GRASS GIS to use the ML algorithms is derived from the Scikit-Learn Library of Python \cite{scikitlearn} and consists in using the embedded techniques where the name of each model is explicitly defined \cite{rs17050822,LEMENKOVA2025100180,geosciences15030104}. The ML methods of image processing include the following ones: 1) Random Forest (RF); 2) Support Vector Machine (SVM), 3) Decision Tree Classifier (DTC), and 4) 2) Multi-layer Perceptron (MLP) Classifier of the Artificial Neural Network (ANN). {These} approaches enable to detect changes in land cover types {through advanced image classification}. These algorithms were tested to detect land cover changes {and to select the most accurate classifier}. {We first run a maximum likelihood (MaxLike) classification. This method aims at the estimating the probability pixels distribution in the dataset, that is, cells within the satellite image and enables a straightforward approach to partition of pixels into groups using clusters of cells}, Figure \ref{fig4}. 
 
+Technically, image classification was done using data on DNs of the pixels that {vary in spectral reflectance} according to different land cover types (e.g., water, forest, urban areas, meadows etc{.)}. Similar spectral reflectance within the observed dataset are grouped into the same cluster and vice versa. The results of the MaxLike approach were employed as seed training dataset for the ML algorithms which are described in the following subsections{. }
+
 \begin{figure}[H]
 \hspace{10pt}\makebox[0.99\linewidth][r]{%
 	\begin{subfigure}[b]{.25\textwidth}
@@ -394,7 +396,6 @@ The satellite image processing was performed using Geographic Resources Analysis
 \end{figure}
 \vspace{-0.5em}
 
-Technically, {image classification was} done using data on DNs of the pixels that {vary in spectral reflectance} according to different land cover types (e.g., water, forest, urban areas, meadows etc{.)}. Similar spectral reflectance within the observed dataset are grouped into the same cluster and vice versa. The results of the MaxLike approach were employed as seed training dataset for the ML algorithms which are described in the following subsections{. }
 %---------------------------->
 \subsection{Accuracy assessment and comparison of four algorithms}
 
@@ -472,7 +473,7 @@ The same approach was used for evaluation of classification correctness by other
 
 \section{Results}\label{sec4}
 
-The land cover types in the northern Italy were recognised as following 10 classes according to the existing adopted, modified and generalised classification schemes: 1) urban areas, 2) arable lands and agricultural fields, 3) water areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland.  The major differences verified between image analysis and cartographic data processing by ML methods regard agricultural lands, forests (broadleaved trees), croplands and shrubs, i.e., those coverings characterised by low human impact. For these types of land cover types, the levels of land abandonment and unsustainable pasture maintenance are high. Large areas, no longer used for farming activities, are prone to be spontaneously re-used by natural land cover types (i.e., secondary reforestation). 
+The land cover types in the northern Italy were recognised as following 10 classes according to the existing adopted, modified and generalised classification schemes: 1) water areas, 2) arable lands and agricultural fields, 3) urban areas, 4) needle-leaved trees, 5) bare lands and soils; 6) pastures; 7) permanent herbaceous vegetation; 8) croplands; 9) broadleaved trees; 10) shrubland. The major differences verified between image analysis and cartographic data processing by ML methods regard agricultural lands, forests (broadleaved trees), croplands and shrubs, i.e., those coverings characterised by low human impact. For these types of land cover types, the levels of land abandonment and unsustainable pasture maintenance are high. Large areas, no longer used for farming activities, are prone to be spontaneously re-used by natural land cover types (i.e., secondary reforestation). 
 
 \subsection{Comparison of the four algorithms}
 
@@ -737,55 +738,12 @@ Based on the best performing algorithm, we analysed the main trends in land cove
 \label{tab03}
 \end{table}
 
-\begin{figure}[ht!]
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_10a}
-		\caption{Spring RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_10b}
-		\caption{Spring SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_10c}
-		\caption{Spring DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_10d}
-		\caption{Spring MLPC}
-	\end{subfigure}%
-}\\
-\vfill \vspace{0.2mm}
-\hspace{10pt}\makebox[0.99\linewidth][r]{%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.99\textwidth]{Fig_10e}
-		\caption{Autumn RF}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_10f}
-		\caption{Autumn SVM}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_10g}
-		\caption{Autumn DT}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.25\textwidth}
-		\centering
-			\includegraphics[width=0.98\textwidth]{Fig_10h}
-		\caption{Autumn MLPC}
-	\end{subfigure}%
-}
-\caption{Satellite images on 2022 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}\label{fig08}
+\begin{figure}[H]
+  \centering
+      \includegraphics[width=0.99\textwidth]{Fig_10.jpg} \\
+     \caption{Satellite images on 2022 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}
+  \label{fig08}
 \end{figure}
-\vspace{-0.5em}
 
 Technical differences in the algorithms of image processing are commented as follows. We compared the outputs of the classified images using algorithms of Support Vector Machine (SVM), Multi-layer Perceptron (MLP) Classifier of the Artificial Neural Network (ANN), Decision Tree Classifier (DTC), and Random Forest (RF). Uncertainties across the several ML techniques examined in this study (RF, SVN, DT, and MLPC) nearly always produced results that were acceptable, indicating that the analysis had a high degree of ML reliability. The best results are achieved by the SVM Classifier followed by the Random Forest (RF). Both algorithms differ from the Decision Tree and ANN approaches, due to the different approaches in  identification of the pixels's value on the raster scenes (MLP of ANN and DTC). Hence, the maps generated using the SVM method (Figure \ref{fig03}, a) are comparable with those based on the Random Forest Classifier, while MLP Classifier presented a more generalised map using deep learning network approach. The Decision Tree Classifier demonstrated lesser quality of image processing compared to the above methods. 
 
