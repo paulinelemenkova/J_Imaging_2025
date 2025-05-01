@@ -469,6 +469,8 @@ The aim of accuracy assessment is to  {quantitatively evaluate the proportion of
 \end{figure}
 \vspace{-0.5em}
 
+\hl{The results of image classification were validated against CORINE Land Cover (CLC) data using GRASS GIS to evaluate the accuracy. The choice of CORINE is explained as follows. The CORINE CLC is a pan-European land cover database, offering a detailed classification scheme. The technical details, including metadata reference are available publicly on the Copernicus website}: \href{https://land.copernicus.eu/en/products/corine-land-cover}{https://land.copernicus.eu/en/products/corine-land-cover} \hl{The categories derived from CORINE serve as a ground truth data for validating results of Landsat classification. To perform validation, spatial overlay analysis was implemented using coordinates of the extracted fragment of the CORINE map against the classification maps. The area percentages of each land cover class in the Landsat classification was validated with the CLC data, following which  the Kappa coefficient was calculated to assess the agreement between the image classification and the ground truth CLC dataset.}
+
 The user's accuracy is computed as the number of correctly classified pixels in each land cover class related to total number of reference pixels in {ground truth} data in the same category. The overall accuracy indicates the total number of accurately classified pixels on the Landsat raster matrix related to the total number of reference pixel. Both overall and user's accuracy are indicated in percentage (\%) with the best values close to 100\%. In contrast to these two approaches, Kappa coefficient is based on the chance-adjusted index of agreement where pixels are randomly assigned to classes and evaluated against the ground truth data. \hl{The assessment of accuracy after classification for validation of the results was performed using integration of thematic vector layers and RS datasets. Clustering-based classification demonstrated the overall accuracy of the obtained maps for convergence of 98.1\%, 98.2\% and 98.1\%, respectively. This demonstrated high mapping accuracy based on GRASS GIS processing of remote sensing data. Among the accuracy methods, }Kappa presents a discrete multivariate method of accuracy assessment, \hl{Table }\ref{tabF1C}. 
 
 \begin{table}[H] 
@@ -521,7 +523,7 @@ The comparison of the four algorithms was performed using self-statistics based 
 
 \hl{The areas covered by these land cover types were calculated and compared using four ML approaches to assess land cover dynamics. Using calculations of the landscape fragments, the regression and progression of forest areas were then assessed and reported in results of tabular form that show which type of the land cover types is expanding or decreasing. } \hl{Comparative performance of algorithms is additionally evaluated using F-1 Score of Predictive Performance and Cohen's Kappa Predictive Agreement were computed for ML models in GRASS GIS: (1) Random Forest (RF), (2) Decision Tree, (3) Multilayer Perceptron Classifiers (MLPClassifier),(4) Support Vector Machine (SVM), Table }\ref{tabF1C}. 
 
-The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. 
+The cartographic analysis shows that Class 8 represented by 8) croplands in the study area decreased by 36.7\% while the Class 7 "permanent herbaceous vegetation" increased by 17.5\%, Figure \ref{fig07}. Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively. Seasonal variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. 
 
 \begin{figure}[H]
   \centering
@@ -529,8 +531,6 @@ The cartographic analysis shows that Class 8 represented by 8) croplands in the 
      \caption{Satellite images on 2019 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}
   \label{fig07}
 \end{figure}
-
-Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error matrices that report the report the numerical data{ }for the results of classification according to four tested algorithms{.}The tables show the relationship between the classified pixels in the satellite image and the corresponding ground truth data in the CORINE{.} {According to the error matrices presented Tables} \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d}, the ML demonstrated robust accuracy for satellite image classification with high accuracy with the best performance is shown by the SVM algorithm slightly followed by the RF, DT and MLPC approaches. The results indicate that the use of this algorithm coupled to the 30 m resolution multispectral bands of Landsat had the best performance compared to other machine learning models, respectively. Seasonal variations of pixels by 10 classes on 2019, 2022 and 2023 are summarised in Table \ref{tab03}. 
 
 \begin{table}[htb]
 \centering
@@ -556,6 +556,8 @@ Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error 
 \label{tab02a}
 \end{table}
 
+Based on the best performing algorithm, we analysed the main trends in land cover development in the study period. This included the identification of the major trends (increase-decrease of certain landscape patterns) in the area covered by the 10 land cover classes over the study period. The comparison of spatial occupation of vegetation and urban areas is ensured by the comparability of the maps with SVM as the best algorithm. \hl{Specifically, }the SVM outperforms maps in terms of visualization accuracy and is well aligned with results obtained from land cover change variations and urban growth around Central Apennines: Decrease in areas occupied by bare lands and soils (Class 5) and pastures (Class 6); the increase in areas occupied by shrubland (Class 10) and arable lands and agricultural fields (Class 2) as well as slight variations of other land use classes, related to climate and environmental impact factors. In addition, there are uncertainties in the automated pixel grouping\hl{ }and visualized in the precision maps of Figure \ref{figA2}. However, the use of directed classification eliminates these errors by more precisely assigning pixels to different classes. As noted earlier, the decision tree classifier\hl{ }provides a more realistic approach to land cover classifications needed to better estimate classes with assigned pixels.
+
 \begin{table}[ht!]
 \centering
 \begin{tabularx}{\textwidth}{| p{1.3cm} | X | X | X | X | X | X | X | X | X | X | p{0.6cm} | p{0.8cm} |}
@@ -579,8 +581,6 @@ Tables \ref{tab02a}, \ref{tab02b}, \ref{tab02c} and \ref{tab02d} show the error 
 \caption{Error matrix for validation of RF algorithm.}
 \label{tab02b}
 \end{table}
-
-Based on the best performing algorithm, we analysed the main trends in land cover development in the study period. This included the identification of the major trends (increase-decrease of certain landscape patterns) in the area covered by the 10 land cover classes over the study period. The comparison of spatial occupation of vegetation and urban areas is ensured by the comparability of the maps with SVM as the best algorithm. 
 
 \begin{table}[htb]
 \centering
@@ -669,8 +669,6 @@ Compared to other approaches, the SVM algorithm demonstrated the best performanc
      \caption{Satellite images on 2022 classified by four algorithms (RF, SVM, DT and MLPC) for spring and autumn periods.}
   \label{fig08}
 \end{figure}
-
-The SVM outperforms maps in terms of visualization accuracy and is well aligned with results obtained from land cover change variations and urban growth around Central Apennines: Decrease in areas occupied by bare lands and soils (Class 5) and pastures (Class 6); the increase in areas occupied by shrubland (Class 10) and arable lands and agricultural fields (Class 2) as well as slight variations of other land use classes, related to climate and environmental impact factors. In addition, there are uncertainties in the automated pixel grouping\hl{ }and visualized in the precision maps of Figure \ref{figA2}. However, the use of directed classification eliminates these errors by more precisely assigning pixels to different classes. As noted earlier, the decision tree classifier\hl{ }provides a more realistic approach to land cover classifications needed to better estimate classes with assigned pixels.
 
 \hl{The advantages} of SVM is explained by its effectivity in high dimensional datasets which is valuable for satellite images that consists thousands of pixels as cells. In our case, 8 multispectral images were classified automatically for each band of Landsat 8-9 OLI/TIRS scenes with 30-m resolution. The target periods cover spring and autumn periods with different vegetation types. Each raster image of the Landsat image contained 7911 rows and 7762 columns of cells, therefore, the automatic approach of processing there data was essential to ensure rapid and accurate data handling. Moreover, the SVM presents high search accuracy compared to other algorithms after a few iterations. 
 
