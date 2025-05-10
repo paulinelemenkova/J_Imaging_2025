@@ -234,8 +234,8 @@ Landsat products have been utilised in diverse environmental applications during
 
 \begin{figure}[H]
 
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+%\begin{adjustwidth}{-\extralength}{0cm}
+\centering 
 \hspace{10pt}\makebox[0.99\linewidth][r]{%
 	\begin{subfigure}[b]{.25\textwidth}
 		\centering
@@ -281,8 +281,8 @@ Landsat products have been utilised in diverse environmental applications during
 	\captionsetup{justification=centering}	\caption{3 October 2023.}
 	\end{subfigure}%
 }
-\end{adjustwidth}
-\caption{\hl{Original} %MDPI: Please try to straighten the figure as much as possible here and in the figures below
+%\end{adjustwidth}
+\caption{Original %MDPI: Please try to straighten the figure as much as possible here and in the figures below % Author: yes, corrected (deleted "adjustwidth" for better position).
  dataset of Landsat images in natural colour composite{ }covering the region of Central Apennines{. }Data source: {United States Geological Survey} (USGS). Compilation: authors.}\label{fig03}
 \end{figure}
 
@@ -308,7 +308,7 @@ LC91910302023276LGN00 & 3 October 2023 & 4.24 \\
 
 \bottomrule
 \end{tabularx}
-\noindent{\footnotesize{Information source: USGS. \textsuperscript{1} \hl{These} %MDPI: Footnotes are not supported in our journal. We have therefore included this paragraph in the table footer. Please confirm. Same case for below table footer
+\noindent{\footnotesize{Information source: USGS. These %MDPI: Footnotes are not supported in our journal. We have therefore included this paragraph in the table footer. Please confirm. Same case for below table footer % Author: yes, I confirm. 
  data are provided from the Landsat sensors 8-9 Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS).}}
 \end{table}
 
@@ -336,8 +336,8 @@ After data import and preprocessing which included radiometric calibration, geom
 
 \begin{figure}[H]
 
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\begin{adjustwidth}{-\extralength}{-5cm}
+\centering 
 	\begin{subfigure}[b]{.25\textwidth}
 		\centering
 			\includegraphics[width=0.98\textwidth]{Fig_06a.jpg}
@@ -382,13 +382,12 @@ After data import and preprocessing which included radiometric calibration, geom
 	\end{subfigure}%
 
 \end{adjustwidth}
-\caption{\hl{Images} %MDPI: Please add a left bracket in the image, e.g., “A)” should be “(A)”. Also, some content seems to be obstructed by the images, please confirm it doesn't affect scientific reading. Please note that changes to the position/size of figures or tables may occur during the production stage.
+\caption{Images %MDPI: Please add a left bracket in the image, e.g., “A)” should be “(A)”. Also, some content seems to be obstructed by the images, please confirm it doesn't affect scientific reading. Please note that changes to the position/size of figures or tables may occur during the production stage. % Author: 1. Corrected: added a left bracket in the images. 2. I confirm that the content representation doesn't affect scientific reading. 3. I agree with possible position/size changes during the production stage.
  classified by the MaxLike algorithm for spring and autumn periods.}\label{fig4}
 \end{figure}
 
-The classification of the pixels has been done using thresholding technique of remote sensing where threshold is a parameter used in image analysis. It is defined as the level of similarity which pixel has (digital number according to spectral reflectance) and according to this it is classified to the given class. Classifying each pixel on the raster matrix is based on its intensity level compared to the threshold value for the given class. The outcomes are validated with the computed reject threshold results using \emph{\hl{chi} %MDPI: Please confirm if the italics are necessary; if not, please remove them. The following highlights are the same.
-} square test to determine levels of confidence of correctly classified pixels on raster scenes. Afterwards, the images were classified accordingly {using the four ML algorithms for years} {2018}, 2019, 2022 and 2023{). }Full shell scripts of the GRASS GIS used for RS data processing (for each of 8~satellite images) and the obtained statistical results are placed in the GitHub repository: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines} \hl{(accessed on).} %MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”.
-
+The classification of the pixels has been done using thresholding technique of remote sensing where threshold is a parameter used in image analysis. It is defined as the level of similarity which pixel has (digital number according to spectral reflectance) and according to this it is classified to the given class. Classifying each pixel on the raster matrix is based on its intensity level compared to the threshold value for the given class. The outcomes are validated with the computed reject threshold results using chi %MDPI: Please confirm if the italics are necessary; if not, please remove them. The following highlights are the same. % Author: not necessary, italics removed. 
+square test to determine levels of confidence of correctly classified pixels on raster scenes. Afterwards, the images were classified accordingly {using the four ML algorithms for years} {2018}, 2019, 2022 and 2023{). }Full shell scripts of the GRASS GIS used for RS data processing (for each of 8~satellite images) and the obtained statistical results are placed in the GitHub repository: \href{https://github.com/paulinelemenkova/Apennines}{https://github.com/paulinelemenkova/Apennines} (accessed on 07 April 2025). %MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”. % Author: information added.
 
 %---------------------------->
 \subsection{{Generalisation of CORINE Land Cover Map}}
@@ -402,28 +401,28 @@ The classification of the pixels has been done using thresholding technique of r
 \small
 \begin{tabularx}{\textwidth}{lll}
 \toprule
-\textbf{Landsat OLI/TIRS \textsuperscript{1} Land Cover Class} & \textbf{CORINE Codes} & \textbf{Number of Pixels}  \\
+\textbf{Landsat OLI/TIRS Land Cover Class} & \textbf{CORINE Codes} & \textbf{Number of Pixels}  \\
 \midrule
         Artificial surfaces & 111--142 & 1,274,084 \\ \midrule
         Agricultural areas & 211--244 & 2,236,395  \\ \midrule
-        Broadleaved forests & 23\hl{,}%MDPI: Please confirm if a space should be added after comma to separate the numbers in this column.
-128,255,000,255,311,313--335 & 857,355  \\ \midrule
-        Wetlands & 411--423 & 23,714  \\ \midrule
-	Water & 511--523 & 445,175  \\ \midrule
-        Coniferous forests & 24,000,166,000,255,312 & 4,543,992  \\ \midrule
-        Mixed forests & 25,077,255,000,255,313 & 47,634,298  \\ \midrule
+        Broadleaved forests & %MDPI: Please confirm if a space should be added after comma to separate the numbers in this column. % Author: I removed extra numbers (typesetting errors signifying RGM codes - unnecessary here). I sorted rows by CORINE Codes (increasing).
+311, 313--335 & 857,355  \\ \midrule
+        Coniferous forests & 312 & 4,543,992  \\ \midrule
+        Mixed forests & 313 & 47,634,298  \\ \midrule
         Scrub and/or herbaceous vegetation & 321--324 & 275,290  \\ \midrule
         Open spaces with little of no vegetation & 331--335 & 23,356  \\ \midrule
-        Glaciers and perpetual snow & 34,166,230,204,255,335~~~~~~~~~~~~~~ & 14,891  \\ 
+        Glaciers and perpetual snow & 335~~~~~~~~~~~~~~ & 14,891  \\  \midrule
+        Wetlands & 411--423 & 23,714  \\ \midrule
+	Water & 511--523 & 445,175  \\
 \bottomrule
 \end{tabularx}
-\noindent{\footnotesize{Information source: CORINE (Copernicus). \textsuperscript{1} The number of samples is smaller than the number of total pixels since a a representative training set is enough to train a ML classifier.}}
+\noindent{\footnotesize{Information source: CORINE (Copernicus). The number of samples is smaller than the number of total pixels since a a representative training set is enough to train a ML classifier.}}
 \end{table}
 
 %---------------------------->
 \subsection{Techniques and Algorithms}
 
-The satellite image processing was performed using Geographic Resources Analysis Support System (GRASS) GIS which provides the options of ML for RS data processing. The practical solutions of GRASS GIS to use the ML algorithms is derived from the Scikit-Learn Library of Python~\cite{scikitlearn} and consists in using the embedded techniques where the name of each model is explicitly defined~\cite{rs17050822,LEMENKOVA2025100180,geosciences15030104}. The ML methods of image processing include the following ones: (1) Random Forest (RF); (2) Support Vector Machine (SVM), (3) Decision Tree Classifier (DTC), and \hl{(4) (2)} %MDPI: Please confirm if the content is correct.
+The satellite image processing was performed using Geographic Resources Analysis Support System (GRASS) GIS which provides the options of ML for RS data processing. The practical solutions of GRASS GIS to use the ML algorithms is derived from the Scikit-Learn Library of Python~\cite{scikitlearn} and consists in using the embedded techniques where the name of each model is explicitly defined~\cite{rs17050822,LEMENKOVA2025100180,geosciences15030104}. The ML methods of image processing include the following ones: (1) Random Forest (RF); (2) Support Vector Machine (SVM), (3) Decision Tree Classifier (DTC), and (4) %MDPI: Please confirm if the content is correct. % Author: corrected to (4).
  Multi-layer Perceptron (MLP) Classifier of the Artificial Neural Network (ANN). {These} approaches enable to detect changes in land cover types {through advanced image classification}. These algorithms were tested to detect land cover changes {and to select the most accurate classifier}. {We first run a maximum likelihood (MaxLike) classification. This method aims at the estimating the probability pixels distribution in the dataset, that is, cells within the satellite image and enables a straightforward approach to partition of pixels into groups using clusters of cells}, Figure \ref{fig4}. 
 
 Technically, image classification was done using data on DNs of the pixels that {vary in spectral reflectance} according to different land cover types (e.g., water, forest, urban areas, meadows etc{.)}. Similar spectral reflectance within the observed dataset are grouped into the same cluster and vice versa. The results of the MaxLike approach were employed as seed training dataset for the ML algorithms which are described in the following subsections{. }
@@ -449,15 +448,15 @@ The aim of accuracy assessment is to  {quantitatively evaluate the proportion of
 	\item Kappa coefficient for identification of misclassified and confused classes mixed with other categories.
 \end{enumerate}
 
-{Cartographic accuracy of image classification is presented on the series of rejection probability maps. These maps visualise the reject raster maps which indicate the reject threshold results. The maps are generated based on the computed \hl{\emph{chi}} %MDPI: Please confirm if the italics are necessary; if not, please remove them. 
- square test on each image analysis at various thresholds of confidence. This maps determines at what confidence level each cell is classified correctly. The visualised maps are presented in Figure} \ref{figA2} as the reject threshold layer which contains the index to one calculated confidence level for each classified cell in each Landsat image. The results of image classification were validated against CORINE Land Cover (CLC) data using GRASS GIS to evaluate the accuracy. The choice of CORINE is explained as follows. The CORINE CLC is a pan-European land cover database, offering a detailed classification scheme. The technical details, including metadata reference are available publicly on the Copernicus \hl{website:} %MDPI: We cannot access the link to this website. Please check and provide a available website.
- \url{https://land.copernicus.eu/en/products/corine-land-cover} \hl{(accessed on).} %MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”.
+{Cartographic accuracy of image classification is presented on the series of rejection probability maps. These maps visualise the reject raster maps which indicate the reject threshold results. The maps are generated based on the computed chi %MDPI: Please confirm if the italics are necessary; if not, please remove them.  % Author: not necessary, I removed it.
+ square test on each image analysis at various thresholds of confidence. This maps determines at what confidence level each cell is classified correctly. The visualised maps are presented in Figure} \ref{figA2} as the reject threshold layer which contains the index to one calculated confidence level for each classified cell in each Landsat image. The results of image classification were validated against CORINE Land Cover (CLC) data using GRASS GIS to evaluate the accuracy. The choice of CORINE is explained as follows. The CORINE CLC is a pan-European land cover database, offering a detailed classification scheme. The technical details, including metadata reference are available publicly on the Copernicus website: %MDPI: We cannot access the link to this website. Please check and provide a available website. % Author: information updated.
+ \url{https://land.copernicus.eu/en} (accessed on 10 May 2025). %MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”. % Author: information added.
 
 
 \begin{figure}[H]
 
 \begin{adjustwidth}{-\extralength}{0cm}
-\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\centering 
 	\begin{subfigure}[b]{.25\textwidth}
 		
 			\includegraphics[width=0.98\textwidth]{Fig_07a.jpg}
