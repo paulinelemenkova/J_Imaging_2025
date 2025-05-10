@@ -121,8 +121,8 @@
 \newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{\hl{Polina} %MDPI: Please carefully check the accuracy of names and affiliations.
- \hl{Lemenkova} %MDPI: 1.If only one author, correspondence is not needed, so we deleted it, please confirm. 2. If only one affiliation, affiliation number is not needed, so we deleted it, please confirm.
+\Author{Polina %MDPI: Please carefully check the accuracy of names and affiliations. % Author: yes, correct.
+ Lemenkova %MDPI: 1.If only one author, correspondence is not needed, so we deleted it, please confirm. 2. If only one affiliation, affiliation number is not needed, so we deleted it, please confirm. % Author: 1. yes, I confirm. 2. yes, I confirm. 
  \orcidA{}}
 
 %\longauthorlist{yes}
@@ -136,9 +136,9 @@
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address[1]{%
- \hl{Department} %MDPI: We arranged the authors’ address information from subordinate to superior. Please check and confirm this modification.
- of Biological, Geological and Environmental Sciences, Alma Mater Studiorum---Università di~Bologna, Via Irnerio 42, 40126 Bologna, \hl{Emilia-Romagna}, Italy; polina.lemenkova2@unibo.it \linebreak\hl{or} %MDPI: 1. Please confirm if Emilia-Romagna can be deleted since it's unnecesary. 2. Please confirm if both emails should be kept.
- polina.lemenkova@unibz.it; Tel.: +39-3446928732
+ Department %MDPI: We arranged the authors’ address information from subordinate to superior. Please check and confirm this modification. % Author: yes, agree and confirm. 
+ of Biological, Geological and Environmental Sciences, Alma Mater Studiorum---Università di~Bologna, Via Irnerio 42, 40126 Bologna, Italy; polina.lemenkova2@unibo.it; Tel.: +39-3446928732.  %MDPI: 1. Please confirm if Emilia-Romagna can be deleted since it's unnecesary. 2. Please confirm if both emails should be kept. % Author: 1. yes, can be deleted (I deleted it). 1. yes, 2nd email is not needed, I removed it. 
+ 
 }
 
 % Contact information of the corresponding author
@@ -165,15 +165,15 @@
 
 Understanding and monitoring land cover dynamics in mountainous regions is critical for addressing the impacts of climate change, biodiversity loss, and socio-economic transitions~\cite{VACCHIANO201757,BENGTSSON200039}. These landscapes are shaped by complex interactions between natural processes and human activities, making them particularly sensitive to both environmental and anthropogenic drivers~\cite{LASANTA2017810,data7060074,BEBI201743}. The Central Apennines of Italy, a biodiversity hotspot, is a prime example of such a region~\cite{Ogwu2024}. Its diverse ecosystems provide critical services, including water regulation, carbon sequestration, and habitat provision, while also supporting human livelihoods through forestry and agriculture~\cite{VACCHIANO201757}. However, these landscapes have undergone significant transformations over recent decades, driven by land abandonment, forest encroachment and climate-change related processes, including increased drought events and altered disturbance regimes~\cite{SEBASTIANI2024101329,Vitali,BEBI201743}.
 
-Traditional agro-silvo-pastoral practices that once maintained a rich landscape mosaic have declined throughout the 20th century due to rural depopulation and socio-economic shifts~\cite{Vitali}. Social factors include the aging of farmers and the relocation of young people to larger urban centres for better economic conditions~\cite{MAREGGI2024103358,BRUNORI2007183}. This affected agricultural and agroforestry sectors in Apennines and caused changes in landscape mosaic, in a similar fashion to what observed in other mountainous landscapes~\cite{LASANTA2017810,PERPINACASTILLO2021104946,geomatics5010005,Arnaez}. The widespread agricultural land abandonment resulted in forest expansion and habitat homogenization. Over the 1936--2018 period, for instance, forest cover increased from 29\% (\hl{1.673.266} %MDPI: Please use commas to separate out the thousands in numbers with five or more digits (but not four digits). Please confirm if the period should be comma. The same below.
- ha) to 38\% (\hl{2.214.671} ha) in Central Italy~\cite{AGNOLETTI2022119655}, and the area has been characterized as one of the land use change hotspots of Europe~\cite{Kuemmerle_2016}. While some of these processes have positive effects, such as ecosystem restoration and increased forest cover, others pose significant challenges, including biodiversity loss, soil erosion, and reduced landscape diversity~\cite{Falcucci,AMEZTEGUI2021104240}.
+Traditional agro-silvo-pastoral practices that once maintained a rich landscape mosaic have declined throughout the 20th century due to rural depopulation and socio-economic shifts~\cite{Vitali}. Social factors include the aging of farmers and the relocation of young people to larger urban centres for better economic conditions~\cite{MAREGGI2024103358,BRUNORI2007183}. This affected agricultural and agroforestry sectors in Apennines and caused changes in landscape mosaic, in a similar fashion to what observed in other mountainous landscapes~\cite{LASANTA2017810,PERPINACASTILLO2021104946,geomatics5010005,Arnaez}. The widespread agricultural land abandonment resulted in forest expansion and habitat homogenization. Over the 1936--2018 period, for instance, forest cover increased from 29\% (1,673,266 %MDPI: Please use commas to separate out the thousands in numbers with five or more digits (but not four digits). Please confirm if the period should be comma. The same below. % Author: yes, I confirm (corrected to commas). 
+ ha) to 38\% (2,214,671 ha) in Central Italy~\cite{AGNOLETTI2022119655}, and the area has been characterized as one of the land use change hotspots of Europe~\cite{Kuemmerle_2016}. While some of these processes have positive effects, such as ecosystem restoration and increased forest cover, others pose significant challenges, including biodiversity loss, soil erosion, and reduced landscape diversity~\cite{Falcucci,AMEZTEGUI2021104240}.
 
 Effectively tracking these land cover dynamics is essential for informed conservation and management strategies~\cite{gutman2004land, AMICI201738}. However, traditional monitoring methods often rely on labor-intensive field surveys and fragmented {data}, which limit their spatial and temporal coverage~\cite{Lelli2018,Lelli,GLASER2024108798}. Field-based studies, while valuable for localized and detailed insights, are inherently constrained by logistical challenges, including the difficulty of accessing remote or rugged terrains and the time-consuming nature of data collection~\cite{Alessi}. Moreover, they lack the capacity to capture rapid or large-scale changes across diverse landscapes, making it difficult to establish comprehensive and timely assessments~\cite{Knollova2024,constrmater3010008}. There is a growing need for advanced tools that can provide automated, scalable, and reproducible assessments of landscape changes.
 
 Remote sensing (RS) technologies offer a transformative approach to landscape monitoring~\cite{BALDO2023101922,ZHU2022113266,earth5030024}. By providing spatially comprehensive and temporally consistent datasets, satellite imagery allows for detailed analysis of land cover patterns~\cite{ANSELMETTO2024104973,BRACCHETTI2012157,jmse12081279}. When coupled with Machine Learning (ML) algorithms, Remote Sensing (RS) data can be used to automate the classification and detection of land cover changes with high accuracy~\cite{w16081141}. ML techniques are particularly advantageous in handling the complexity of RS {data}, enabling the identification of subtle patterns and trends that may be overlooked {in} traditional methods~\cite{BAOPHAM202417,jmse12050709}. Despite these advantages, challenges remain in selecting the most effective ML algorithms for {monitoring} landscapes and ensuring the reproducibility of analyses.
 
-{The experience of the RS data applications to environmental monitoring of Apennines is recorded in many reported case studies}~\cite{Leone01012001,Bonfiglio01012002,Salvati01062013}. {These reflect a long process of technical evolution of Earth Observation (EO) data since 1970s and their applications for regional studies in Italy}~\cite{Lanorte01012019,Spinetti18082019,DaRonco02062020} {and their practical application for ecological monitoring}~\cite{LEONE01041995,MariaBruschi01122012} {and geological studies}~\cite{Civile30112017,Panini09122020} {of Italy. The case studies of EO-based mapping Apennines used for environmental monitoring went through a constant development of cartographic technologies and state-of-the-art methods of environmental monitoring}~\cite{Petriccione01122005,Canullo01122005,Florenzano01012004,Segadelli30112017}. {The systematic, precise and operative observation of the landscape dynamics in Apennines using EO data began in late 20th century along with a progress in RS technologies, development of new software of their processing and general advances in mapping methods}~\cite{Savelli01032012,Mario31122023,Mariani13112018}. {Since that period, environmentalists in Italy started recording changes in land cover types \hl{(} %MDPI: Please add the closing brackets
-deforestation}, {land fragmentation}~\cite{Salvati02012017,Franchini03092022,Meriggi01012001}, {soil erosion and systematical use of RS data processing}~\cite{DAmico31122022}. {Until now, GIS were employed for EO data processing and mapping in research focusing on Italian Peninsula}~\cite{Marsico30112017,Spinetti18082019}.
+{The experience of the RS data applications to environmental monitoring of Apennines is recorded in many reported case studies}~\cite{Leone01012001,Bonfiglio01012002,Salvati01062013}. {These reflect a long process of technical evolution of Earth Observation (EO) data since 1970s and their applications for regional studies in Italy}~\cite{Lanorte01012019,Spinetti18082019,DaRonco02062020} {and their practical application for ecological monitoring}~\cite{LEONE01041995,MariaBruschi01122012} {and geological studies}~\cite{Civile30112017,Panini09122020} {of Italy. The case studies of EO-based mapping Apennines used for environmental monitoring went through a constant development of cartographic technologies and state-of-the-art methods of environmental monitoring}~\cite{Petriccione01122005,Canullo01122005,Florenzano01012004,Segadelli30112017}. {The systematic, precise and operative observation of the landscape dynamics in Apennines using EO data began in late 20th century along with a progress in RS technologies, development of new software of their processing and general advances in mapping methods}~\cite{Savelli01032012,Mario31122023,Mariani13112018}. Since that period, environmentalists in Italy started recording changes in land cover types (%MDPI: Please add the closing brackets % Author: brackets added after citation \cite{DAmico31122022}.
+deforestation, {land fragmentation}~\cite{Salvati02012017,Franchini03092022,Meriggi01012001}, {soil erosion and systematical use of RS data processing}~\cite{DAmico31122022}). {Until now, GIS were employed for EO data processing and mapping in research focusing on Italian Peninsula}~\cite{Marsico30112017,Spinetti18082019}.
 
 {Nevertheless, }developing workflows to produce new data on land cover dynamics in a reproducible way is critical for understanding the long-term impacts of landscape transformations on biodiversity~\cite{land14040828,rs17071296,rs17071304}, ecosystem functioning~\cite{Jarnagin01092004}, and local livelihoods~\cite{Kuemmerle_2016,Buthelezi16022024}. {Though existing studies  Machine Learning (ML) has not been widely used in past studies of Apennines that use Remote Sensing (RS) data, our study revealed that ML combined with RS and thematic data, such as Coordination of Information on the Environment (CORINE), and several algorithms (such as RF, SVM, MLPC and DT), contributed to a more advanced research framework. Integrative approaches enable us to better understand landscape dynamics through revealed spatial-temporal trends in land cover types}~\cite{DellOvo02092023}. {This is possible due to accurate computations, fine visualization, and precise image analysis supported by ML-based RS data analysis. Hence, integrative studies that employ several approaches and datasets play an important role in the environmental monitoring techniques. In this way, this paper contributed to development of advanced framework of geospatial data analysis with multi-source data and techniques.}
 
@@ -196,7 +196,7 @@ By achieving these objectives, this study seeks to advance the methodologies use
   \label{figDia1}
 \end{figure}
 
-In many cartographic cases,  in biodiversity and land use change scenario evaluation are detected using time series analysis. However, these trends {should be evaluated more} using ML methods of automated image processing{, because ML increases accuracy, speed and automation of data processing, which present significant advantages to geospatial analysis}~\cite{9498434,9591110,710689}. {To address these issues, current work proposes the integration of ML methods, RS data analysis and environmental analysis for cartographic workflow. Specifically, the innovation introduced by the proposal consists in the ML-based classification of Landsat data. In this way, this study integrates three scientific domains: (1) computer science and ML algorithms, (2) image analysis and processing for pattern recognition; (3)~environmental and Earth sciences: monitoring landscape dynamics in selected region of Italy. The procedure of image analysis was performed using advanced scripting Geographic Resources Analysis Support System Geographic Information System (GRASS GIS) \hl{software} %MDPI: Please state which version of the software was used.
+In many cartographic cases,  in biodiversity and land use change scenario evaluation are detected using time series analysis. However, these trends {should be evaluated more} using ML methods of automated image processing{, because ML increases accuracy, speed and automation of data processing, which present significant advantages to geospatial analysis}~\cite{9498434,9591110,710689}. {To address these issues, current work proposes the integration of ML methods, RS data analysis and environmental analysis for cartographic workflow. Specifically, the innovation introduced by the proposal consists in the ML-based classification of Landsat data. In this way, this study integrates three scientific domains: (1) computer science and ML algorithms, (2) image analysis and processing for pattern recognition; (3)~environmental and Earth sciences: monitoring landscape dynamics in selected region of Italy. The procedure of image analysis was performed using advanced scripting Geographic Resources Analysis Support System Geographic Information System (GRASS GIS) software, version 8.4.1 %MDPI: Please state which version of the software was used. % Author: information added.
  tat combines a module-based classification methodology. Scripting techniques enabled to produce individual maps of land cover changes based on remote sensing (RS) data.}
 
 %------------------------------->
@@ -207,8 +207,8 @@ In this study, we aim to address these challenges by focusing on the application
 \begin{figure}[H]
   
       \includegraphics[width=0.99\textwidth]{Fig_02.jpg} 
-     \caption{\hl{Topographic} %MDPI: Please provide an explanation for the red star abd blue square
- map showing the location of the study area---Landsat satellite images within Italy. Map source: authors. Software: Generic Mapping Tools (GMT) {version 6.5.0.}}
+     \caption{Topographic %MDPI: Please provide an explanation for the red star abd blue square % Author: information added.
+ map showing the location of the study area. Blue square indicates the location of the Landsat satellite images within Italy; red star denotes the position of the capital. Map source: authors. Software: Generic Mapping Tools (GMT) {version 6.5.0.}}
   \label{fig01}
 \end{figure}
 
@@ -439,7 +439,7 @@ Since classification maps invariably contain misclassified pixels and possible c
 	\item the quality and details of the spectral signatures of training data (30-m resolution);
 	\item the performance of the ML algorithms in processing on pixels in multispectral data;
 	\item the complexity of the land cover pattern which affect the distinguishability of classes;
-	\item the hierarchical level of the separability categories (in our case, 10 classes).
+	\item the hierarchical level of the separability categories (10 classes), Appendix \ref{secMatr}.
 \end{itemize} 
 	
 The aim of accuracy assessment is to  {quantitatively evaluate the proportion of pixels correctly assigned to a given land cover category}. Therefore, we evaluated the quality of the {output maps made with the four ML algorithms and validated against the ground truth data obtained from CORINE}:
@@ -727,7 +727,7 @@ Compared to other approaches, the SVM algorithm demonstrated the best performanc
   \label{fig08}
 \end{figure}
 
-{The advantages} of SVM is explained by its effectivity in high dimensional datasets which is valuable for satellite images that consists thousands of pixels as cells. In our case, 8~multispectral images were classified automatically for each band of Landsat 8-9 OLI/TIRS scenes with 30-m resolution. The target periods cover spring and autumn periods with different vegetation types. Each raster image of the Landsat image contained 7911 rows and 7762 columns of cells, therefore, the automatic approach of processing there data was essential to ensure rapid and accurate data handling. Moreover, the SVM presents high search accuracy compared to other algorithms after a few iterations. 
+{The advantage} of SVM is explained by its effectivity in high dimensional datasets which is valuable for satellite images that consists thousands of pixels as cells. In our case, 8~multispectral images were classified automatically for each band of Landsat 8-9 OLI/TIRS scenes with 30-m resolution. The target periods cover spring and autumn periods with different vegetation types. Each raster image of the Landsat image contained 7911 rows and 7762 columns of cells, therefore, the automatic approach of processing there data was essential to ensure rapid and accurate data handling. Moreover, the SVM presents high search accuracy compared to other algorithms after a few iterations. 
 
 {The }SVM {works well } for time series analysis where several satellite images are compared{, because} this method is effective when number of dimensions is larger than samples. This is particular valuable for detecting complex land cover patterns in the regions of central Apennines with high heterogeneity of landscapes, such as mixed areas with urban areas and natural spaces. Being one of the most efficient inductive learning algorithms of ML{, }SVM has advantages in {image} classification{ }due to the effects of dependence distribution of nodes within classes and integrated dependence of all nodes. In this way, it works similar to the Naïve Bayes, {which makes it} optimal for {image }classification where the dependences distribute evenly in classes{. This} excellently suits to the homogeneous types of landscapes with diversified land cover classes. However, this approach is not optimised for images with high landscape heterogeneity and contrasting landscape types (e.g., sharp gradient between the coastal and mountainous areas). 
 
@@ -763,23 +763,22 @@ Scripting provides a quantitative, robust and effective way of evaluating land c
 
 Mapping changes in land cover and assessing dynamics can show how a landscape pattern is distributed spatially. Therefore, in future  research, it is advised to determine how effective the approach is at differentiating between the best thematic aggregation of maps and machine learning (ML) methods, as indicated by this study. Using automated data analysis, the mountainous regions of Central Apennines and surroundings were analysed through the classified series of images. The proposed algorithms of GRASS GIS scripts can be further extended to other regions and environmental applications where satellite image processing is required such as classification of landscapes using multi-temporal set of images. Hence, in this study, an advanced approach of GRASS GIS scripts was  introduced to evaluating environmental properties of landscapes changed under climate and human-induced effects in Central Italy, using `i.cluster', `i.maxlik', `r.learn.train', `r.learn.predict' and other scripting modules of GRASS GIS. The output results shows the behaviour of land cover types in the coastal landscapes through the changes in patches as a result of the climate effects reacting as driver for land cover changes in mountainous ecosystems of Central Italy. 
 
-The consequences of various ML parameters on the cartographic outputs are analysed in this work, such as speed and accuracy, randomness of nodes, analytical determination of the output weights, and dependence distribution of pixels for each algorithm. Supervised learning models of GRASS GIS were tested and compared. The results shown that the most time-consuming algorithms was noted as SVC classification, while the fastest results were achieved by the Decision Tree approach to image processing and the best results are achieved by RF Classifier. Though each algorithms was developed to serve different objectives of ML applications in RS data processing, their technical implementation and practical purposes present valuable approaches to cartographic data processing and image~\hl{analysis. } %MDPI: The Author Contributions section was removed, as it is unnecessary when there is only one author. Please confirm.
+The consequences of various ML parameters on the cartographic outputs are analysed in this work, such as speed and accuracy, randomness of nodes, analytical determination of the output weights, and dependence distribution of pixels for each algorithm. Supervised learning models of GRASS GIS were tested and compared. The results shown that the most time-consuming algorithms was noted as SVC classification, while the fastest results were achieved by the Decision Tree approach to image processing and the best results are achieved by RF Classifier. Though each algorithms was developed to serve different objectives of ML applications in RS data processing, their technical implementation and practical purposes present valuable approaches to cartographic data processing and image~analysis. %MDPI: The Author Contributions section was removed, as it is unnecessary when there is only one author. Please confirm. % Author: yes, I confirm. 
 
 \vspace{6pt}
 %----------- section ----------->
 
 
-\funding{\hl{ } %MDPI: Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.
+\funding{The APC was funded by Multidisciplinary Digital Publishing Institute (MDPI). %MDPI: Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding. % Author: information added.
 }
-
 
 \institutionalreview{Not applicable.}
 
 \informedconsent{Not applicable.}
 
-\dataavailability{The Landsat data used in this study are freely available from the USGS repository (\url{https://earthexplorer.usgs.gov/} \hl{(accessed on)}%MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”.
-). The GEBCO data used for plotting topographic map in Figure \ref{figDia1} is freely available in GEBCO repository (\url{https://www.gebco.net/} \hl{(accessed on)}). The CORINE dataset is obtained from the Copernicus website (\hl{CORINE:} %MDPI: We revised the format of weblink, please confirm.
- \url{https://land.copernicus.eu/en/products/corine-land-cover} \hl{(accessed on)}). The codes used for data processing are available in the GitHub repository of the author: \url{https://github.com/paulinelemenkova/Apennines} \hl{(accessed on)}.} 
+\dataavailability{The Landsat data used in this study are freely available from the USGS repository (\url{https://earthexplorer.usgs.gov/} (accessed on 05 April 2025)%MDPI: Please provide the date you accessed the URL in the following format: “URL (accessed on Day Month Year)”. % Author: information added.
+). The GEBCO data used for plotting topographic map in Figure \ref{figDia1} is freely available in GEBCO repository (\url{https://www.gebco.net/} (accessed on 03 April 2025)). The CORINE dataset is obtained from the Copernicus website (CORINE: %MDPI: We revised the format of weblink, please confirm. % Author: yes, I confirm.
+ \url{https://land.copernicus.eu/en/products/corine-land-cover} (accessed on 07 April 2025)). The codes used for data processing are available in the GitHub repository of the author: \url{https://github.com/paulinelemenkova/Apennines} (accessed on 08 April 2025).} 
 
 \acknowledgments{The author thanks the reviewers for reading and review of this manuscript.}
 
@@ -808,7 +807,7 @@ USGS & United States Geological Survey \\
 \appendixtitles{yes} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendixstart
 \appendix
-\section[\appendixname~\thesection]{\highlighting{Class}%MDPI: 1. We formatted it as Appendix section, please confirm. If the section is the content of main text, please put it before funding section. 2. The Appendix was not mentioned in the main text. Please cite it in the main text.
+\section[\appendixname~\thesection]{Class%MDPI: 1. We formatted it as Appendix section, please confirm. If the section is the content of main text, please put it before funding section. 2. The Appendix was not mentioned in the main text. Please cite it in the main text. % Author: 1. yes, I confirm formatting. 2. The reference to Appendix is added in the main text, in section "Accuracy Assessment and Comparison of Four Algorithms". 
  Separability Matrices}\label{secMatr}
 \vspace{-12pt}
 \begin{myequ}[H]
@@ -847,10 +846,11 @@ USGS & United States Geological Survey \\
 \end{vmatrix} 
 \end{equation}
 \end{adjustwidth}
-\caption{\hl{Class} %MDPI: It is not recommended to add caption to the formula. Please confirm whether it can be changed to list format. The same below.
- separability matrices between 10 classes: spring and autumn 2019.}
-\end{myequ}
+%MDPI: It is not recommended to add caption to the formula. Please confirm whether it can be changed to list format. The same below. % Author: yes, caption deleted and changed to list format (also below)
+.\end{myequ}
 \vspace{-12pt}
+Class separability matrices between 10 classes: spring and autumn 2019.
+
 \begin{myequ}[H]
 
 \begin{adjustwidth}{-\extralength}{0cm}
@@ -887,13 +887,13 @@ USGS & United States Geological Survey \\
  \end{vmatrix} 
 \end{equation}
 \end{adjustwidth}
-\caption{\hl{Class} separability matrices between 10 classes: spring and autumn 2022.}
 \end{myequ}
 \vspace{-12pt}
-\begin{myequ}[H]
+Class separability matrices between 10 classes: spring and autumn 2022.
 
+\begin{myequ}[H]
 \begin{adjustwidth}{-\extralength}{0cm}
-\centering %% If there is a figure in wide page, please release command \centering, for Table, ``\textwidth" should be ``\fulllength"
+\centering 
 \begin{equation}
 \small
 \begin{vmatrix}
@@ -926,8 +926,8 @@ USGS & United States Geological Survey \\
  \end{vmatrix} 
 \end{equation}
 \end{adjustwidth}
-\caption{\hl{Class} separability matrices between 10 classes: spring and autumn 2023.}
 \end{myequ}
+Class separability matrices between 10 classes: spring and autumn 2023.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
