@@ -1,0 +1,948 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[jimaging,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%=================================================================
+%----------
+% journal
+%----------
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{14 June 2025} 
+\daterevised{9 July 2025}
+\dateaccepted{} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{amsmath,mathtools,amsthm}
+	\setcounter{MaxMatrixCols}{15}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithin*{equation}{section}
+\usepackage[super]{nth}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{rotating}
+\usepackage{makecell}
+	\renewcommand\cellalign{ll}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepblue},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\usepackage{verbatim}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Reclassification Scheme for Image Analysis in GRASS GIS Using Gradient Boosting Algorithm: A Case of Djibouti, East Africa}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Reclassification Scheme for Image Analysis in GRASS GIS Using Gradient Boosting Algorithm: A Case of Djibouti, East Africa}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Polina Lemenkova $^{1}$*\orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Alma Mater Studiorum -- Università di Bologna, Department of Biological, Geological and Environmental Sciences, Via Irnerio 42, Bologna, Emilia-Romagna, Italy, IT-40126. ORCID- 0000-0002-5759-1089, (P.L.).
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: polina.lemenkova2@unibo.it Tel.: +39-3446928732 (P.L.)}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{Image analysis is a valuable approach in a wide array of environmental applications. Mapping land cover categories depicted from satellite images enables to monitor landscape dynamics. Such technique plays a key role for land management and predictive ecosystem modelling. Satellite-based mapping of the environmental dynamics enables us to define factors that trigger these processes and are crucial for our understanding of Earth system processes. In this study, a reclassification scheme of image analysis was developed for mapping the adjusted categorization of land cover types using multispectral remote sensing datasets and Geographic Resources Analysis Support System (GRASS) Geographic Information System (GIS) software. The data included four Landsat 8-9 satellite images on 2015, 2019, 2021 and 2023. The sequence of time series was used to determine land cover dynamics. The classification scheme consisting of 17 initial land cover classes was employed by logical workflow to extract 10 key land cover types of the coastal areas of Bab-el-Mandeb Strait, southern Red Sea. Special attention is placed to identify changes in the land categories around the thermal saline Lake of Assal with fluctuating salinity and water level. The methodology included the use of the machine learning (ML) image analysis GRASS GIS modules 'r.reclass' for reclassification of raster map based on category values. Other modules included 'r.random', 'r.learn.train' and 'r.learn.predict' for gradient boosting ML classifier and 'i.cluster' and 'i.maxlik' for clustering and maximum-likelihood discriminant analysis. To reveal changes in the land cover categories around the Lake of Assal, this study uses ML and reclassification methods for image analysis. Auxiliary modules included "i.group", "r.import" and other GRASS GIS scripting techniques applied to Landsat image processing and identification of land cover variables. The results of image processing demonstrated annual fluctuations in the landscapes around the saline lake and changes in semi-arid and desert land cover types over Djibouti. The increase in the extent of semi-desert areas and the decrease in natural vegetation proved the processes of desertification of the arid environment in Djibouti caused by climate effects. The developed land cover maps provided information for assessing spatial-temporal changes in Djibouti. The proposed ML-based methodology using GRASS GIS can be employed for integrating techniques of image analysis for land management in other arid regions of Africa.}
+
+% Keywords
+\keyword{Image Processing; Image Analysis; Remote Sensing; Landsat; GIS; Machine Learning}
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+
+\subsection{Background}
+
+\hl{Satellite images play a pivotal role in environmental monitoring for reconstructing the} history of landscapes\hl{ }\hl{ }on the Earth. Understanding how land cover types change over time gives\hl{ }insight into \hl{the development of }human-environment interactions \cite{Ndehedehe2022,Foli,Speranza}. The main threat of environmental \hl{changes are} linked to climate issues such as desertification, erosion, landscape fragmentation, coastal degradation \hl{and} deforestation. Most of this information \hl{can be discovered on space born images due to fundamental principle of RS -- difference in spectral reflectance of pixels corresponding to diverse objects on the Earth. Using such benefits of RS, many} environmental processes\hl{ and phenomena can be recognised on the satellite images,} including, for instance, deforestation, soil erosion and desertification. 
+
+\hl{Important application of RS} data \hl{ for environmental monitoring consists in time series analysis. Such techniques is based on the comparison of changes visible of several multi-temporal images }to evaluate trends in vegetation coverage during a given temporal period \cite{Springer2023,10281679}. \hl{This enables to detect land cover changes and} identify \hl{landscape} dynamics \cite{su13084092,NATARAJAN2016256}. \hl{RS data processing requires advanced techniques that enable to find optimal and time-efficient solutions for solving complex geospatial tasks in image analysis. While traditional GIS methods have limitations, programming algorithms have significant benefits in time series analysis of satellite images.}
+
+Technologies in \hl{image analysis} play the essential role in development \hl{of the environmental monitoring}. \hl{Traditional tools of processing RS data reply on} using \hl{the} Geographical Information Systems (GIS) \hl{which enable to extract geospatial information from the satellite images} \cite{BORANA2023261,Zhu02012021}. \hl{Recently, a} number of \hl{the advanced} techniques have been developed for land cover change detection. \hl{To mention a few of them,} image enhancement \cite{Dyson2024}, image differentiation, rationing or principal component analysis methods \cite{7877513} and \hl{more}. However, to obtain detailed information on land cover changes \hl{using time series analysis, automation} of image \hl{analysis} is needed \hl{due to large volumes of RS data}. 
+
+ \hl{Recent progress in Machine Learning (ML) methods increased the efficiency of such techniques through automated algorithms of image analysis. The application of ML} utilise training datasets as a seed for classification \cite{FERCHICHI2024122211}. \hl{Existing ML algorithms include, for instance, Random Forest (RF)} \cite{Balha2022,Lemenkova202401}, \hl{Support Vector Machines (SVM)} \cite{10450641}, \hl{or Convolutional Neural Networks (CNN)} \cite{SUAREZFERNANDEZ2024}. Such \hl{approaches are derived} from programming\hl{ and effectively adapted to satellite image analysis}. Automated methods of ML are increasingly needed for spatial data analysis in diverse domains of Earth and climate sciences \cite{HUANG2020104580,Arabameri}. Examples of such techniques include automated heuristic clustering \cite{8524429,10615674,669164,4666175}, flexible control of variables \cite{8999627}, optimised pattern recognition \cite{9708387,1634653}, ensemble learning \cite{10145147}, and objective analysis \cite{8938484,9279780}. 
+
+%----------- section ----------->
+\subsection{Objectives and goals}
+
+\hl{This study} presents an application of ML methods for image\hl{ }classification using\hl{ }Geographic Resources Analysis Support System (GRASS) GIS. \hl{The ML algorithms} of GRASS GIS perform\hl{ }automatic\hl{, independent} pixel-level image classification\hl{ }to objectively represent landscape dynamics. The main goal\hl{ }is to\hl{ identify} environmental \hl{ changes in land cover types }of Djibouti using \hl{ time series of }satellite images. \hl{GRASS GIS is an advanced scripting cartographic and RS software with} powerful computational engine for geospatial processing \cite{NETELER2012124}. \hl{Developed by the international GRASS developer community} \cite{grass_development_team_2025_14918754}, \hl{it is used for processing cartographic data, maps, models and satellite image analysis across various applications in geoinformatics. Its important benefits consist in a built-in framework and Python Application Programming Interface (API) which supports automation of data processing through scripting.} To achieve this goal, the objective\hl{ }is to map land cover changes in the coastal region of Djibouti\hl{ }using RS data.\hl{ }The\hl{ }scripts are included and commented for\hl{ }reference\hl{. }The specific objectives of this research are as follows:
+
+\begin{enumerate}
+	\item to produce land cover maps based on\hl{ }classification of \hl{the }Landsat OLI/TIRS satellite images on \hl{2015}, 2019, 2021 and 2023; 
+	\item to quantify and visualise dynamic changes of land cover types \hl{for identification of landscapes dynamics}; 
+	\item to assess the accuracy of\hl{ }classification for vegetation mapping in\hl{ }central and coastal zone \hl{around} the Lake Assal. 
+\end{enumerate}
+
+%----------- section ----------->
+\section{Study Area}
+
+This study area is located in Djibouti and surrounding coastal areas of in the Gulf of Tadjoura, Bab-el-Mandeb Strait\hl{, }Figure \ref{fig01}. Situated in the region of the Horn of Africa and surrounded by waters of southern Red Sea, Djibouti is a strategic point on the Horn of Africa, with geo-maritime importance\hl{ }\cite{McCabe02102019,Lawale02102023}. 
+
+\begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=12.0cm]{Fig_01.jpg}
+    \end{center}
+    \caption{Topographic map of Djibouti with indicated study area (yellow rotated square) which shows the location of the Landsat images. Mapping software: Generic Mapping Tools (GMT) version 6.4.0. Data source: General Bathymetric Chart of the Oceans (GEBCO). Map source: author.}
+    \label{fig01}
+\end{figure}
+
+Djibouti is one of the hottest and driest places on \hl{Earth} with many issues related to climate and weather processes \cite{Verdugo2016}. \hl{The} thermal crater saline lake Assal \hl{is located in this area, which is} the lowest point on land in East Africa with extreme levels of evaporation. \hl{Topography affects }temperature and precipitation \hl{which }vary according to the elevation and differ in coastal and mountainous regions \cite{Haile}. This region experiences \hl{fluctuations} in the level of salinity and water level \hl{due to} seasonal and annual changes in temperature and precipitation. \hl{Dominating landscapes are represented by }dry mountain vegetation \hl{typical for arid climate}. The distribution and genera of flora and fauna is\hl{ }controlled by low precipitation and high temperatures in semi-desert and desert environments \cite{GEBREMESKELHAILE2020135299,Lemenkova202221,AGHAKOUCHAK2015127}. For example, the 2011 drought in East Africa \hl{affected rain-fed agriculture in} Djibouti \hl{which lead to the regional }famine \cite{AGUTU2017287,DERCOLE2024104264,Dinku10112011}. Drought-induced crises endanger long-term investments and development\hl{ with} catastrophic human costs and effects on vulnerable regions of the country \cite{MISHRA2010202,FAVA202144,BRAVAR1991281}.
+
+The drought-prone regions of\hl{ }Djibouti \hl{experienced} strong effects from climate change \hl{including} fluctuations in the hydrological regime of thermal lakes. Arid climate\hl{ }triggered environmental problems\hl{:} desiccated and abandoned\hl{ }agriculture lands, salinated and blocked water sources due to sea level rise \hl{and} flash floods \cite{Schulman02012019,CARRAO2016108}. Soil erosion and land degradation vary \hl{on} topographically diverse landscapes reflecting climate \hl{setting} \cite{FENTA2020135016,Knight2022}. The environmental pollution is reported \hl{along the coasts of the} Gulf of Tadjoura \cite{BOLDROCCHI2018812,BOLDROCCHI2018812,GAJDZIK2021112244}. 
+
+\hl{The} surroundings of the Horn of Africa are notable for climate-hydrological fluctuations which cause land cover changes \cite{Billi2022,SEKA2024141552}. The coastal region located in the Bab-el-Mandeb region includes diverse types of xeric grasslands and shrubland typical for arid ecoregion, Figure \ref{fig02}. \hl{This region consists} of various land cover classes typical for semi-desert areas: dry shrub steppe and grassland including species of \emph{Vachellia tortilis}, \emph{Vachellia nubica}, and \emph{Balanites aegyptiaca}. Many scarce vegetation spots include scattered trees or shrubs on the sandy plains of bare lands and semi-deserts.  
+
+\begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=14.0cm]{Fig_02.jpg}
+    \end{center}
+    \caption{Map of land cover types over Djibouti showing the distribution of major vegetation and land cover types over the Djibouti. Software: \hl{Quantum Geographic Information System (QGIS)}. Data source: Food and Agriculture Organization (FAO). Map source: author.}
+    \label{fig02}
+\end{figure}
+
+The eastern strip along the Red Sea coast is part of the Eritrean coastal desert \cite{TESFAI2021104327}. It includes vegetation along the muddy wadi mouths in diverse habitats \cite{MEDIN201526}, grasslands \cite{ALI20231,IDOWU2020e00402}, and secondary growth areas in the urban areas. The floodplains along the wadi rivers include scarce vegetation typical for semi-desert ecosystems. Xeric vegetation, farmland, mangroves along the coasts of Red Sea and valleys of wadi \cite{BLANCOSACRISTAN2022157098,BEYIN2024100247}, coral reefs along the coasts \cite{Klaus2015,COWBURN2019182,GAPPER2024e38249} and urban areas.\hl{ }Djibouti is one of the most\hl{ seismically unstable }zones of Africa \hl{with high} tectonic-magmatic activities \cite{Chandrasekharam,MOUSSA2023104765,AYELE2024105236,JALLUDIN1994237} due to the closeness of the Afar Triple Junction \cite{RIME2023104519,GIDAFIE2024102037,DARRAH201316}. The thermal regime around the Red Sea\hl{ }is explained by the \hl{which }is structurally connected to the active\hl{ }zone of East African Rift \cite{Varet2022,Lemenkova202206,PINZUTI2010169,Lemenkova202205,MESHESHA2021e08634}. 
+
+\hl{Such }complex geologic setting and arid environment \hl{results in the} deficit of water \hl{and favours} the distribution of thermal springs with high salinity of the brines located in three regions -- Lake Assal, Lake Hanle and Lake Abhe \cite{MOLOGNI2021107896,DAMORE1998197}. The craton origin of the Assal Lake\hl{ }is related to the Afar Triple Junction \cite{HOUSSEIN2010220,AWALEH2024102894,Houssein02112014}. The \hl{geochemical composition of the} Assal Rift \hl{includes }evaporitic halite deposits \cite{CASTANIER1992811,GASSE198967}. Location in the arid zone with strong evaporation and no riverine input increases \hl{the} salinity \hl{of lake }which has high brine concentration above 100 g/l \cite{DEKOV2021120126}. The fluctuations are related to the evaporation, hot climate and geothermal processes \cite{ZAN1990561}. 
+
+%----------- section ----------->
+
+\section{Materials and Methods}
+This methodology presents a case of image reclassification and analysis using machine learning (ML) techniques\hl{ }for environmental mapping in Djibouti, East Africa. The classification scheme consisting of 17 initial land cover classes was employed by logical sequence of GRASS GIS modules to extract land cover information of the study area in Djibouti. \hl{Reclassification includes the sequence of changing the values in a raster dataset to new values. The process is based on a set of rules which defined the criteria of updates in classes. This operation in GRASS GIS was applied for simplification of land cover polygons, standardization of assignment of pixels to classes and preparing data for land cover analysis.}
+
+%----------- subsection ----------->
+\subsection{Data}
+
+The data used in this study include \hl{four }Landsat 8-9 Landsat Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS) images:  the training image on 2015, \hl{and images with biannual interval on }2019, 2021 and 2023, Figure \ref{fig03}. 
+
+\begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=12.0cm]{Fig_03.jpg}
+    \end{center}
+    \caption{Original Landsat 8-9 OLI/TIRS scenes on Djibouti on 2015, 2019, 2021 and 2023 used for image processing. Image source: United States Geological Survey (USGS). Compilation: author.}
+    \label{fig03}
+\end{figure}
+
+The \hl{Landsat} images were selected as the data source due to \hl{their} quality and \hl{reliability}\cite{GONG2024149,ALLU2025127478,CHANUWANWIJESINGHE2024112681}. \hl{Earlier studies reported the effective} use of \hl{the} RS data \hl{in environmental studies which proves their utility and value }\cite{WANG2023311,DAREM2023341,FAROOQ2024101168,AFUYE2024103262,CHUGHTAI2021100482,VELASTEGUIMONTOYA2023100659,FARHAN2024103689}. \hl{Nowadays}, satellite images are \hl{excellent} source of geospatial information \hl{which} can be used \hl{for mapping} arid regions\hl{ }  \cite{AMAZIRH2023104586,FERCHICHI2024122211,MEKONNEN20251}. For example, satellite images are used to analyse land cover changes and deforestation in Africa's tropical forests, and\hl{ report }landscape changes over time \cite{PARRAPAITAN2024103796,ZHAO2024506,NZABARINDA2025114849,MONTEROBOTEY2024e03068}. \hl{Among other RS data, the} importance of Landsat 8-9 OLI/TIRS for environmental analysis has been described \hl{earlier}\cite{AKSOY20221072,NESARI2024101989,KUMAR2022100578}.
+
+In this study, four Landsat images were used taken on the following dates: 1) 02 July 2015; 2) 23 July 2017; 3) 19 August 2021; and 4) 16 July 2023\hl{ with} metadata\hl{ }summarised in Table \ref{tab01}. The cloudiness percentage is less than 10\% for all the images. 
+
+\begin{table}[H]
+\caption{Metadata and Identifiers (IDs) of the four multispectral Landsat 8-9 OLI/TIRS images covering study area of Djibouti}
+\label{tab01}
+\setlength\tabcolsep{0pt}
+\begin{tabularx}{\textwidth}{ X l X }
+\textbf{Date} & \textbf{Landsat Product Identifier} & \textbf{Scene ID} \\
+\midrule
+	02 July 2015 & LC08\_L2SP\_166052\_20150702\_20200909\_02\_T1 & LC81660522015183LGN01 \\
+	23 July 2017 &  LC08\_L2SP\_166052\_20170723\_20200903\_02\_T1 & LC81660522017204LGN00 \\
+	19 August 2021 & LC08\_L2SP\_166052\_20210819\_20210827\_02\_T1 & LC81660522021231LGN00 \\
+	16 July 2023 & LC09\_L2SP\_166052\_20230716\_20230719\_02\_T1 & LC91660522023197LGN00 \\
+\bottomrule
+\end{tabularx}
+\end{table} 
+
+The\hl{ }technical parameters of \hl{the} scenes are provided in the Table \ref{tab02}. Common data for all four images are as follows: Datum and Ellipsoid is WGS84, Product Map Projection L1 is Universal Transverse Mercator (UTM) Zone is 38 for Djibouti;  Worldwide Reference System (WRS) Path -- 166, Row -- 52; Landsat Collection Number 2, Category T1, Station Identifier LGN, Sensor Identifier OLI/TIRS. The images were taken during day time in nadir with Roll Angle 1\degree  for image on 2015 and 0\degree for images on 2017, 2021 and 2023. The Image Quality is 9 for all the scenes, according to the Landsat specifications. The remaining metadata different for each scene are summarised in Table \ref{tab02}. The geographic characteristics of the images are referenced in Table \ref{tab03}. \hl{Landsat Scene Identifiers (ID) are the following: }
+
+\begin{table}[!ht]
+\caption{\hl{Metadata} of the Landsat 8-9 OLI/TIRS satellite images\hl{. }Source: USGS (EarthExplorer)}
+\label{tab02}
+    \centering
+%    \setlength{\tabcolsep}{2.0mm}
+%\begin{adjustwidth}{-\extralength}{2cm}
+%    \begin{adjustbox}{width=1.0\textwidth}
+\footnotesize 
+    \begin{tabular}{ l | l | l | l | l }
+    \hline
+        Data Set Attribute & \textbf{Attribute Value} & \textbf{Attribute Value} & \textbf{Attribute Value} & \textbf{Attribute Value} \\ \toprule
+        Date Acquired & 2023/07/16 & 2021/08/19 & 2017/07/23 & 2015/07/02 \\ \hline
+        Date Product Generated L2 & 2023/07/19 & 2021/08/27 & 2020/09/03 & 2020/09/09 \\ \hline
+        Date Product Generated L1 & 2023/07/16 & 2021/08/27 & 2020/09/03 & 2020/09/09 \\ \hline
+        Land Cloud Cover & 0.02 & 0.19 & 0.45 & 0.08 \\ \hline
+        Scene Cloud Cover L1 & 0.06 & 0.71 & 12.03 & 0.08 \\ \hline
+        Ground Control Points Model & 752 & 722 & 742 & 768 \\ \hline
+        Ground Control Points Version & 5 & 5 & 5 & 5 \\ \hline
+        Geometric RMSE Model & 3563 & 2963 & 2977 & 2098 \\ \hline
+        Geometric RMSE Model X & 2240 & 2009 & 1967 & 1089 \\ \hline
+        Geometric RMSE Model Y & 2771 & 2179 & 2235 & 1794 \\ \hline
+        Processing Software Version & LPGS\_16.3.0 & LPGS\_15.5.0 & LPGS\_15.3.1c & LPGS\_15.3.1c \\ \hline
+        Sun Elevation L0RA & 62.48488638 & 64.48715625 & 62.85521856 & 62.40770766 \\ \hline
+        Sun Azimuth L0RA & 65.62042782 & 84.79256539 & 68.51197578 & 61.89003236 \\ \hline
+        TIRS SSM Model & N/A & FINAL & FINAL & ACTUAL \\ \hline
+        Scene Center Latitude & 11.56786 & 11.56779 & 11.56783 & 11.56778 \\ \hline
+        Scene Center Longitude & 42.94139 & 42.97394 & 42.97879 & 42.96942 \\ \hline
+        Corner Upper Left Latitude & 12.60889 & 12.60924 & 12.60931 & 12.60921 \\ \hline
+        Corner Upper Left Longitude & 41.88103 & 41.91137 & 41.91688 & 41.90861 \\ \hline
+        Corner Upper Right Latitude & 12.62518 & 12.62530 & 12.62532 & 12.62529 \\ \hline
+        Corner Upper Right Longitude & 43.98441 & 44.01755 & 44.02308 & 44.01479 \\ \hline
+        Corner Lower Left Latitude & 10.50122 & 10.50151 & 10.50157 & 10.50149 \\ \hline
+        Corner Lower Left Longitude & 41.90427 & 41.93439 & 41.93986 & 41.93165 \\ \hline
+        Corner Lower Right Latitude & 10.51472 & 10.51483 & 10.51484 & 10.51482 \\ \hline
+        Corner Lower Right Longitude & 43.99199 & 44.02489 & 44.03037 & 44.02215 \\ \hline
+    \end{tabular}
+%    \end{adjustbox}
+%    \end{adjustwidth}
+\end{table}
+
+\begin{table}[H]
+\caption{Metadata and Identifiers (IDs) of the four multispectral Landsat 8-9 OLI/TIRS images covering study area of Djibouti}\label{tab03}
+\setlength\tabcolsep{0pt}
+\begin{tabularx}{\textwidth}{ X X X X}
+\textbf{N-S} & \textbf{Data Values} & \textbf{E-W} & \textbf{Data Values}\\
+\midrule
+	North: & 1395915.00 &  East: & 393015.00 \\
+	South: &  1162485.00 &  West: & 164085.00 \\
+	Resolution: &  30.00 m & Cells: & 59376811 \\
+	Rows: & 7781 & Columns: & 7631 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+ 
+ The images have been filtered to reduce noise due to cloudiness and atmospheric effects. Images were systematically selected from the USGS EarthExplorer repository and taken at the end of the dry season. During this period, cloud cover is generally low but vegetation appears bright green and contrasts with all other land cover types. 
+
+%----------- subsection ----------->
+\subsection{Workflow}
+
+The\hl{ }image processing used to create a land cover map from Landsat OLI/TIRS imagery was carried out in six steps using GRASS GIS techniques: 
+\begin{itemize}
+	\item image import, 
+	\item data exploration and analysis, 
+	\item classification of images using MaxLike method, 
+	\item classification of images using gradient boosting algorithm of ML, 
+	\item image post-processing and mapping,  
+	\item accuracy assessment. 
+\end{itemize}
+
+%----------- subsection ----------->
+\subsection{Image preprocessing}
+
+The Landsat 8-9 OLI/TIRS images were geometrically rectified according to EPSG coordinates: 2095, Universal Transverse Mercator (UTM) zone for Djibouti according to the USGS technical characteristics. In this study, a scripting method of GRASS GIS was applied which uses several modules with code snippets explained and commented below as follows. 
+
+First, the images were imported into the working folder using ‘r.import’ module,\hl{ then }the same procedure was repeated for all the bands and four images used in this study (2015, 2019, 2021 and 2023). Afterwards, the relief map was imported from the GEBCO\hl{. }The region was set up to the extent of the geospatial extent \hl{with the} isolines\hl{ }obtained\hl{ }using ‘r.contour’ module\hl{ }with 200 m interval\hl{.} To facilitate data processing, the best combinations of Landsat bands were\hl{ }stacked into \hl{colour composites}. The bands that produced the best separation for pixels \hl{were processed excluding} the panchromatic channels\hl{. The} TIFF files were joined using the 'i.group' module \hl{and enhanced using preprocessing steps which included} contrast stretching\hl{ and }atmospheric correction. 
+
+%----------- subsection ----------->
+\subsection{Clustering}
+
+The clustering was performed by ‘i.cluster’ module of GRASS GIS which generates a signature file and reports results using k-means clustering algorithm as explained in the existing approaches \cite{5930121,10430357,Lemenkova202315,5739741}.\hl{ } Signature file determines the categories (classes) of land cover types\hl{ }and contains\hl{ }clusters and covariance matrices for each image using analysis of spectral reflectance of the pixels. \hl{The initial means for each class before data processing reported in Appendix} \ref{AppA} \hl{indicates the starting values of seed values of the multispectral band before iteration assigned according to the signature files. The means are calculated then during the 'i.cluster' procedure and recalculated following the principles of maximal class separation (the contrast between the classes) and minimal class size (the details of classification with respect to the spatial resolution of 30 m). The Table in Appendix} \ref{AppA} \hl{reports such values for each of the 10 classes and seven multispectral bands of Landsat starting from 1 - 'Coastal aerosol' to 7 - 'SWIR-2'.} 
+
+\hl{The} initial values of means for each land cover class by years 2015, 2017, 2021 and 2023 are reported in tables \ref{tabA1}, \ref{tabA2}, \ref{tabA3} and \ref{tabA4}, see Appendix \ref{AppA}. Afterwards, the assignment of pixels was performed during iterative process for each land cover class. The same was applied for all images for the years 2015, 2017, 2021 and 2023 with biannual gap. The classification was performed using the maximum-likelihood discriminant analysis classifier by the ‘i.maxlik’ module \cite{CHOWDHURY2024100800,Lemenkova202323}. \hl{The algorithm used} the signature file\hl{ }calculated in the previous step. \hl{Using} signature file, the land cover types\hl{ were classified }using the maximum-likelihood discriminant, Figure \ref{fig04}.
+
+%----------- subsection ----------->
+\subsection{Accuracy analysis}
+ 
+The analysis of accuracy (Figure \ref{fig05}) revealed the areas of misclassified pixels in the water areas including the Bab-el-Mandeb Strait. The accuracy assessment showing the probability of the correct assignment of the pixel to the correct class for all the images is presented in Figure \ref{fig05} and calculated with averages for each calculated band. Afterwards, based on the classified ten categories in the images, two of them (water in the sea and water in shelf areas) were merged as a single class ‘water’, and the names of the classes were assigned to each numerical cluster. 
+
+After this step, the ML was performed for all the images. The ML step started with generating training pixels from land cover classification on 2015 which were used as seed data. The extraction of training data was done using the ‘r.random’ module\hl{. }Afterwards, \hl{the} training pixels were used for classification on the Landsat images (example for 2023) by training a model using 'r.learn.train' module. \hl{The} GradientBoostingClassifier’ was used as an algorithm to perform ML classification. \hl{Next, the} prediction was performed using the 'r.learn.predict' ML module\hl{ }which applied a fitted estimator form the Python's Scikit-Learn library \cite{pedregosa2018} to raster images in \hl{the} imagery group.\hl{ At the next step, }the computed raster categories were automatically applied to the classification output and checked using the 'r.category' module. The visualisation of the maps generated using ML techniques was performed using a combination of the cartographic modules of GRASS GIS (r.colors, d.mon, d.rast, d.vect, d.grid and d.legend), as explained in the previous step. The files were imported to the \hl{bitmap format} using the 'd.out.file'\hl{.} 
+
+%----------- subsection ----------->
+\subsection{Gradient boosting}
+
+\hl{The} images were\hl{ }processed using \hl{gradient boosting ML} algorithm for classification. Digital image processing makes it possible to document the environmental changes through mapping and tracking land cover types identified in the images. The methodology of this project draws on GRASS GIS analysis and scripting techniques used for processing a series of Landsat OLI/TIRS images. Additionally, the topographic map in Figure \ref{fig01} is plotted using Generic Mapping Tools (GMT) using existing methods reported earlier \cite{WRIGHT1998737,Lemenkova202217,9921513,Lemenkova202203,10537274}. Selected GRASS GIS modules support the technical parts of image processing, while others are used for visualization and cartographic representation.
+
+The algorithm of Gradient boosting classifies the satellite images using the iterative approach which considers previous and next classification steps as loops of classification workflow. \hl{The principle of gradient boosting classifier is as follows. Gradient boosting classifier successively combines several decision trees as more simplified learners to create a strong prediction model using these learners.  By minimizing a loss function embedded in the algorithm, each new learner concentrates on fixing the mistakes committed by the group of prior learners. In this way, accuracy and predictive capacity of the algorithm are increased by this iterative process, which is directed by the gradient of the loss function.}
+
+Specifically, the algorithm finds the best possible next model, when combined with previous models. In this way, it minimises the overall prediction error and improves the accuracy of classification. The essential concept of this algorithm is setting the target outcomes of classified image for the next model based on the previous iterations which in the end minimises the error of classification compared to the traditional classification approaches. The development of novel methods of cartography can be guided by ML principles. This is an appropriate path to follow since using algorithms of ML such as gradient boosting presents an advanced ensemble technique which combines the predictions of multiple classification steps by the principle of decision trees. Such approach presents a novel method of satellite image processing and classification based on the supervisor approach. 
+
+Existing cases of ML algorithms in cartography and RS tend to be applied to problems of image processing that are similar to those faced by the decision algorithms of programming. In each case, ML algorithms propose a search for a solution strategy to find best solution for image classification. To this end,\hl{ }the Gradient boosting algorithm considers previous iterative cycles of image classification for generation of next models and narrowing of options of pixels' assignment to various land cover classes. The advantage of such approach is that it minimises the error of classification through the convergence of decision of classification cycles and assigns cells that constitute the mosaic of pixels on a raster image to the defined land cover classes. When processing several Landsat scenes using this method, it enables to effectively monitor landscape dynamics and detect variations in the saline lake environments, such as arid landscapes of Djibouti. 
+
+The class separability matrices were computed for each pair of years (2015-2017 and 2021-2023) and show the distinguishability between classes, Figure \ref{figSep1} and \ref{figSep2}. The iterative cycles of image classification are summarised in the Appendix \ref{AppB} in four statistical tables for each of the study periods, respectively. \hl{They report pixels' distribution by categories of land cover classes for each year: 2015, 2017, 2021 and 2023. The values indicate percent convergence which shows at which values cluster means of land cover categories become stable during the iteration process of classification. Hence, iterative processes aims to achieve the maximal percentage of pixels that no longer move from cluster to cluster during iteration and reach the best possible values.} 
+
+%----------- subsection ----------->
+\subsection{Reclassification}
+
+\hl{To improve} the accuracy, the images were reclassified using principle of reclassification scheme. \hl{When clusters are being generated by the algorithm, the means of classified categories constantly change, because cells are assigned to these classes and the mean is then recalculated to include new pixels. The goal of the iteration is to maximise the distances between the classes through recalculation. To this end, after creation of all clusters and assignment of pixels into these groups, the algorithm 'i.cluster' changes cluster means through iteration processes. In this way, the algorithm attempts to increase to increase the contrast between the classes, i.e., the numerical gap in values between the classes.}
+
+%---------------------------->
+\subsection{{Generalisation of FAO Land Cover Map}}
+
+\hl{The Food and Agriculture Organization (FAO) land cover map on Djbouti was generalised from the classes of the Land Cover Classification System (LCCS) according to the technical report on the country. The scheme covering land categories country in 10 classes were used and adopted for the study areas, Table} \ref{tabFAO}. This part of the work has been performed QGIS software, version 3.42.2 'M\"unster'). 
+
+\begin{table}[H]
+\caption{\hl{Training pixels for validation for Land Cover Classification System (LCCS) on Djibouti derived from FAO classification scheme of land cover types: spatial distribution of the training ground truth samples}}\label{tabFAO}%
+\small
+\begin{tabularx}{\textwidth}{llll}
+\toprule
+ID & Landsat 8-9 OLI/TIRS Land Cover Class & FAO LCCS Codes  \\
+\midrule
+
+       1 & Salt plains and hardpans & 6020 \\ \midrule
+        2 & Barren Land & 6001, 6004  \\ \midrule
+        3 & Water Bodies & 7001 // 8001  \\ \midrule
+        4 & \makecell{Mangroves and aquatic vegetation on regularly flooded \\(temporarily or permanently) fresh or brakish water} & \makecell{41653-R1,R2 // 41739-R1 \\ 41521-R1,R2 // 41597-R1,R2}  \\ \midrule
+        5 & Bushes and Shrubs & 11490 // 11494 \\ \midrule
+        6 & \makecell{Farmland, Shrubcrops and \\Irrigated Trees} & \makecell{11499 // 11500 // 30001, \\11491, 11495}  \\ \midrule
+        7 & Built-up Areas, Artificial Surfaces and Associated Areas & 0010  \\ \midrule
+        8 & Broadleaved Semidecidous Forest // Woodland & \makecell{21496 // 21497-15048 // \\21496-121340 // 21497-129401} \\  \midrule
+        9 & Mosaic Cropland (Cultivated Areas) & 0003-0004 \\ \midrule
+        10 & Sparse Vegetation & 20049, 20056 20058  \\
+\bottomrule
+\end{tabularx}
+\noindent{\footnotesize{Information source: FAO (land use statistics).}}
+\end{table}
+
+\hl{The reclassified }image was generated for each year using ‘r.reclass’ module of GRASS GIS \hl{and} ‘echo’ Unix command.\hl{ }The raster map was reclassified based on the category values and new raster maps for years 2015, 2019, 2021 and 2023 were \hl{generated}. The category values of the reclassified maps are based on a reclassification of the categories in the existing raster maps using the information generated in 'landusereclass.txt' file. The categories were checked for control using the ‘r.category’ module. The maps were then visualised using the combination of modules using the ‘d.mon’ and ‘g.region’.  The color palette was assigned to the images using existing color tables.\hl{Afterwards, }the files were displayed using the combination of ‘d.rast’ and ‘d.vect’ for raster and vector files. \hl{Finally, }the cartographic grid was added \hl{and} the legends were added by the ‘d.legend’.
+
+The reclassification was performed since water surfaces in the Bab-el-Mandeb Strait and southern Red Sea had different colours. Nevertheless they belong to the same class of water. The differences in the coastal regions were smooth at the time of image acquisition and appear as dark colours in all images. \hl{With each iteration, the values of the means shift change into a higher percentage of pixels within each cluster. This is illustrated in the class separability matrix which shows the distinction between the categories, Figure} \ref{figSep1} \hl{and Figure} \ref{figSep2}, Appendix \ref{AppC}. \hl{As means never become totally static, a \% convergence and a maximum number of iterations are defined to finalise the process of reclassification before the maximum number of cycles. The final values of the computed class means for each land category are reported in Appendix} \ref{AppD}. \hl{After maximum number of reclassification cycles is reached, the optimal \% convergence is achieved through the increased number of iterations during the 'i.cluster' procedure. Here, the number of cycles depends on the complexity of the terrain and land cover patterns.} 
+
+%\pagebreak
+%----------- section ----------->
+\section{Results and Discussion}
+
+\subsection{Land cover change analysis}
+\hl{The results of the classified }satellite images are \hl{presented in Figure} \ref{fig04}.
+
+ \begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=14.0cm]{Fig_04.jpg}
+    \end{center}
+    \caption{Maps of land cover types based on the classified Landsat 8 OLI/TIRS images on 2015, 2019, 2021 and 2023 covering Djibouti. The approach is done by the Maximum Likelihood discriminant analysis classifier. Background relief: GEBCO. Software: GRASS GIS. Mapping source: author.}
+    \label{fig04}
+\end{figure}
+
+\hl{The entire study are covered by Landsat images was categorised into 10 distinct land cover classes following FAO classification scheme: 1) Salt plains and hardpans; 2) Barren Land; 3) Water Bodies; 4) Mangroves and aquatic vegetation on regularly flooded (temporarily or permanently) fresh or brackish water; 5) Bushes and Shrubs; 6) Farmland, Shrub crops and Irrigated Trees; 7) Built-up Areas, Artificial Surfaces and Associated Areas; 8) Broadleaved Semi-decidous Forest and Woodland; 9) Mosaic Cropland in Cultivated Areas; 10: Sparse Vegetation in desert areas. Among these classes, the following categories included sub-clusters: Water bodies comprised ponds, areas covered by marshes, rivers and estuaries, and coastal waterways, bushland and shrubland included non-classified types of vegetation such as grasslands, shrubs, rangelands, and savannah; coastal areas of the saline Lake of Assal was categories by salt-tolerant vegetation and mangroves.}
+
+\hl{Over the estimated period of within a decade, from 2015 to 2013, the image analysis revealed certain changes in land cover types across the study area of Djibouti. Thus, it is noteworthy that the amount of mangroves along the coastal areas decreased slightly, shrinking by 0.35 km\textsuperscript{2} from 6.28 km\textsuperscript{2} to 5.93 km\textsuperscript{2} during this period. Furthermore, a large area of 1392 km\textsuperscript{2} that had previously been covered by bushes and shrubland was converted into other land use categories, resulting in a decrease in coverage from 1194 km\textsuperscript{2}. As a result of this reduction, the percentage of bush cover decreased on 15\%.}
+
+\hl{The} traditional (maximal likelihood) and ML\hl{ }classification maps are compared \hl{for} 2015, 2019, 2021 and 2023. Comparing changes on classified images from different dates shows the dynamics of the landscapes over Djibouti from 2015 until 2023. The\hl{ }differences between the\hl{ }land cover or land use types are presented in Figures \ref{fig04}, \ref{fig06} and \ref{fig07} where Figure \ref{fig04} shows the results of the classification made using 'Maximal Likelihood' approach, Figure \ref{fig05} shows the accuracy assessment, Figure \ref{fig06} shows the reclassified maps and Figure \ref{fig07} shows the results of the classification performed using ML approach. 
+
+Additionally, the salines mixed with the fresh waters of the estuaries of the Gulf of Tadjoura have lighter colors than those of the open sea water. Vegetation types such as mosaic croplands, sparse vegetation, xeric shrubland and grassland or bare soil areas are detected and indicated on the maps. The broadleaved deciduous vegetation is relatively scarce in the study area. The regions of scrub, and flooded brackish water areas are mostly occupy mangrove forests which have stronger spectral signals and appear as various shades of colors. The computational results of the pixels by land cover classes are summarised in Table \ref{tab04}.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\textwidth}{| p{1.5cm} | X | X | X | X | X | X | X | X | X | X | }
+  \toprule
+   Class & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+   \midrule
+    2015 & 1531 & 251 & 314 & 755 & 964 & 761 & 699 & 616 & 448 & 591 \\
+    2017 & 1452 & 361 & 120 & 746 & 1031 & 813 & 672 & 714 & 502 & 609 \\
+    2021 & 588 & 1225 & 223 & 699 & 1007 & 798 & 608 & 644 & 495 & 644 \\
+    2023 & 842 & 915 & 367 & 733 & 965 & 840 & 672 & 627 & 533 & 547 \\
+    \bottomrule
+\end{tabularx}
+\caption{Distribution of pixels by land cover classes: biannual variations in study area of Djibouti over 10 land cover classes in summer periods from 2015 to 2023}\label{tab04}
+\end{table}
+
+\subsection{Uncertainties and sources of error}
+
+\hl{Understanding possible uncertainties underlying the classification schemes in RS data processing is imperative. }Accurate vegetation mapping using satellite image classification is not easy to achieve due to the spectral confusion between different vegetation types and\hl{ }similarity in spectral reflectance of various plant species \cite{1370179,Dobrowski,Moore,8688643}. \hl{Therefore, accuracy assessment is a crucial step to the evaluation process. In this case, the generated map was compared to the ground truth values, represented in this case by sample points taken from FAO based map. The overall accuracy (OA) and Kappa coefficient were computed to evaluate the classified map's accuracy by measuring the similarity between the sample points and the correctly and incorrectly categorised classes, Table} \ref{tabKappa}. 
+
+\begin{table}[H]
+\caption{\hl{Error matrix for validation of gradient boosting ML algorithm for land land cover categories}}
+\label{tabKappa}
+\begin{tabularx}{\textwidth}{ p{0.6cm}  X  X  X  X  X  X  X  X  X  X  p{0.6cm} }
+  \toprule
+  Class & \rotatebox{90}{Salt plains} & \rotatebox{90}{\makecell{Barren \\Land}} & \rotatebox{90}{\makecell{Water\\ Bodies}} & \rotatebox{90}{Mangroves} & \rotatebox{90}{Shrubs} & \rotatebox{90}{Farmland} & \rotatebox{90}{\makecell{Built-up \\Areas}} & \rotatebox{90}{Forest} & \rotatebox{90}{Cropland}  & \rotatebox{90}{\makecell{Sparse \\Vegegation}} & \rotatebox{90}{Total} \\
+   \midrule
+    {1} & {3503} & 12 & 4 & 7 & 31 & 4 & 29 & 2 & 9 & 21 & 3622\\  
+    {2} & 1 & {1651} & 43 & 4 & 5 & 0 & 8 & 12 & 0 & 2 & 1726  \\
+    {3} & 0 & 1 & {1018} & 21 & 0 & 8 & 15 & 4 & 2 & 12 & 1081  \\  
+    {4} & 2 & 3 & 14 & {945} & 1 & 0 & 38 & 51 & 27 & 12 & 1093  \\ 
+    {5} & 3 & 18 & 256 & 12 & {2751} & 12 & 48 & 35 & 0 & 0 & 3135 \\
+    {6} & 22 & 16 & 39 & 0 & 2 & {546} & 5 & 8 & 31 & 83 & 752  \\
+     {7} & 2 & 6 & 10 & 1 & 12 & 14 & {1132} & 44 & 6 & 13 & 1240  \\
+     {8} & 1 & 1 & 0 & 204 & 37 & 52 & 0 & {1439} & 2 & 0 & 1736 \\
+     {9} & 3 & 12 & 2 & 62 & 14 & 6 & 0 & 45 & {1968} & 0 & 2033 \\
+     {10} & 14 & 2 & 0 & 16 & 83 & 12 & 0 & 26 & 0 & {2382} & 2535 \\ 
+     \midrule 
+     {} & \multicolumn{11}{c}{Overall Accuracy (OA) = 93.4\%} \\ 
+     \midrule
+     {} &\multicolumn{11}{c}{Kappa Coefficient (KC) = 87.5\%} \\ 
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+Additionally, the \hl{sources of errors in automatic classification are caused by the individual patterns of land cover categories on Earth: the }data are not normally distributed in most cases. \hl{Moreover, }the light signature of the deciduous broadleaved plants enables to detect occasionally growing plants in the central regions of the country on the mountainous slopes where precipitation is higher than in semi-desert areas. \hl{Thus}, deciduous shrubland in all the images is attributed to the high backscatter coefficients of this vegetation type and spectral reflection effects. Therefore, validation using the computed Kappa coefficient was done and reported in Table \ref{tabKappa}
+
+ \begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=14.0cm]{Fig_05.jpg}
+    \end{center}
+    \caption{Accuracy analysis of image classification using reject threshold probability algorithm by chi square test applied to the reclassified images. \hl{Source}: author.}
+    \label{fig05}
+\end{figure}
+
+\hl{In order to avoid uncertainties in classification caused by such cases,} coastal types of vegetation \hl{were} grouped in the same class with other plants having similar spectral properties (grassland). \hl{The} classification accuracy \hl{was performed in order to evaluate possible sources of errors. To this end, images} were processed using rejection probability test which examines the correctness of the pixel’s classification using \hl{the} chi-square test. This made it possible to evaluate the classification of different types of land \hl{cover types over the} study area using traditional\hl{ }approach of GRASS GIS based on \hl{the }automated clustering, Figure \ref{fig05}. 
+
+\subsection{Interpretation and data analysis}
+
+Major land cover types of Djibouti were visually distinguished before numerical classifications. These include the discrimination of xeric shrubland, bare land areas in mountainous deserts, estuary of the Gulf of Tadjoura, cropland areas and sparse vegetation detected on colour composites of Landsat images. Several derived bands were generated using colour composites in GRASS SIG and used during preprocessing. These images were analysed and compared using a spectral diagram and spatial analysis. Main land cover maps of Djibouti generated using traditional classification (reclassified) and ML-based classification for images covering Djibouti are shown in Figures \ref{fig06} and \ref{fig07}.
+
+The reclassified images are shown in Figure \ref{fig06}. Here, the areas of water are merged into one class which improved the classification. Nevertheless, the neighbouring regions with vegetation types having similar pixels’ reflectance \hl{were misclassified, which required} the ML approach to image processing. A fluctuation in the Assal Lake visible on the images is related to the climate effects and the geothermal activities as also mentioned in previous studies. The study revealed that similar to the fluctuations of saline sabkhas in northern Sahara \cite{Lemenkova202322,Lemenkova202313}, the saline Lake Assal also witnessed slight changes in the water surface and extent of the lacustrine coasts. Nevertheless, the nature of the physiographic variations is more related to the geologic origin \cite{Eldosouky2021}. 
+
+ \begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=14.0cm]{Fig_06.jpg}
+    \end{center}
+    \caption{Reclassified satellite images after reclassification used by the ‘r.reclass’ technique. Images are on periods of 2019, 2021 and 2023 covering Djibouti. Background: GEBCO. Software: GRASS GIS. Mapping source: author.}
+    \label{fig06}
+\end{figure}
+
+Landscape change detection based on satellite images is a technique of GRASS GIS software. This method performs a comparison between the land cover types detected on the ML-based classified satellite images obtained on different dates. the classification of the images is based on automated evaluation of the spectral reflectance values of the individual pixels on the images which are assigned to different land cover classes. Then, the comparative analysis of classified images makes it possible to detect landscape changes. The main cover class transitions observed were the loss of intact vegetation areas and fluctuations in the saline lake of Assal with corresponding gains in vegetation areas in the coastal areas such as secondary vegetation growth. These transitions correspond to the predominant patterns of vegetation response to climate warming and growth annual temperatures which are visible when comparing central and coastal regions of Djibouti where latter ones have influence from the marine climate especially in the coastal areas of the Gulf of Tadjoura.
+
+Xeric shrubland and sparse deciduous forests typical for Djibouti and located along the coasts of Red Sea or Gulf of Tadjoura appeared dark green because their signatures differ from those of mosaic vegetation, e.g., semi-deciduous forests or sparse lands in inland regions of the country on the border with Ethiopia and Eritrea. They appear greenish and stand out from other land cover types. Very thin coastal region covered with mangrove plants along the coasts of the Bab-el-Mandeb Strait present the wetlands partially submerged in water. This kind of vegetation shows no much difference compared to the salt areas of the Lake of Assal which experience significant changes. 
+
+ \begin{figure}[H]
+    \begin{center}
+	\hspace{-35pt}\includegraphics[width=14.0cm]{Fig_07.jpg}
+    \end{center}
+    \caption{Image classification based on the Gradient boosting classifier algorithm of ML applied for Landsat scenes covering Djibouti on 205, 2019, 2021 and 2023. Background relief: GEBCO. Software: GRASS GIS. Mapping source: author.}
+    \label{fig07}
+\end{figure}
+
+Comparison of the classified maps, revealed that the cover of natural vegetation, such as herbaceous vegetation and mosaic shrubland, croplands and grassland has decreased while the sparse vegetation and bare soil areas typical for desert and semi-desert areas of Djibouti have increased. Based on the GRASS GIS method, changes in land cover types in the coastal region of Bab-el-Mandeb and central Djibouti were detected and visualized in the target landscapes over the period from 2015 to 2023. Specifically, the images were compared to different dates to assess landscape dynamics which is defined by evaluation of land cover types through the identification of various land cover patches in different regions of Djibouti.
+
+%----------- section ----------->
+\section{Conclusions}
+
+This paper \hl{demonstrated the efficiency of RS data processing using ML methods for visualising} land cover changes. Using this approach, dynamics of land cover types \hl{has been} detected using\hl{ identified difference in} spectral reflectance of pixels \hl{on} images assigned to different categories by ML algorithms of gradient boosting. This method is tested, explained and presented in the form of a series of new maps covering the Djibouti region. Interdisciplinary problems in geographical sciences\hl{ }often require decisions to be made by diversified approaches\hl{.} ML algorithms, such as Gradient boosting classifier \hl{improved} mapping workflow \hl{through} programming\hl{ to optimise RS}  data \hl{classification} When used as a supplementary modules of GIS, such tools enable to identify the\hl{ }shortcomings of traditional methods of geoinformatics\hl{.}The development of cartographic tools \hl{for RS data processing }using ML \hl{is} a challenging task\hl{.} As the technologies mature along with the development of programming algorithms, cartographic modelling and analysis of landscape changes are\hl{ }improved\hl{ through }integrative \hl{applications of scripting methods}. Here, we demonstrated \hl{the use of such} tools using Python's Scikit-Learn library \hl{adapted} to\hl{ }GRASS GIS. 
+
+Scripting \hl{cartographic} tools\hl{ }enable to highlight salient aspects of environmental dynamics through automation of mapping and data visualization. \hl{They support} geospatial data processing, modelling, visualization and interpretation. For such geologically complex areas, the integrated -programming methods assist in handling issue of data processing in a spatially expressive manner. The\hl{ }effectiveness \hl{of ML }is explained \hl{through } the advanced algorithms of\hl{ }image classification \hl{and automated workflow. }Hence, the use of ML tools is essential implement of workflow of processing geographic data to reveal and visualise environmental problems\hl{. }Their applications \hl{demonstrate a} prominent role of\hl{ }scripting for geospatial data handling\hl{ }and\hl{ }environmental analysis. As ML algorithms are developed and implemented in RS and mapping, their performance supports the computational complexity of the tasks involved in cartographic data processing. Many case studies on geographical analysis and mapping which use conventional GIS, for example, \hl{require a high computational and mapping workload} cost due to diversified cartographic tasks. In such cases, the use of\hl{ }ML, most notably gradient boosting, are essential solutions that optimise the cartographic workflow. 
+
+\hl{Future research can use the }thematic maps of land cover types and \hl{continue analysis of the neighbour} region \hl{in the} Bab-el-Mandeb Straight\hl{ }for environmental monitoring. \hl{Moreover, it can} enhance thematic and topical \hl{research of East Africa aimed at} geologic exploration of Djibouti, environmental analysis and geophysical monitoring of tectonically active regions \hl{in the} Afar Triple Junction. \hl{Besides, to continue this study, future works can adapt }ML techniques of GRASS GIS\hl{ }for land cover monitoring of \hl{other regions and extended period }to analyse landscape dynamics \hl{using time series analysis in regions around the Red Sea, East Africa}. 
+
+%----------- section ----------->
+\authorcontributions{Supervision, conceptualization, methodology, software, resources, funding acquisition, and project administration, writing---original draft preparation, methodology, software, data curation, visualization, formal analysis, validation, writing---review and editing, and investigation, P.L.}
+
+%\funding{The publication was funded by the Editorial Office of Climate, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{The data are available in the GitHub repository: \\\href{https://github.com/paulinelemenkova/GRASS_ML_Djibouti}{https://github.com/paulinelemenkova/GRASS\_ML\_Djibouti}} 
+
+\acknowledgments{The authors thank the reviewers for reading and review of this manuscript.}
+
+\conflictsofinterest{The authors declare no conflict of interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+Application Programming Interface & API \\
+\hl{CNN} & \hl{Convolutional Neural Networks} \\
+EO & Earth observation \\
+\hl{FAO} & \hl{Food and Agriculture Organization} \\
+GEBCO & General Bathymetric Chart of the Oceans  \\
+GIS & Geographic Information System \\
+GMT & Generic Mapping Tools \\
+GRASS GIS & Geographic Resources Analysis Support System GIS \\
+\hl{LCCS} & \hl{Land Cover Classification System} \\
+Landsat OLI/TIRS & \makecell{Landsat Operational Land Imager (OLI) and\\ Thermal Infrared Sensor (TIRS)} \\
+ML & Machine Learning \\
+\hl{OA} & \hl{Overall Accuracy} \\
+\hl{QGIS} & \hl{Quantum Geographic Information System} \\
+\hl{RF} & \hl{Random Forest} \\
+RS & Remote Sensing \\
+RMSE & Radial Root Mean Square Error \\
+\hl{SVM} & \hl{Support Vector Machines} \\
+TIFF & Tag Image File Format \\
+USGS & United States Geological Survey \\
+UTM & Universal Transverse Mercator \\
+WGS84 & World Geodetic System 1984 \\
+WRS & Worldwide Reference System \\
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+
+%------------------------ App 1 -------------->
+\section[\appendixname~\thesection]{Initial means for each multispectral band before data processing}\label{AppA}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{0.7cm}p{2.5cm}p{1.0cm}p{1.3cm}p{1.0cm}p{1.0cm}p{1.5cm}p{1.5cm}}
+  \toprule
+  \multirow{2}{*}{Class} & \multicolumn{7}{c}{Initial mean values for multispectral bands of Landsat:  2015} \\
+     & 1 - Coastal aerosol & 2 - Blue & 3 - Green & 4 - Red & 5 - NIR & 6 - SWIR-1 & 7 - SWIR-2 \\
+    \midrule
+    1 & 8103.97 & 8671.63 & 9562.73 & 9665.43 & 10102 & 10216.9 & 9598.71 \\
+    2 & 8421.69 & 9028.36 & 10061.5 & 10389.8 & 10972.8 & 11250.5 & 10522.6 \\
+    3 & 8739.4 & 9385.08 &10560.2 & 11114.2 & 11843.6 & 12284.2 & 11446.6 \\
+    4 & 9057.11 & 9741.81 & 11059 & 11838.6 & 12714.5 & 13317.8 & 12370.5 \\
+    5 & 9374.82 & 10098.5 & 11557.7 & 12563 & 13585.3 & 14351.5 & 13294.4 \\
+    6 & 9692.54 & 10455.3 & 12056.4 & 13287.4 & 14456.2 & 15385.1 & 14218.3 \\
+    7 & 10010.2 & 10812 & 12555.2 & 14011.8 & 15327 & 16418.8 & 15142.3 \\
+    8 & 10328 & 11168.7 & 13053.9 & 14736.2 & 16197.9 & 17452.4 & 16066.2 \\
+    9 & 10645.7 & 11525.4 & 13552.7 & 15460.6 & 17068.7 & 18486.1 & 16990.1 \\
+    10 & 10963.4 & 11882.1 & 14051.4 & 16185 & 17939.6 & 19519.7 & 17914 \\
+\bottomrule
+\end{tabularx}
+  \caption{Initial mean values for pixels in spectral bands assigned to target land cover types of Djibouti for image on 02 July 2015 before the iterative classification process}
+  \label{tabA1} 
+\end{table} 
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{0.7cm}p{2.5cm}p{1.0cm}p{1.3cm}p{1.0cm}p{1.0cm}p{1.5cm}p{1.5cm}}
+  \toprule
+  \multirow{2}{*}{Class} & \multicolumn{7}{c}{Initial mean values for multispectral bands of Landsat:  2017} \\
+     & 1 - Coastal aerosol & 2 - Blue & 3 - Green & 4 - Red & 5 - NIR & 6 - SWIR-1 & 7 - SWIR-2 \\
+    \midrule
+    1 & 8074.96 & 8660.92 & 9599.33 & 9725.17 & 10161.2 & 10291.9 & 9670.42 \\
+    2 & 8390.09 & 9009.56 & 10079.2 & 10419.5 & 11011.6 & 11300.7 & 10555.8 \\
+    3 & 8705.22 & 9358.2 & 10559.1 & 11113.9 & 11861.9 & 12309.4 & 11441.2 \\
+    4 & 9020.35 & 9706.85 & 11039 & 11808.3 & 12712.3 & 13318.1 & 12326.7 \\
+    5 & 9335.49 & 10055.5 & 11518.9 & 12502.6 & 13562.7 & 14326.9 & 13212.1 \\
+    6 & 9650.62 & 10404.1 & 11998.8 & 13197 & 14413.1 & 15335.6 & 14097.5 \\
+    7 & 9965.75 &10752.8 & 12478.7 &13891.4 & 15263.5 & 16344.3 & 14982.9 \\
+    8 & 10280.9 & 11101.4 & 12958.6 & 14585.7 & 16113.8 & 17353.1 & 15868.3 \\
+    9 & 10596 &11450.1 & 13438.5 & 15280.1 & 16964.2 & 18361.8 & 16753.7 \\
+    10 & 10911.1 & 11798.7 & 13918.4 & 15974.4 & 17814.6 & 19370.5 & 17639.1 \\
+\bottomrule
+\end{tabularx}
+  \caption{Initial mean values for pixels in spectral bands assigned to target land cover types of Djibouti for image on 23 July 2017 before the iterative classification process}
+  \label{tabA2} 
+\end{table} 
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{0.7cm}p{2.5cm}p{1.0cm}p{1.3cm}p{1.0cm}p{1.0cm}p{1.5cm}p{1.5cm}}
+  \toprule
+  \multirow{2}{*}{Class} & \multicolumn{7}{c}{Initial mean values for multispectral bands of Landsat: 2021} \\
+     & 1 - Coastal aerosol & 2 - Blue & 3 - Green & 4 - Red & 5 - NIR & 6 - SWIR-1 & 7 - SWIR-2 \\
+    \midrule
+    1 & 8317.6 & 8806.66 & 9565.01 & 9718.97 & 10254 & 10232.6 & 9622.06 \\
+    2 & 8578.74 & 9106.8 & 10005.6 & 10359.3 & 11061 & 11207.5 & 10480.5 \\
+    3 & 8839.87 & 9406.95 & 10446.1 & 10999.7 & 11867.9 & 12182.4 & 11338.9 \\
+    4 & 9101 & 9707.09 & 10886.7 & 11640.1 & 12674.8 & 13157.4 & 12197.4 \\
+    5 & 9362.13 &10007.2 & 11327.3 & 12280.4 & 13481.8 & 14132.3 & 13055.8 \\
+    6 & 9623.26 & 10307.4 & 11767.8 & 12920.8 & 14288.7 & 15107.2 & 13914.3 \\
+    7 & 9884.39 & 10607.5 & 12208.4 & 13561.1 & 15095.7 & 16082.1 & 14772.7 \\
+    8 & 10145.5 & 10907.7 & 12649 & 14201.5 & 15902.6 & 17057.1 & 15631.2 \\
+    9 & 10406.7 & 11207.8 & 13089.5 & 14841.9 & 16709.6 & 18032 & 16489.6 \\
+    10 & 10667.8 & 11507.9 & 13530.1 & 15482.2 & 17516.5 & 19006.9 & 17348 \\
+\bottomrule
+\end{tabularx}
+  \caption{Initial mean values for pixels in spectral bands assigned to target land cover types of Djibouti for image on 19 August 2021 before the iterative classification process}
+  \label{tabA3} 
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{0.7cm}p{2.5cm}p{1.0cm}p{1.3cm}p{1.0cm}p{1.0cm}p{1.5cm}p{1.5cm}}
+  \toprule
+  \multirow{2}{*}{Class} & \multicolumn{7}{c}{Initial mean values for multispectral bands of Landsat: 2023} \\
+     & 1 - Coastal aerosol & 2 - Blue & 3 - Green & 4 - Red & 5 - NIR & 6 - SWIR-1 & 7 - SWIR-2 \\
+    \midrule
+    1 & 8504.75 & 9131.19 & 9993.94 & 10161.4 & 10600.6 & 10554.5 & 9880.58 \\
+    2 & 8747.11 & 9404.01 & 10394.1 & 10760.9 & 11378.1 & 11500.1 & 10685.6 \\
+    3 & 8989.47 & 9676.83 & 10794.3 & 11360.4 & 12155.5 & 12445.8 & 11490.6 \\
+    4 & 9231.83 & 9949.65 & 11194.5 & 11960 & 12933 & 13391.4 & 12295.6 \\
+    5 & 9474.19 & 10222.5 & 11594.7 & 12559.5 & 13710.4 & 14337 & 13100.6 \\
+    6 & 9716.55 & 10495.3 & 11994.9 & 13159.1 & 14487.8 & 15282.7 & 13905.5 \\
+    7 & 9958.91 & 10768.1 & 12395.1 & 13758.6 & 15265.3 & 16228.3 & 14710.5 \\
+    8 & 10201.3 & 11040.9 & 12795.3 & 14358.1 & 16042.7 &17173.9 & 15515.5 \\
+    9 & 10443.6 & 11313.7 & 13195.5 & 14957.7 & 16820.1 & 18119.6 & 16320.5 \\
+    10 & 10686 & 11586.6 & 13595.7 & 15557.2 & 17597.6 & 19065.2 & 17125.5 \\
+\bottomrule
+\end{tabularx}
+  \caption{Initial mean values for pixels in spectral bands assigned to target land cover types of Djibouti for image on 16 July 2023 before the iterative classification process}
+  \label{tabA4} 
+\end{table}
+
+%------------------------ App 2 -------------->
+\section[\appendixname~\thesection]{Iterative cycles of image classification}\label{AppB}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{1.6cm}p{1.8cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}}
+  \toprule
+  \multirow{2}{*}{2015} & \multicolumn{10}{c}{Pixels' distribution by categories of land cover classes: 2015} \\
+     & points stable & 1 & 2 &  3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \midrule
+    Iteration 1 & 92.24\% & 1672 & 112 &  50 &559       &1110
+        &860     &   613   &     390        &635     &   929 \\
+    Iteration 2 & 93.78\% & 1568    &    213   &      75     &   584    &   1057&
+        850   &     622       & 494   &     647     &   820 \\
+    Iteration 3 & 96.28\% & 1538   &     242      &   97        &596     &  1026&
+        843    &    658      &  541       & 626     &   763 \\
+    Iteration 4 & 96.78\% &1531   &     249     &   117  &      614   &     994&
+        840   &     691  &      575    &    599       & 720 \\
+    Iteration 5 & 96.97\% & 1531   &     249    &    137    &    622      &  980&
+        836    &    714 &       610   &     568      &  683 \\
+    Iteration 6 & 97.10\% & 1531  &      249    &    166     &  626   &     963&
+        833     &   726  &      643    &    537      &  656 \\
+    Iteration 7 & 97.13\% & 1531    &    250    &    194   &     632    &    945&
+        834    &    732    &    669     &   512    &    631 \\
+    Iteration 8 & 97.11\% & 1531    &    250   &     219     &   650    &   930 &
+        827  &      744   &     668    &    498     &   613 \\
+    Iteration 9 & 97.52\% & 1531  &      250    &    243    &    658 &      936&
+        819     &   732  &      674     &   480     &   607 \\
+    Iteration 10 & 97.59\% & 1531   &     250    &    261    &    672   &     941&
+        810     &   734    &    659   &     472  &      600 \\
+    Iteration 11 & 97.75\% & 1531    &    251  &      279    &    681   &     954&
+        798    &    727   &     650  &      462    &    597 \\
+    Iteration 12 & 97.79\% & 1531   &     251   &     291   &     704    &    968&
+        775   &     720     &   640   &     456     &   594\\
+    Iteration 13 & 97.95\% & 1531 &       251   &     305    &    729   &     964 &
+        768   &     710    &    629    &    450  &     593 \\
+    Iteration 14 & 98.12\% & 1531   &     251    &    314     &   755 &     964&
+        761   &     699   &     616    &    448   &     591 \\
+\bottomrule
+\end{tabularx}
+  \caption{Iterative process of pixels' assignment to target classes during image classification: 2021}
+  \label{tabB1}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{1.6cm}p{1.8cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}}
+  \toprule
+  \multirow{2}{*}{2017} & \multicolumn{10}{c}{Pixels' distribution by categories of land cover classes: 2017} \\
+     & points stable & 1 & 2 &  3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \midrule
+    Iteration 1 & 91.34\% & 1698    &    165   &      76    &    574    &   1121 &
+        829    &    516    &    427   &     655     &   959 \\
+    Iteration 2 & 93.52\% &  1584   &     263    &    117   &     620   &    1047&
+        811   &     522   &     531    &    667     &   858 \\
+    Iteration 3 & 95.37\% &  1518     &   316   &     137    &    669    &    996&
+        788   &     553    &    605   &     640    &    798 \\
+    Iteration 4 & 96.70\% & 1486    &    341   &     140     &   699      &  977&
+        776  &      578    &    668   &     605     &   750 \\
+    Iteration 5 & 97.15\% & 1468    &    357    &   134    &    718     &   972&
+        771    &    611    &    707   &     575    &    707 \\
+    Iteration 6 & 97.28\% & 1461   &     360  &      131  &      729    &    975&
+        783   &     641     &   712    &    561     &   667 \\
+    Iteration 7 & 97.51\% & 1456   &     362  &      123    &    741     &  986&
+        798     &   651    &    730   &     528    &    645\\
+    Iteration 8 & 97.62\% & 1453   &     363  &      118    &    745    &   1016&
+        795   &     670    &    725   &     510      &  625 \\
+    Iteration 9 & 98.15\% &  1452   &     361 &       120       & 746     &  1031&
+        813   &     672 &     714   &     502     &   609\\
+\bottomrule
+\end{tabularx}
+  \caption{Iterative process of pixels' assignment to target classes during image classification: 2017}
+  \label{tabB2}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{1.6cm}p{1.8cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}}
+  \toprule
+  \multirow{2}{*}{2021} & \multicolumn{10}{c}{Pixels' distribution by categories of land cover classes: 2021} \\
+     & points stable & 1 & 2 &  3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \midrule
+    Iteration 1 & 91.92\% & 1682    &    142    &    128    &    663    &   1062&
+        784    &    485     &   371    &    626   &     988 \\
+    Iteration 2 & 90.90\% & 1385    &    431    &    174    &    664    &   1017&
+        766    &    497    &    467    &    659   &     871 \\
+    Iteration 3 & 91.33\% & 1023   &     791     &   193   &     673    &    989&
+        758    &    516    &    549      &  634    &    805 \\
+    Iteration 4 & 93.64\% & 785  &     1029    &    198   &     684   &     985&
+        752   &     540    &    587   &     621     &   750 \\
+    Iteration 5 & 95.74\% & 666    &   1147   &     203    &    690   &     984 &
+        761  &      557   &     614    &    596    &    713 \\
+    Iteration 6 & 96.90\% & 612    &   1201   &     208    &    694   &     984 &
+        771      &  573 &       641     &   556     &   691 \\
+    Iteration 7 & 97.76\% & 596     &  1217   &     211    &    698     &   985 &
+        780    &    593    &    647   &     537    &    667\\
+    Iteration 8 & 97.88\% & 589   &    1224   &     216     &   701    &    990 &
+        795    &    603   &     645     &   513     &   655 \\
+    Iteration 9 & 98.12\% & 588   &    1225   &     223    &    699    &   1007 &
+        798  &      608    &    644  &      495   &     644 \\
+\bottomrule
+\end{tabularx}
+  \caption{Iterative process of pixels' assignment to target classes during image classification: 2021}
+  \label{tabB3}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{p{1.6cm}p{1.8cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}p{0.6cm}}
+  \toprule
+  \multirow{2}{*}{2023} & \multicolumn{10}{c}{Pixels' distribution by categories of land cover classes: 2023} \\
+     & points stable & 1 & 2 &  3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    \midrule
+    Iteration 1 & 91.95\% & 1665    &     98    &     82    &    574   &   1139 &
+        882   &     567    &    370    &    632   &    1032 \\
+    Iteration 2 & 91.27\% & 1393    &    367    &    114    &    611   &    1068 &
+        871    &    570   &     458    &    689  &      900 \\
+    Iteration 3 & 92.44\% & 1134    &    623      &  138     &   641  &     1027 &
+        851     &   595    &    538      &  662       &  832 \\
+    Iteration 4 & 94.08\% & 939     &   818     &   156   &     653   &    1012 &
+        837 &       618      &  588 &        644     &   776 \\
+    Iteration 5 & 96.51\% & 872     &   885      &  173      &  661   &    1004 &
+        828  &      638    &    609    &    630  &      741 \\
+    Iteration 6 & 97.26\% & 847    &    910  &      187   &     668     &  1003 &
+        820   &     662 &       606    &    625     &   713 \\
+    Iteration 7 & 97.74\% & 842    &    915 &       200    &    676   &     996 &
+        829      &  663  &      621   &     606  &      693 \\
+    Iteration 8 & 97.77\% & 842   &     915   &     216    &    681&        996 &
+        825  &      671      &  635   &     583   &     677 \\
+    Iteration 9 & 97.64\% & 842    &    915    &    237     &   683 &       994 &
+        829     &   666 &       648      &  569  &      658 \\
+    Iteration 10 & 97.88\% & 842    &    915    &    250     &   700     &   983 &
+        830    &    666   &     656     &   558    &    641 \\
+    Iteration 11 & 97.95\% & 842      &  915  &      264    &    711    &    982 &
+        826  &      667  &      655     &   558   &     621 \\
+    Iteration 12 & 97.73\% & 842    &    915    &    282   &     719 &        982 &
+        822  &      668     &   655    &    557   &     599 \\
+    Iteration 13 & 97.74\% & 842   &     915  &      303  &      721    &    980 &
+        832     &   664  &      650     &   549    &    585 \\
+    Iteration 14 & 97.80\% &  842   &     915   &     332    &    710 &       980 &
+        837   &     672     &    639    &    545   &     569 \\
+    Iteration 15 & 97.83\% & 842     &   915   &     352    &    723   &     966 &
+        844    &    672  &      634     &   533    &    560 \\
+    Iteration 16 & 98.13\% & 842   &     915     &   367     &   733 &       965 &
+        840    &    672  &       627   &     533    &    547 \\
+\bottomrule
+\end{tabularx}
+  \caption{Iterative process of pixels' assignment to target classes during image classification: 2023}
+  \label{tabB4}
+\end{table}
+
+%------------------------ App 3 -------------->
+\section[\appendixname~\thesection]{Computed class means for land cover classes in the region of Lake of Assal, Djibouti, East Africa}\label{AppC}
+
+
+\begin{figure}[H]
+\begin{equation}
+%\setlength\arraycolsep{3pt}
+\scriptsize
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.5 & 0 &  &  &  &  &  &  &  &  \\
+3 & 5.2 & 3.0 & 0 &  &  &  &  &  &  &  \\
+4 & 6.9 & 4.3 & 0.8 & 0 &  &  &  &  &  &  \\
+5 & 7.8 & 5.0 & 1.5 & 0.8 & 0 &  &  &  &  &  \\                 
+6 & 7.9 & 5.3 & 2.2 & 1.7 & 0.9 & 0 &  &  &  &  \\             
+7 & 6.2 & 4.5 & 2.4 & 2.0 & 1.5 & 0.8 & 0 &  &  &  \\                      
+8 & 7.4 & 5.5 & 3.4 & 3.1 & 2.6 & 1.8 & 0.8 & 0 &  &  \\
+9 & 8.6 & 6.7 & 4.7 & 4.5 & 4.0 & 3.2 & 1.9 & 1.1 & 0 &  \\           
+10 & 11.0 & 8.6 & 6.5 & 6.5 & 6.0 & 5.0 & 3.3 & 2.4 & 1.2 & 0 \\                          
+\end{vmatrix}
+ %
+\hspace{3pt}
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.3 & 0 &  &  &  &  &  &  &  &  \\
+3 & 3.0 & 1.6 & 0 &  &  &  &  &  &  &  \\
+4 & 5.8 & 3.5 & 1.2 & 0 &  &  &  &  &  &  \\
+5 & 7.1 & 4.4 & 1.8 & 0.8 & 0 &  &  &  &  &  \\                 
+6 & 7.4 & 4.9 & 2.3 & 1.6 & 0.9 & 0 &  &  &  &  \\             
+7 & 7.5 & 5.2 & 2.9 & 2.4 & 1.8 & 1.0 & 0 &  &  &  \\                      
+8 & 7.5 & 5.5 & 3.4 & 3.2 & 2.7 & 2.0 & 1.0 & 0 &  &  \\
+9 & 8.0 & 6.1 & 4.2 & 4.2 & 3.8 & 3.1 & 2.2 & 1.2 & 0 &  \\           
+10 & 8.8 & 7.1 & 7.1 &  5.2 & 5.3 & 5.0 & 4.3 & 3.4 & 2.3 & 1.1 & 0 \\    
+\end{vmatrix} 
+\end{equation}
+\caption{Class separability matrices for classified images on Djibouti: \textbf{2015} and \textbf{2017}}
+\label{figSep1}
+\end{figure}
+
+\begin{figure}[H]
+\begin{equation}
+%\setlength\arraycolsep{3pt}
+\scriptsize
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.6 & 0 &  &  &  &  &  &  &  &  \\
+3 & 4.1 &   2.5 & 0 &  &  &  &  &  &  &  \\
+4 & 5.0 &  3.4 &  0.7 & 0 &  &  &  &  &  &  \\
+5 & 6.3 &  4.6  & 1.4 &  0.7 & 0 &  &  &  &  &  \\                 
+6 & 6.5 &  4.9 &  2.0  & 1.4 &  0.8 & 0 &  &  &  &  \\             
+7 & 5.2  & 4.1 &  2.1 & 1.7 & 1.3 & 0.7 & 0 &  &  &  \\                      
+8 & 6.9 & 5.6 & 3.3 & 2.9 & 2.5 & 1.8 & 0.8 & 0 &  &  \\
+9 & 5.7 &  4.9 &  3.2  & 2.9 &  2.7 & 2.2  & 1.4 & 0.9 & 0 &  \\           
+10 & 8.4 &  7.2 & 5.2 & 4.9 & 4.8 &  4.0  & 2.7 &  2.1 & 0.9 & 0 \\                          
+\end{vmatrix}
+ %
+\hspace{3pt}
+\begin{vmatrix}
+    & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+1 & 0 &  &  &  &  &  &  &  &  &  \\
+2 & 1.4 & 0 &  &  &  &  &  &  &  &  \\
+3 & 4.6  & 3.5 & 0 &  &  &  &  &  &  &  \\
+4 & 6.1 &  5.0 &  0.8 & 0 &  &  &  &  &  &  \\
+5 & 6.6  & 5.4 & 1.3 & 0.9 & 0 &  &  &  &  &  \\                 
+6 & 6.8 &  5.9 & 1.9 & 1.5 & 0.8 & 0 &  &  &  &  \\             
+7 & 6.8 & 5.9 & 2.5 & 2.3 & 1.7 & 1.0 & 0 &  &  &  \\                      
+8 & 5.5 & 4.8 & 2.6 &  2.5 & 2.0 & 1.5 & 0.8 & 0 &  &  \\
+9 & 7.6 & 6.8 & 4.2 & 4.1&  3.6 & 3.0 & 1.9 & 0.8 & 0 &  \\           
+10 & 9.0 & 8.2 & 5.4 & 5.5 & 4.9 & 4.2 & 3.1 & 1.7 & 1.0 & 0 \\    
+\end{vmatrix} 
+\end{equation}
+\caption{Class separability matrices for classified images on Djibouti: \textbf{2021} and \textbf{2023}}
+\label{figSep2}
+\end{figure}
+
+%------------------------ App 4 -------------->
+\section[\appendixname~\thesection]{Computed class means for land cover classes in the region of Lake of Assal, Djibouti, East Africa}\label{AppD}
+
+\begin{longtable}{@{\extracolsep{\fill}}p{1.5cm}cccccccc@{}}
+\caption{Computed class means of 10 land cover types in Lake of Assal, Djibouti. The computations are based on Digital Numbers (DN) of pixels in the evaluated landscapes. Data: multispectral Landsat 8-9 OLI/TIRS images, band (1 to 7) for years 2015 to 2023} \label{tabAppD}\\
+\hline \textbf{Class} & \textbf{Band 1} & \textbf{Band 2} & \textbf{Band 3} & \textbf{Band 4} & \textbf{Band 5} & \textbf{Band 6} & \textbf{Band 7} \\ \hline 
+\endfirsthead
+
+\multicolumn{5}{c}%
+{{\tablename\ \thetable{} -- continued from previous page}} \\
+\textbf{Class} & \textbf{Band 1} & \textbf{Band 2} & \textbf{Band 3} & \textbf{Band 4} & \textbf{Band 5} & \textbf{Band 6} & \textbf{Band 7}  \\ \hline 
+\endhead
+
+\hline \multicolumn{8}{r}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+2015 &  &  &  &  &  &  & \\
+\hline
+1 & 7394.23 & 7878.92 & 8615.8 & 8244.47 & 8385.55 & 8786 & 8586.51 \\
+2 & 8998.3 & 9445.8 & 9981.23 & 9575.59 & 9422.92 & 9284.88 & 8887.37 \\
+3 & 9230.46 & 9913.19 & 11138.2 & 11958.2 & 12864.5 & 12862.9 & 11816.5 \\
+4 & 9430.8 & 10146.6 & 11465.7 & 12446 & 13497.2 & 13806.2 & 12619 \\
+5 & 9547.38 & 10303 & 11752.4 & 12912.6 & 14092.7 & 14641.3 & 13360.3 \\
+6 & 9821.76 & 10624.5 & 12235.6 & 13635.1 & 14896.9 & 15478.6 & 14133.9 \\
+7 & 10246.8 & 11081.6 & 12862.4 & 14552 & 16012.4 & 16653.6 & 15224.3 \\
+8 & 10661.7 & 11544 & 13560.5 & 15543.5 & 17259.8 & 18626.3 & 17001.6 \\
+9 & 11251.3 & 12246.2 & 14758.7 & 17309 & 19326.1 & 21064.2 & 19184.3 \\
+10 & 11881.4 & 12946.1 & 15865.1 & 18729.9 & 20856 & 24277.4 & 22627.1 \\
+\hline
+2017 &  &  &  & & & & \\
+\hline
+1 & 7371.5 & 7875.98 & 8664.69 & 8356.38 & 8565.28 & 8995.22 & 8778.1 \\
+2 & 8858.16 & 9357.22 & 9951.7 & 9564.73 & 9444.54 & 9371.12 & 8992.18 \\
+3 & 8945.89 & 9777.33 & 11054.5 & 11333.4 & 11764 & 11571.8 & 10743 \\
+4 & 9321.25 & 10018.9 & 11324 & 12242.3 & 13244.4 & 13468.5 & 12268.8 \\
+5 & 9496.17 & 10212.7 & 11611.2 & 12696.3 & 13855.2 & 14375.8 & 13058.1 \\
+6 & 9715.96 & 10479.6 & 12049.1 & 13373.4 & 14635.2 & 15185.6 & 13795 \\
+7 & 10087 & 10877.3 & 12605.2 & 14223.3 & 15670.3 & 16380 & 14930.2 \\
+8 & 10526.8 & 11378.8 & 13341.7 & 15248 & 16971.7 & 18216.1 & 16582.3 \\
+9 & 11127.8 & 12082.7 & 14519.5 & 16951.3 & 19046.9 & 20773.9 & 18771.8 \\
+10 & 11728.2 & 12813.2 & 15676 & 18406.1 & 20794.3 & 24015.7 & 22082.7 \\
+\hline
+
+2021 &  &  &  & & & & \\
+\hline
+1 & 7281.64 & 7688.52 & 8323.58 & 8019.43 & 8124.06 & 8480.67 & 8350.31 \\
+2 & 8578.45 & 8990.99 & 9497.29 & 9305.59 & 9360.4 & 9422.46 & 9107.76 \\
+3 & 9032.4 & 9610.46 & 10681.6 & 11350.9 & 12512.9 & 12392.4 & 11404.3 \\
+4 & 9232.84 & 9855.5 & 11063 & 11913.4 & 13238.9 & 13353.2 & 12168.5 \\
+5 & 9378.87 & 10036.2 & 11347.7 & 12369.6 & 13788.5 & 14219 & 12929 \\
+6 & 9563.91 & 10256.7 & 11715.6 & 12988.2 & 14561.6 & 15110.5 & 13758.7 \\
+7 & 10037.5 & 10785.2 &12429.3 & 13969.7 & 15629.4 & 16072.7 & 14651.6 \\
+8 & 10332.3 & 11120.3 & 12974.7 & 14809.1 & 16765.2 & 17972.9 & 16439.1 \\
+9 & 10934.6 & 11846.4 & 14132.9 & 16407.4 & 18587 & 20167.3 & 18278.5 \\
+10 & 11319.5 & 12358.9 & 15074.5 & 17683.4 & 20102 & 23286.8 & 21439.7 \\
+\hline
+2023 &  &  &  & & & & \\
+\hline
+1 & 7473.59 & 8079.42 & 8857.77 & 8532.88 & 8642.03 & 8940.82 & 8737.73 \\
+2 & 9179.37 & 9560.93 & 9889.56 & 9619.59 & 9502.14 & 9260.89 & 8893.31 \\
+3 & 9285.35 & 10023 & 11304.4 & 12097.2 & 13066.2 & 13055 & 11870.5 \\
+4 & 9260.65 & 9993.24 & 11324.5 & 12294.7 & 13624 & 14111.4 & 12725.8 \\
+5 & 9612.99 & 10407.7 & 11850 & 12914.8 & 14185.6 & 14445.7 & 13030.6 \\
+6 & 9612.99 & 10407.7 & 11850 & 12914.8 & 14185.6 & 14445.7 & 13030.6 \\
+7 & 10105.5 & 10948.7 & 12646.3 & 14221.3 & 15852.4 & 16551.5 & 14997.2 \\
+8 & 10551 & 11459.3 & 13401.9 & 15287.1 & 17177.8 & 18217.3 & 16436.4 \\
+9 & 10830.2 & 11812.4 & 14092.6 & 16381.5 & 18713.8 & 20687.4 & 18410.8 \\
+10 & 11191.6 & 12288.7 & 14890.2 & 17469.4 & 20034.6 & 23154.3 & 20893.2 \\
+\hline
+\end{longtable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+%\nocite{*}
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{Djibouti.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
+\end{document}
